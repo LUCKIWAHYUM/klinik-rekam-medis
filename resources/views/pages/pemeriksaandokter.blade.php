@@ -140,7 +140,7 @@
                                                         </div>
                                                         <div class="mb-3">
                                                             <label for="exampleInputEmail1" class="form-label">Tindakan</label>
-                                                            <select class="form-control" name="tindakan" id="tindakan">
+                                                            <select class="form-control" name="tindakan" id="tindakan" multiple="multiple">
                                                                 @foreach ($tindakan as $item)
                                                                     
                                                                 <option value="{{ $item->nama_tindakan }}">{{ $item->nama_tindakan }}</option>

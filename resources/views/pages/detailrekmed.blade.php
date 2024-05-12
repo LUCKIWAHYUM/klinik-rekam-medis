@@ -61,17 +61,22 @@
                             <th>total harga</th>
                             <td>Rp. {{ number_format($totalobat, 0, ',', '.') }}</td>
                         </tr>
-                        <tr>
-                            <th colspan="2" class="text-center text-primary">Informasi Tindakan</th>
+                         <tr>
+                            <th colspan="2" class="text-center text-primary">Semua Total Biaya Tindakan</th>
                         </tr>
-                       <tr>
-                            <th>@foreach (json_decode($data->tindakan, true) as $nama_tindakan)
-        <ul>
-            <li>{{ $nama_tindakan }}</li>
-        </ul>
-        @endforeach</th>
-                            <td>Rp. {{ number_format($data->total_harga_tindakan, 0, ',', '.') }}</td>
+                            <tr>
+                            <th>@foreach (($data->namatindakan) as $nama_tindakan)
+                            <ul>
+                                <li>{{ $nama_tindakan }}</li>
+                            </ul>
+                            @endforeach</th>
 
+                             <th>@foreach (($data->hargatindakan) as $nama_tindakan)
+                            <ul>
+                                <li>{{ $nama_tindakan }}</li>
+                            </ul>
+                            @endforeach</th>
+                          
                         </tr>
                         {{-- <tr>
                             <th colspan="2" class="text-center text-primary">Informasi Total Pembayaran</th>

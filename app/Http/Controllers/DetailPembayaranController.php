@@ -37,22 +37,44 @@ class DetailPembayaranController extends Controller
             ->where('resepobat.id_periksa', $periksaId)
             ->sum('harga');
       foreach ($kunjungan as $data) {
-            if ($data->askes == "Dana_Sehat") {
-           $harga = Tindakan::select('harga')->where('nama_tindakan','!=','periksa')->whereIn('nama_tindakan', json_decode($data->tindakan, true))->get();
+        //     if ($data->askes == "Dana_Sehat") {
+        //    $harga = Tindakan::select('harga')->where('nama_tindakan','!=','periksa')->whereIn('nama_tindakan', json_decode($data->tindakan, true))->get();
                 
-            }else {
-            $harga = Tindakan::select('harga')->whereIn('nama_tindakan', json_decode($data->tindakan, true))->get();
+        //     }else {
+            $harga = Tindakan::select('harga','nama_tindakan')->whereIn('nama_tindakan', json_decode($data->tindakan, true))->get();
 
-            }
+            // }
             $data->total_harga_tindakan = 0;
+            $hargatindakan = [];
+            $namatindakan = [];
             // $data->hargatindakan = $harga->harga;
             foreach ($harga as $item) {
-    $data->hargatindakan = $item->harga;
-  
+                $namatindakan[] = $item->nama_tindakan;
+            if ($data->askes == "Dana_Sehat"){
 
-    $data->total_harga_tindakan += $item->harga;
+            if ($item->nama_tindakan == "periksa") {
+             $hargatindakan[] = 0;
+        
+
+            $data->total_harga_tindakan += 0;
+            }else{
+            $hargatindakan[] = $item->harga;
+        
+
+            $data->total_harga_tindakan += $item->harga;
+
+            }  
+            }else{
+            $hargatindakan[] = $item->harga;
+        
+
+            $data->total_harga_tindakan += $item->harga;
+
+            }
 
 }
+            $data->hargatindakan = $hargatindakan;
+             $data->namatindakan = $namatindakan;
         }
         return view('pages.detailpembayaran', compact('kunjungan', 'no', 'resep', 'totalobat'));
     }
