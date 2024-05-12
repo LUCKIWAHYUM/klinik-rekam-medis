@@ -64,25 +64,11 @@
                             <th colspan="2" class="text-center text-primary">Informasi Tindakan</th>
                         </tr>
                         <tr>
-                            
-                            <th>
-                                @foreach (json_decode($data->tindakan, true) as $nama_tindakan)
-                                <ul>
-                                    <li>{{ $nama_tindakan }}</li>
-                                </ul>
-                                @endforeach
-                            </th>
-                            var_dump($data->harga_tindakan);
+                            <th>{{ $data->tindakan }}</th>
                             @if($data->askes == "Dana_Sehat")
                             <td>Gratis</td>
                             @else
-                                @if ($data->harga_tindakan !== null)
-    <td>
-        @foreach ($data->harga_tindakan as $harga)
-            {{ $harga }}
-        @endforeach
-    </td>
-    @endif
+                            <td>{{ $data->hargatindakan }}</td>
                             @endif
                         </tr>
                         <tr>

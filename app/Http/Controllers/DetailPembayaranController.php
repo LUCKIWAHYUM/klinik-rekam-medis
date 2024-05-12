@@ -39,18 +39,18 @@ class DetailPembayaranController extends Controller
         // Loop melalui setiap item dalam $kunjungan
         foreach ($kunjungan as $data) {
             // Ambil nama tindakan dari baris saat ini
-            foreach (json_decode($data->tindakan, true) as $nama_tindakan){     
+            $nama_tindakan = $data->tindakan;
+            
 
             // Hitung total harga tindakan berdasarkan nama tindakan dari baris saat ini
-            $harga_tindakan = Tindakan::where('nama_tindakan', $nama_tindakan)->groupBy('nama_tindakan')->sum('harga');
+            $harga_tindakan = Tindakan::where('nama_tindakan', $nama_tindakan)->sum('harga');
             // Memuat semua tindakan terkait
-            $harga = Tindakan::select('harga')->where('nama_tindakan', $nama_tindakan)->orderBy('id')->first();
+            $harga = Tindakan::select('harga')->where('nama_tindakan', $nama_tindakan)->first();
 
             $data->hargatindakan = $harga->harga;
             // Menyimpan total harga tindakan ke dalam item saat ini
             $data->total_harga_tindakan = $harga_tindakan;
             // dd($data->list_tindakan);
-            }
         }
         return view('pages.detailpembayaran', compact('kunjungan', 'no', 'resep', 'totalobat'));
     }
