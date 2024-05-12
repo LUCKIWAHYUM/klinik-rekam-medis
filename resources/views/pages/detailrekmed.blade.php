@@ -64,12 +64,16 @@
                         <tr>
                             <th colspan="2" class="text-center text-primary">Informasi Tindakan</th>
                         </tr>
-                        <tr>
-                            <th>{{ $data->tindakan }}</th>
+                       <tr>
+                            <th>@foreach (json_decode($data->tindakan, true) as $nama_tindakan)
+        <ul>
+            <li>{{ $nama_tindakan }}</li>
+        </ul>
+        @endforeach</th>
                             @if($data->askes == "Dana_Sehat")
                             <td>Gratis</td>
                             @else
-                            <td>{{ $data->hargatindakan }}</td>
+                            <td>{{ $data->total_harga_tindakan }}</td>
                             @endif
                         </tr>
                         {{-- <tr>

@@ -61,14 +61,18 @@
                             <td>Rp. {{ number_format($totalobat, 0, ',', '.') }}</td>
                         </tr>
                         <tr>
-                            <th colspan="2" class="text-center text-primary">Informasi Tindakan</th>
+                            <th colspan="2" class="text-center text-primary">Semua Total Biaya Tindakan</th>
                         </tr>
                         <tr>
-                            <th>{{ $data->tindakan }}</th>
+                            <th>@foreach (json_decode($data->tindakan, true) as $nama_tindakan)
+        <ul>
+            <li>{{ $nama_tindakan }}</li>
+        </ul>
+        @endforeach</th>
                             @if($data->askes == "Dana_Sehat")
                             <td>Gratis</td>
                             @else
-                            <td>{{ $data->hargatindakan }}</td>
+                            <td>Rp. {{ number_format($data->total_harga_tindakan, 0, ',', '.') }}</td>
                             @endif
                         </tr>
                         <tr>
@@ -77,9 +81,9 @@
                         <tr>
                             <th>Total pembayaran</th>
                             @if($data->askes == "Dana_Sehat")
-                            <td>Rp. {{ number_format($totalobat, 0, ',', '.') }}</td>
+                            <td>Rp. {{ number_format($totalobat , 0, ',', '.') }}</td>
                             @else
-                            <td>Rp. {{ number_format($totalobat + $data->hargatindakan, 0, ',', '.') }} </td>
+                            <td>Rp. {{ number_format($totalobat + $data->total_harga_tindakan, 0, ',', '.') }} </td>
                             @endif
                             
                         </tr>

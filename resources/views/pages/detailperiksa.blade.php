@@ -1,5 +1,5 @@
 @extends('layouts.dashboard')
-@section('title','Detail Pembayaran' )
+@section('title','Detail Pemeriksaan' )
 @section('content')
 <div class="container-fluid">
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
@@ -21,23 +21,23 @@
                         </tr>
                         <tr>
                             <th>No Rm</th>
-                            <td>: {{ $data->no_rmd }}</td>
+                            <td>: {{ $data->pasien->no_rmd }}</td>
                         </tr>
                         <tr>
                             <th>No registrasi</th>
-                            <td>: {{ $data->noregis }}</td>
+                            <td>: {{ $data->pasien->noregis }}</td>
                         </tr>
                         <tr>
                             <th>Nama Pasien</th>
-                            <td>: {{ $data->nama_pasien }}</td>
+                            <td>: {{ $data->pasien->nama_pasien }}</td>
                         </tr>
                         <tr>
                             <th>No Askes</th>
-                            <td>: {{ $data->no_dana_sehat }}</td>
+                            <td>: {{ $data->pasien->no_dana_sehat }}</td>
                         </tr>
                         <tr>
                             <th>Tipe Pasien</th>
-                            <td>: {{ $data->askes }}</td>
+                            <td>: {{ $data->pasien->askes }}</td>
                         </tr>
                         <tr>
                             <th>Tanggal Periksa</th>
@@ -49,7 +49,11 @@
                         </tr>
                         <tr>
                             <th>Tindakan</th>
-                            <td>: {{ $data->tindakan }}</td>
+                            <td>:@foreach (json_decode($data->tindakan, true) as $nama_tindakan)
+        <ul>
+            <li>{{ $nama_tindakan }}</li>
+        </ul>
+        @endforeach</td>
                         </tr>
                         <tr>
                             <th>Alergi</th>
@@ -73,11 +77,11 @@
                         </tr>
                         <tr>
                             <th>Status Pemeriksaan</th>
-                            @if($data->statuspemeriksaan == '0')
+                            @if($data->status == '0')
                                         <td><span class="mb-1 badge font-medium badge-secondary py-2 px-3 fs-7">Menunggu</span></td>
-                                        @elseif($data->statuspemeriksaan == '1')
+                                        @elseif($data->status == '1')
                                         <td><span class="mb-1 badge font-medium badge-primary py-2 px-3 fs-7">Diperiksa</span></td>
-                                        @elseif($data->statuspemeriksaan == '2')
+                                        @elseif($data->status == '2')
                                       <td><span class="mb-1 badge font-medium badge-success py-2 px-3 fs-7">Selesai</span></td>
                                         @endif
                         </tr>

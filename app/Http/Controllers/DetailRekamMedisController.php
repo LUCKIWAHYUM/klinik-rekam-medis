@@ -40,17 +40,24 @@ class DetailRekamMedisController extends Controller
         // Loop melalui setiap item dalam $kunjungan
         foreach ($kunjungan as $data) {
             // Ambil nama tindakan dari baris saat ini
-            $nama_tindakan = $data->tindakan;
+            // $nama_tindakan = $data->tindakan;
+            // foreach (json_decode($data->tindakan, true) as $nama_tindakan) {
 
             // Hitung total harga tindakan berdasarkan nama tindakan dari baris saat ini
-            $harga_tindakan = Tindakan::where('nama_tindakan', $nama_tindakan)->sum('harga');
+            $harga_tindakan = Tindakan::whereIn('nama_tindakan',json_decode($data->tindakan, true))->sum('harga');
             // Memuat semua tindakan terkait
-            $harga = Tindakan::select('harga')->where('nama_tindakan', $nama_tindakan)->first();
+           $harga = Tindakan::select('harga')->whereIn('nama_tindakan', json_decode($data->tindakan, true))->get();
 
-            $data->hargatindakan = $harga->harga;
-            // Menyimpan total harga tindakan ke dalam item saat ini
+
+            // $data->hargatindakan = $harga->harga;
+            foreach ($harga as $item) {
+    $data->hargatindakan = $item->harga;
+    // Lakukan operasi lain yang Anda perlukan di sini
+}
+
             $data->total_harga_tindakan = $harga_tindakan;
             // dd($data->list_tindakan);
+            // }
         }
         return view('pages.detailrekmed', compact('kunjungan', 'no', 'resep', 'totalobat'));
     }
@@ -82,19 +89,26 @@ class DetailRekamMedisController extends Controller
             ->where('resepobat.id_periksa', $id)
             ->sum('harga');
         // Loop melalui setiap item dalam $kunjungan
-        foreach ($kunjungan as $data) {
+         foreach ($kunjungan as $data) {
             // Ambil nama tindakan dari baris saat ini
-            $nama_tindakan = $data->tindakan;
+            // $nama_tindakan = $data->tindakan;
+            // foreach (json_decode($data->tindakan, true) as $nama_tindakan) {
 
             // Hitung total harga tindakan berdasarkan nama tindakan dari baris saat ini
-            $harga_tindakan = Tindakan::where('nama_tindakan', $nama_tindakan)->sum('harga');
+            $harga_tindakan = Tindakan::whereIn('nama_tindakan',json_decode($data->tindakan, true))->sum('harga');
             // Memuat semua tindakan terkait
-            $harga = Tindakan::select('harga')->where('nama_tindakan', $nama_tindakan)->first();
+           $harga = Tindakan::select('harga')->whereIn('nama_tindakan', json_decode($data->tindakan, true))->get();
 
-            $data->hargatindakan = $harga->harga;
-            // Menyimpan total harga tindakan ke dalam item saat ini
+
+            // $data->hargatindakan = $harga->harga;
+            foreach ($harga as $item) {
+    $data->hargatindakan = $item->harga;
+    // Lakukan operasi lain yang Anda perlukan di sini
+}
+
             $data->total_harga_tindakan = $harga_tindakan;
             // dd($data->list_tindakan);
+            // }
         }
         return view('pages.cetakrekammedis', compact('kunjungan', 'no', 'resep', 'totalobat'));
     }
