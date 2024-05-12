@@ -138,16 +138,15 @@
                                                                 class="form-control" id="exampleInputEmail1"
                                                                 aria-describedby="emailHelp">
                                                         </div>
-                                                        <div class="mb-3">
-                                                            <label for="exampleInputEmail1" class="form-label">Tindakan</label>
-                                                            <select class="form-control" name="tindakan" id="tindakan" multiple="multiple">
-                                                                @foreach ($tindakan as $item)
-                                                                    
-                                                                <option value="{{ $item->nama_tindakan }}">{{ $item->nama_tindakan }}</option>
-                                                                @endforeach
-                                                            </select>
-                                                        </div>
-                                            
+                                                            <div class="mb-3">
+                                                        <label for="exampleInputEmail1" class="form-label">Tindakan</label>
+                                                        <select class="js-example-basic-multiple form-control" name="tindakan[]" multiple="multiple" id="tindakan" style="width: 100%;">
+                                                            @foreach($tindakan as $data)
+                                                                <option value="{{ $data->nama_tindakan }}">{{ $data->nama_tindakan }}</option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary"
@@ -195,6 +194,10 @@
   $(document).ready(function() {
         $('#UserData').DataTable();
     });
+    $(document).ready(function() {
+    $('.js-example-basic-multiple').select2();
+});
     </script>
+
     
 @endpush

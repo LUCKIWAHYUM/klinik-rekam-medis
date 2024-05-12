@@ -39,11 +39,13 @@
                                         <td>{{ $data->no_periksa }}</td>
                                         <td>{{ $data->pasien->nama_pasien }}</td>
                                         <td>{{ $data->diagnosa }}</td>
-                                        <td>@foreach (json_decode($data->tindakan, true) as $nama_tindakan)
-        <ul>
-            <li>{{ $nama_tindakan }}</li>
-        </ul>
-        @endforeach</td>
+                                        <td> @if ($data->tindakan)
+                                            @foreach ($data->tindakan as $nama_tindakan)
+                                                <ul>
+                                                    <li>{{ $nama_tindakan }}</li>
+                                                </ul>
+                                            @endforeach
+                                        @endif</td>
                                         @if($data->status == '0')
                                         <td><span class="mb-1 badge font-medium badge-secondary py-2 px-3 fs-7">Menunggu</span></td>
                                         @elseif($data->status == '1')
@@ -163,9 +165,7 @@
                                                         </div>
                                                         <div class="mb-3">
                                                             <label for="tindakan">Tindakan</label>
-                                                            @foreach (json_decode($data->tindakan, true) as $nama_tindakan)
-                                                            <input value="{{ $nama_tindakan }}" type="text" name="" class="form-control" id="id_periksa" aria-describedby="emailHelp" readonly>
-                                                            @endforeach
+                                                            <input type="text" name="" class="form-control" id="id_periksa" aria-describedby="emailHelp" readonly>
                                                         </div>
                                                         <div class="mb-3">
                                                             <label for="alergi">Alergi</label>

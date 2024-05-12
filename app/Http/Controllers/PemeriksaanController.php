@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Pemeriksaan;
 use App\Models\User;
 use App\Models\Pasien;
+use App\Models\Tindakan;
 class PemeriksaanController extends Controller
 {
     /**
@@ -17,8 +18,9 @@ class PemeriksaanController extends Controller
     $dokter = User::where('role','dokter')
         ->where('status','aktif')->get();
     $pasien = Pasien::get();
+    $tindakan = Tindakan::get();
     $kunjungan = Pemeriksaan::with('pasien')->orderBy('created_at', 'desc')->get();
-    return view('pages.pemeriksaan',compact('kunjungan','no','dokter','pasien'));
+    return view('pages.pemeriksaan',compact('kunjungan','no','dokter','pasien','tindakan'));
 }
 
     /**

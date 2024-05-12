@@ -9,6 +9,9 @@ class Pemeriksaan extends Model
 {
     use HasFactory;
     protected $table = 'pemeriksaan';
+    protected $casts = [
+        'tindakan' => 'array',];
+
     protected $fillable =
     [
         'user_id',

@@ -48,12 +48,13 @@
                             <td>: {{ $data->diagnosa }}</td>
                         </tr>
                         <tr>
-                            <th>Tindakan</th>
-                            <td>:@foreach (json_decode($data->tindakan, true) as $nama_tindakan)
-        <ul>
-            <li>{{ $nama_tindakan }}</li>
-        </ul>
-        @endforeach</td>
+                               <th> @if ($data->tindakan)
+                                            @foreach ($data->tindakan as $nama_tindakan)
+                                                <ul>
+                                                    <li>{{ $nama_tindakan }}</li>
+                                                </ul>
+                                            @endforeach
+                                        @endif</th>
                         </tr>
                         <tr>
                             <th>Alergi</th>
