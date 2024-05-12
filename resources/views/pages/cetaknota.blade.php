@@ -117,7 +117,7 @@
                 <tr>
                     <td></td>
                     <th>Biaya Tindakan</th>
-                    <td>: Rp. {{ number_format($data->hargatindakan, 0, ',', '.') }}</td>
+                    <td>: Rp. {{ number_format($data->total_harga_tindakan, 0, ',', '.') }}</td>
                 </tr>
                 <tr>
                     <td></td>
@@ -127,7 +127,7 @@
                 <tr>
                     <th>Total Pembayaran</th>
                     <td></td>
-                    <td>Rp. {{ number_format($totalobat + $data->hargatindakan, 0, ',', '.') }}</td>
+                    <td>Rp. {{ number_format($totalobat + $data->total_harga_tindakan, 0, ',', '.') }}</td>
                 </tr>
             </table>
              @endforeach

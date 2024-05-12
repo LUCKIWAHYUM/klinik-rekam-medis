@@ -70,22 +70,17 @@
             <li>{{ $nama_tindakan }}</li>
         </ul>
         @endforeach</th>
-                            @if($data->askes == "Dana_Sehat")
-                            <td>Gratis</td>
-                            @else
-                            <td>{{ $data->total_harga_tindakan }}</td>
-                            @endif
+                            <td>Rp. {{ number_format($data->total_harga_tindakan, 0, ',', '.') }}</td>
+
                         </tr>
                         {{-- <tr>
                             <th colspan="2" class="text-center text-primary">Informasi Total Pembayaran</th>
                         </tr>
                         <tr>
                             <th>Total pembayaran</th>
-                            @if($data->askes == "Dana_Sehat")
-                            <td>Rp. {{ number_format($totalobat, 0, ',', '.') }}</td>
-                            @else
+
                             <td>Rp. {{ number_format($totalobat + $data->hargatindakan, 0, ',', '.') }} </td>
-                            @endif
+             
                             
                         </tr>
                         <tr>

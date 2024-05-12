@@ -117,7 +117,11 @@
                 </tr>
                 <tr>
                     <th>Tindakan</th>
-                    <td>{{ $data->tindakan }}</td>
+                    <td>@foreach (json_decode($data->tindakan, true) as $nama_tindakan)
+        <ul>
+            <li>{{ $nama_tindakan }}</li>
+        </ul>
+        @endforeach</td>
                     @endforeach
                 </tr>
                 <tr>
