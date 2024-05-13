@@ -69,7 +69,7 @@
                                         @else
                                             
                                             <a href="{{ Storage::url($data->foto) }}" data-lightbox="gallery">
-                                                <img src="{{ Storage::url($data->foto) }}" alt="Foto Fisik" style="min-width: 50px; max-width: 90px;">
+                                                <img src="{{ Storage::url($data->foto) }}" alt="Tidak Ada" style="min-width: 50px; max-width: 90px;">
                                             </a>
                                         @endif
                                     </td>

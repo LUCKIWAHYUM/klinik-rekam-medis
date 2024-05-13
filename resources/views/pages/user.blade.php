@@ -36,9 +36,9 @@
                         @endif
                                     <thead>
                                         <tr>
-                                            <th>No</th>
-                                            <th>NIP</th>
+                                            <th>No</th>                                          
                                             <th>Name</th>
+                                            <th>NIP</th>
                                             <th>Email</th>
                                             <th>Alamat</th>
                                             <th>No Telp</th>
@@ -51,9 +51,9 @@
                                     <tbody>
                                         @foreach ($user as $data) 
                                         <tr>
-                                            <td>{{ $no++ }}</td>
-                                            <td>{{ $data->nip }}</td>
+                                            <td>{{ $no++ }}</td>                                         
                                             <td>{{ $data->name }}</td>
+                                             <td>{{ $data->nip }}</td>
                                             <td>{{ $data->email }}</td>
                                             <td>{{ $data->alamat }}</td>
                                             <td>{{ $data->tlp }}</td>
@@ -88,20 +88,20 @@
                     @csrf
                     @method('PUT')
                     <div class="mb-3">
-                      <label for="nip" class="form-label">NIP</label>
-                      <input id="nip" type="text" class="form-control @error('nip') is-invalid @enderror" name="nip" value="{{ $data->nip }}" required autocomplete="nip">
-                    </div>
-                    <div class="mb-3">
                       <label for="exampleInputEmail1" class="form-label">Email address</label>
                       <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ $data->email }}" required autocomplete="email">
+                    </div>
+                     <div class="mb-3">
+                      <label for="password" class="form-label">Password</label>
+                      <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" value=" $data->password }}" required autocomplete="new-password">
                     </div>
                     <div class="mb-3">
                       <label for="exampleInputEmail1" class="form-label">Name</label>
                       <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ $data->name }}" required autocomplete="name">
                     </div>
-                    <div class="mb-3">
-                      <label for="password" class="form-label">Password</label>
-                      <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" value=" $data->password }}" required autocomplete="new-password">
+                     <div class="mb-3">
+                      <label for="nip" class="form-label">NIP</label>
+                      <input id="nip" type="text" class="form-control @error('nip') is-invalid @enderror" name="nip" value="{{ $data->nip }}" required autocomplete="nip">
                     </div>
                     <div class="mb-3">
                       <label for="alamat">Alamat</label>
@@ -187,9 +187,9 @@
                                     </tbody>
                                     <tfoot>
                                         <tr>
-                                          <th>No</th>
-                                          <th>NIP</th>
+                                          <th>No</th>                                         
                                           <th>Name</th>
+                                          <th>NIP</th>
                                           <th>Email</th>
                                           <th>Alamat</th>
                                           <th>No Telp</th>
@@ -222,16 +222,16 @@
                     @csrf
                     @method('POST')
                     <div class="mb-3">
-                      <label for="nip">Alamat</label>
-                      <input type="text" name="nip" class="form-control">
-                    </div>
-                    <div class="mb-3">
                       <label for="exampleInputEmail1" class="form-label">Email address</label>
                       <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
                     </div>
                     <div class="mb-3">
                       <label for="exampleInputEmail1" class="form-label">Name</label>
                       <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name">
+                    </div>
+                      <div class="mb-3">
+                      <label for="nip" class="form-label">NIP</label>
+                      <input id="nip" type="text" class="form-control @error('nip') is-invalid @enderror" name="nip" value="{{ $data->nip }}" required autocomplete="nip">
                     </div>
                     <div class="mb-3">
                       <label for="alamat">Alamat</label>
