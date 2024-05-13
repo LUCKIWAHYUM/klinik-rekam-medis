@@ -99,7 +99,7 @@
                                                 </div>
                                                 <div class="modal-body">
                                                     <form method="POST"
-                                                        action="{{ route('pemeriksaandokter.update', $data-> id) }}">
+                                                        action="{{ route('pemeriksaandokter.update', $data->id) }}">
                                                         @csrf
                                                         @method('PUT')
                                                         <div class="mb-3">
@@ -141,8 +141,8 @@
                                                                 aria-describedby="emailHelp">
                                                         </div>
                                                             <div class="mb-3">
-                                                            <label for="tindakan" class="form-label">Tindakan</label>
-                                                            <select class="js-example-basic-multiple form-control" name="tindakan[]" multiple="multiple" id="tindakan" style="width: 100%;" >
+                                                            <label for="tindakan{{ $data->id }}" class="form-label">Tindakan</label>
+                                                            <select class="js-example-basic-multiple form-control" name="tindakan[]" multiple="multiple" id="tindakan{{ $data->id }}" style="width: 100%;" >
                                                                 @foreach($tindakan as $data)
                                                                     <option value="{{ $data->nama_tindakan }}">{{ $data->nama_tindakan }}</option>
                                                                 @endforeach
@@ -198,10 +198,10 @@
    
   $(document).ready(function() {
         $('#UserData').DataTable();
+        <?php foreach ($kunjungan as $data) { ?>
+            $('#foto<?= $data->id ?> #tindakan<?= $data->id ?>').select2();
+        <?php }?>
     });
-    $(document).ready(function() {
-    $('.js-example-basic-multiple').select2();
-});
 
 
     </script>
