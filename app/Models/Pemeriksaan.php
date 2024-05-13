@@ -33,6 +33,7 @@ class Pemeriksaan extends Model
         'jumlah',
         'posisi',
         'foto',
+        'keterangan',
         'status'
     ];
 

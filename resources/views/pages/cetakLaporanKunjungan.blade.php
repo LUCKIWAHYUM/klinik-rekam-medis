@@ -12,7 +12,7 @@
             font-size: 16px;
         }
         .invoice-container {
-            max-width: 900px;
+            max-width: 1000px;
             margin: 0 auto;
             padding: 20px;
             border: 1px solid #ddd;
@@ -67,7 +67,13 @@
                         <td>{{ $data->pasien->tanggal_lahir }}</td>
                         <td>{{ $data->pasien->usia }}</td>
                         <td>{{ $data->pasien->jenis_kelamin }}</td>
-                        <td>{{ $data->tindakan }}</td>
+                        <td>@if ($data->tindakan)
+                                            @foreach ($data->tindakan as $nama_tindakan)
+                                                <ul>
+                                                    <li>{{ $nama_tindakan }}</li>
+                                                </ul>
+                                            @endforeach
+                                        @endif</td>
                         <td>{{ $data->diagnosa }}</td>
                         <td>{{ $data->pasien->status }}</td>
                     </tr>

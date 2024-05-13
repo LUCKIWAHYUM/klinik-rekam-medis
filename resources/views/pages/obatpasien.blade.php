@@ -1,5 +1,5 @@
 @extends('layouts.dashboard')
-@section('title','Data Resep Obat | Dokter' )
+@section('title','Data Resep Obat | Apoteker' )
 @section('content')
 <div class="container-fluid">
 

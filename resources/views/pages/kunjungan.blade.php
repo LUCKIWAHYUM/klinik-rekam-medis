@@ -56,7 +56,7 @@
                                         <td>{{ $data->no_periksa }}</td>
                                         <td>{{ $data->no_antrian }}</td>
                                         <td>{{ $data->pasien->nama_pasien }}</td>
-                                        <td>{{ $data->askes }}</td>
+                                        <td>{{ $data->pasien->askes }}</td>
                                         @if($data->status == '0')
                                         <td><span class="mb-1 badge font-medium badge-secondary py-2 px-3 fs-7">Menunggu</span></td>
                                         @elseif($data->status == '1')

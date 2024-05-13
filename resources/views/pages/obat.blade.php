@@ -30,6 +30,13 @@
                             <div class="alert alert-danger" role="alert">
                                 {{ session('error') }}
                             </div>
+                        
+                            !-- Tampilkan pesan peringatan di sini -->
+    @if(session('warning'))
+        <div class="alert alert-warning" role="alert">
+            {{ session('warning') }}
+        </div>
+    @endif
                         @endif
                         <div class="table-responsive">
                             <table id="UserData" class="display" style="width:100%">
@@ -43,15 +50,20 @@
                                         <th>Status</th>
                                         <th>Aksi</th>
                                     </tr>
-                                </thead>
+                                </thead>    
                                 <tbody>
                                     @foreach ($obat as $data)
+                                     @if($data->stok <= 5)
+        <div class="alert alert-warning" role="alert">
+            Persediaan obat {{ $data->nama_obat }} tersisa {{ $data->stok }}. Segera restock obat!
+        </div>
+    @endif
                                     <tr>
                                         <td>{{ $no++ }}</td>
                                         <td>{{ $data->nama_obat }}</td>
                                         <td>{{ $data->kode_obat }}</td>
-                                        <td>{{ $data->stok }}</td>
                                         <td>{{ $data->harga }}</td>
+                                        <td>{{ $data->stok }}</td>
                                         <td>{{ $data->satuan }}</td>
                                         <td>
                                           <div class="dropdown">
@@ -208,9 +220,9 @@
                                         <th>No</th>
                                         <th>Nama_Obat</th>
                                         <th>Kode_Obat</th>
-                                        <th>Stok</th>
                                         <th>Harga</th>
                                         <th>Satuan</th>
+                                        <th>Status</th>
                                         <th>Aksi</th>
                             </tr>
                         </tfoot>

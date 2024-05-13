@@ -165,7 +165,11 @@
                                                         </div>
                                                         <div class="mb-3">
                                                             <label for="tindakan">Tindakan</label>
-                                                            <input type="text" name="" class="form-control" id="id_periksa" aria-describedby="emailHelp" readonly>
+                                                             @if ($data->tindakan)
+                                            @foreach ($data->tindakan as $nama_tindakan)
+                                                            <input value="{{ $nama_tindakan }}" type="text" name="" class="form-control" id="id_periksa" aria-describedby="emailHelp" readonly>
+                                                               @endforeach
+                                        @endif
                                                         </div>
                                                         <div class="mb-3">
                                                             <label for="alergi">Alergi</label>

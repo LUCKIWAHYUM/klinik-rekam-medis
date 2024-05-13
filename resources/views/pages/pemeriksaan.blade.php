@@ -110,6 +110,12 @@
                                                                 id="exampleInputEmail1" aria-describedby="emailHelp">
                                                         </div>
                                                         <div class="mb-3">
+                                                            <label for="exampleInputEmail1" class="form-label">Keterangan</label>
+                                                            <input value="{{$data->keterangan}}" type="text"
+                                                                name="keterangan" class="form-control"
+                                                                id="exampleInputEmail1" aria-describedby="emailHelp">
+                                                        </div>
+                                                        <div class="mb-3">
                                                             <label for="exampleInputEmail1" class="form-label">Foto Fisik</label>
                                                             <input  type="file" 
                                                                 name="foto" class="form-control" 

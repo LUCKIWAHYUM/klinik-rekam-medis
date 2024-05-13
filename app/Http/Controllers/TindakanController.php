@@ -79,7 +79,8 @@ class TindakanController extends Controller
             $data->harga = $request->input('harga');
             // Setel nilai kolom lain sesuai kebutuhan
             $data->save();
-            return redirect()->route('tindakan.index')->with('success', 'Tindakan berhasil diperbarui.');
+           return redirect()->route('tindakan.index')->with('success', 'Data tindakan "' . $data->nama_tindakan . '" berhasil diperbarui.');
+
         } catch (\Exception $e) {
             // Tangkap pengecualian dan tampilkan pesan kesalahan
             return redirect()->route('tindakan.index')->with('error', 'Gagal memperbarui tindakan: ' . $e->getMessage());

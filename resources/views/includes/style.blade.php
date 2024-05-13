@@ -6,5 +6,6 @@
 
     <!-- Custom styles for this template-->
     <link href="{{ asset('assets-dashboard/css/sb-admin-2.min.css') }}" rel="stylesheet">
+    <!-- <link href="{{ asset('assets-dashboard/css/sb-admin-2.min.css') }}" rel="stylesheet"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />

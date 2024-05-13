@@ -39,6 +39,7 @@
                                         <th>Diameter</th>
                                         <th>Jumlah</th>
                                         <th>Posisi</th>
+                                        <th>Keterangan</th>
                                         <th>Foto Fisik</th>
                                         <th>Aksi</th>
                                     </tr>
@@ -61,6 +62,7 @@
                                         <td>{{ $data->diameter }}</td>
                                         <td>{{ $data->jumlah }}</td>
                                         <td>{{ $data->posisi }}</td>
+                                        <td>{{ $data->keterangan }}</td>
                                         <td>
                                         @if($data->foto == 'NULL')
                                         Foto tidak tersedia
@@ -139,13 +141,15 @@
                                                                 aria-describedby="emailHelp">
                                                         </div>
                                                             <div class="mb-3">
-                                                        <label for="exampleInputEmail1" class="form-label">Tindakan</label>
-                                                        <select class="js-example-basic-multiple form-control" name="tindakan[]" multiple="multiple" id="tindakan" style="width: 100%;">
-                                                            @foreach($tindakan as $data)
-                                                                <option value="{{ $data->nama_tindakan }}">{{ $data->nama_tindakan }}</option>
-                                                            @endforeach
-                                                        </select>
-                                                    </div>
+                                                            <label for="tindakan" class="form-label">Tindakan</label>
+                                                            <select class="js-example-basic-multiple form-control" name="tindakan[]" multiple="multiple" id="tindakan" style="width: 100%;" >
+                                                                @foreach($tindakan as $data)
+                                                                    <option value="{{ $data->nama_tindakan }}">{{ $data->nama_tindakan }}</option>
+                                                                @endforeach
+                                                        
+                                                            </select>
+                                                        </div>
+
 
                                                 </div>
                                                 <div class="modal-footer">
@@ -174,6 +178,7 @@
                                         <th>Diameter</th>
                                         <th>Jumlah</th>
                                         <th>Posisi</th>
+                                        <th>Keterangan</th>
                                         <th>Foto Fisik</th>
                                         <th>Aksi</th>
                             </tr>
@@ -197,6 +202,8 @@
     $(document).ready(function() {
     $('.js-example-basic-multiple').select2();
 });
+
+
     </script>
 
     
