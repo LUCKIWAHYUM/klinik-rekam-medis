@@ -142,57 +142,73 @@
                                                         <div class="mb-3">
                                                             <label for="satuan" class="form-label">Satuan</label>
                                                             <select id="satuan" class="form-control" name="satuan" required>
-                                                               @if($data->satuan == 'tablet')
-                                                                    <option value="tablet" selected>Tablet</option>
-                                                                    <option value="kapsul">Kapsul</option>
-                                                                    <option value="kaplet">Kaplet</option>
-                                                                    <option value="pil">Pil</option>
-                                                                    <option value="puyer">Puyer</option>
-                                                                    <option value="sirup">Sirup</option>
-                                                                @elseif($data->satuan == 'kapsul')
-                                                                    <option value="tablet">Tablet</option>
-                                                                    <option value="kapsul" selected>Kapsul</option>
-                                                                    <option value="kaplet">Kaplet</option>
-                                                                    <option value="pil">Pil</option>
-                                                                    <option value="puyer">Puyer</option>
-                                                                    <option value="sirup">Sirup</option>
-                                                                @elseif($data->satuan == 'kaplet')
-                                                                    <option value="tablet">Tablet</option>
-                                                                    <option value="kapsul">Kapsul</option>
-                                                                    <option value="kaplet" selected>Kaplet</option>
-                                                                    <option value="pil">Pil</option>
-                                                                    <option value="puyer">Puyer</option>
-                                                                    <option value="sirup">Sirup</option>
-                                                                @elseif($data->satuan == 'pil')
-                                                                    <option value="tablet">Tablet</option>
-                                                                    <option value="kapsul">Kapsul</option>
-                                                                    <option value="kaplet">Kaplet</option>
-                                                                    <option value="pil" selected>Pil</option>
-                                                                    <option value="puyer">Puyer</option>
-                                                                    <option value="sirup">Sirup</option>
-                                                                @elseif($data->satuan == 'puyer')
-                                                                    <option value="tablet">Tablet</option>
-                                                                    <option value="kapsul">Kapsul</option>
-                                                                    <option value="kaplet">Kaplet</option>
-                                                                    <option value="pil">Pil</option>
-                                                                    <option value="puyer" selected>Puyer</option>
-                                                                    <option value="sirup">Sirup</option>
-                                                                @elseif($data->satuan == 'sirup')
-                                                                    <option value="tablet">Tablet</option>
-                                                                    <option value="kapsul">Kapsul</option>
-                                                                    <option value="kaplet">Kaplet</option>
-                                                                    <option value="pil">Pil</option>
-                                                                    <option value="puyer">Puyer</option>
-                                                                    <option value="sirup" selected>Puyer</option>
-                                                                @else 
-                                                                    <option value="tablet">Tablet</option>
-                                                                    <option value="kapsul">Kapsul</option>
-                                                                    <option value="kaplet">Kaplet</option>
-                                                                    <option value="pil">Pil</option>
-                                                                    <option value="puyer">Puyer</option>
-                                                                    <option value="sirup">Sirup</option>
-                                                                @endif
-                                                            </select>
+                                                        @if($data->satuan == 'tablet')
+                                                            <option value="tablet" selected>Tablet</option>
+                                                            <option value="kapsul">Kapsul</option>
+                                                            <option value="kaplet">Kaplet</option>
+                                                            <option value="pil">Pil</option>
+                                                            <option value="puyer">Puyer</option>
+                                                            <option value="sirup">Sirup</option>
+                                                            <option value="bedak">Bedak</option>
+                                                        @elseif($data->satuan == 'kapsul')
+                                                            <option value="tablet">Tablet</option>
+                                                            <option value="kapsul" selected>Kapsul</option>
+                                                            <option value="kaplet">Kaplet</option>
+                                                            <option value="pil">Pil</option>
+                                                            <option value="puyer">Puyer</option>
+                                                            <option value="sirup">Sirup</option>
+                                                            <option value="bedak">Bedak</option>
+                                                        @elseif($data->satuan == 'kaplet')
+                                                            <option value="tablet">Tablet</option>
+                                                            <option value="kapsul">Kapsul</option>
+                                                            <option value="kaplet" selected>Kaplet</option>
+                                                            <option value="pil">Pil</option>
+                                                            <option value="puyer">Puyer</option>
+                                                            <option value="sirup">Sirup</option>
+                                                            <option value="bedak">Bedak</option>
+                                                        @elseif($data->satuan == 'pil')
+                                                            <option value="tablet">Tablet</option>
+                                                            <option value="kapsul">Kapsul</option>
+                                                            <option value="kaplet">Kaplet</option>
+                                                            <option value="pil" selected>Pil</option>
+                                                            <option value="puyer">Puyer</option>
+                                                            <option value="sirup">Sirup</option>
+                                                            <option value="bedak">Bedak</option>
+                                                        @elseif($data->satuan == 'puyer')
+                                                            <option value="tablet">Tablet</option>
+                                                            <option value="kapsul">Kapsul</option>
+                                                            <option value="kaplet">Kaplet</option>
+                                                            <option value="pil">Pil</option>
+                                                            <option value="puyer" selected>Puyer</option>
+                                                            <option value="sirup">Sirup</option>
+                                                            <option value="bedak">Bedak</option>
+                                                        @elseif($data->satuan == 'sirup')
+                                                            <option value="tablet">Tablet</option>
+                                                            <option value="kapsul">Kapsul</option>
+                                                            <option value="kaplet">Kaplet</option>
+                                                            <option value="pil">Pil</option>
+                                                            <option value="puyer">Puyer</option>
+                                                            <option value="sirup" selected>Sirup</option>
+                                                            <option value="bedak">Bedak</option>
+                                                        @elseif($data->satuan == 'bedak')
+                                                            <option value="tablet">Tablet</option>
+                                                            <option value="kapsul">Kapsul</option>
+                                                            <option value="kaplet">Kaplet</option>
+                                                            <option value="pil">Pil</option>
+                                                            <option value="puyer">Puyer</option>
+                                                            <option value="sirup">Sirup</option>
+                                                            <option value="bedak" selected>Bedak</option>
+                                                        @else 
+                                                            <option value="tablet">Tablet</option>
+                                                            <option value="kapsul">Kapsul</option>
+                                                            <option value="kaplet">Kaplet</option>
+                                                            <option value="pil">Pil</option>
+                                                            <option value="puyer">Puyer</option>
+                                                            <option value="sirup">Sirup</option>
+                                                            <option value="bedak">Bedak</option>
+                                                        @endif
+                                                    </select>
+
                                                         </div>
                                                         <div class="mb-3">
                                                             <label for="exampleInputEmail1" class="form-label">Harga</label>
@@ -268,6 +284,7 @@
                             <option value="pil">Pil</option>
                             <option value="puyer">Puyer</option>
                             <option value="sirup">Sirup</option>
+                            <option value="bedak">Bedak</option>
                         </select>
                     </div>
                     <div class="mb-3">

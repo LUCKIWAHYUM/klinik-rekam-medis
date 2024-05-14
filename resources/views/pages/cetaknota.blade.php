@@ -14,10 +14,8 @@
             max-width: 800px;
             margin: 0 auto;
             padding: 20px;
-            /* border: 1px solid #ccc; */
-            /* border-radius: 8px; */
             background-color: #fff;
-            position: relative; /* Menggunakan posisi relatif untuk elemen body */
+            position: relative;
         }
         .header {
             text-align: center;
@@ -26,7 +24,6 @@
         .content {
             margin-bottom: 30px;
             padding-bottom: 20px;
-            /* border-bottom: 1px solid #ccc; */
         }
         .info {
             margin-bottom: 15px;
@@ -37,12 +34,7 @@
         .info table th,
         .info table td {
             padding: 8px;
-            /* border-bottom: 1px solid #ddd; */
-            text-align: left; /* Tekst rata kiri untuk semua th dan td */
-        }
-        .footer {
-            text-align: center;
-            margin-top: 20px;
+            text-align: left;
         }
         .signature {
             position: absolute;
@@ -50,13 +42,6 @@
             right: 20px;
             font-style: italic;
             font-size: 12px;
-        }
-        .footer-text {
-            font-size: 12px;
-        }
-        .footer-text span {
-            display: block;
-            margin-top: 20px;
         }
         .table-bordered th,
         .table-bordered td {
@@ -131,9 +116,8 @@
                 </tr>
             </table>
              @endforeach
-            <!-- <p>===============================================================================================</p> -->
         </div>
-    </div><br><br><br>
+    </div>
     <div class="signature">
         @foreach ($kunjungan as $data)
         Ambulu, {{ \Carbon\Carbon::parse($data->tgl_kunjungan)->translatedFormat('d F Y') }} <br>

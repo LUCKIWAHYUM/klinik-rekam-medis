@@ -61,6 +61,8 @@
             <span>Dashboard</span></a>
     </li>
 
+     <hr class="sidebar-divider my-0">
+
     <li class="nav-item">
         <a class="nav-link {{ (request()->is('pemeriksaandokter')) ? 'active' : ''}}" href="{{ route('pemeriksaandokter.index') }}">
             <i class="fa-duotone fa-user" style="--fa-primary-color: #0b64fe; --fa-secondary-color: #0b64fe;"></i>
@@ -87,6 +89,8 @@
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
     </li>
+
+     <hr class="sidebar-divider my-0">
 
     <li class="nav-item">
         <a class="nav-link {{ (request()->is('obat')) ? 'active' : ''}}" href="{{ route('obat.index') }}">
@@ -115,6 +119,8 @@
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
     </li>
+
+     <hr class="sidebar-divider my-0">
 
     <li class="nav-item">
         <a class="nav-link {{ (request()->is('pemeriksaan')) ? 'active' : ''}}" href="{{ route('pemeriksaan.index') }}">

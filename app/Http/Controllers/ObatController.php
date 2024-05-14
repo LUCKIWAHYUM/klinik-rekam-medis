@@ -33,24 +33,27 @@ class ObatController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
-    {
+ public function store(Request $request)
+{
     try {
         // Simpan data ke database
         $obat = Obat::create($request->all());
 
         // Cek stok obat
-        if ($obat->stock <= 5) {
+        if ($obat->stok <= 5) {
             // Jika stok obat tinggal 5 atau kurang, berikan pesan peringatan
-            return redirect()->route('obat.index')->with('warning', 'Stok obat "' . $obat->nama_obat . '" tinggal ' . $obat->stock . '. Segera restock obat.');
+            return redirect()->route('obat.index')->with('warning', 'Stok obat "' . $obat->nama_obat . '" tinggal ' . $obat->stok . '. Segera restock obat.');
         }
 
+        \Log::info('Obat berhasil ditambahkan: ' . $obat->nama_obat); // Tambahkan pernyataan log
         return redirect()->route('obat.index')->with('success', 'Obat "' . $obat->nama_obat . '" berhasil ditambahkan.');
     } catch (\Exception $e) {
+        \Log::error('Gagal menambahkan obat: ' . $e->getMessage()); // Tambahkan pernyataan log
         // Tangkap pengecualian dan tampilkan pesan kesalahan
         return redirect()->route('obat.index')->with('error', 'Gagal menambahkan obat: ' . $e->getMessage());
     }
 }
+
     /**
      * Display the specified resource.
      */

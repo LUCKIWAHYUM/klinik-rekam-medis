@@ -13,12 +13,14 @@ class PembayaranController extends Controller
     public function index()
     {
         $no = 1;
+        
         $kunjungan = Resep::select('resepobat.id_periksa', 'pemeriksaan.no_periksa', 'pemeriksaan.tindakan', 'pembayaran.status as statuspembayaran', 'pasien.nama_pasien', 'pasien.no_rmd', 'pemeriksaan.status as statuspemeriksaan', 'resepobat.status as statusobat', 'pemeriksaan.tgl_kunjungan', 'pasien.askes', 'pemeriksaan.waktu_kunjungan', DB::raw('SUM(obat.harga) as total_harga_obat'))
             ->join('pemeriksaan', 'resepobat.id_periksa', '=', 'pemeriksaan.id')
             ->join('pasien', 'pemeriksaan.pasien_id', '=', 'pasien.id') // Join dengan tabel resepobat
             ->join('obat', 'resepobat.id_obat', '=', 'obat.id')
             ->leftJoin('pembayaran', 'pemeriksaan.id', '=', 'pembayaran.id_periksa') // Left join dengan tabel pembayaran
             ->groupBy('pemeriksaan.no_periksa', 'resepobat.id_periksa', 'pemeriksaan.pasien_id', 'pembayaran.status', 'pasien.nama_pasien', 'pasien.no_rmd', 'pemeriksaan.status', 'resepobat.status', 'pemeriksaan.tgl_kunjungan', 'pasien.askes', 'pemeriksaan.waktu_kunjungan')
+            ->orderBy('pemeriksaan.waktu_kunjungan', 'desc') // Mengurutkan berdasarkan waktu kunjungan (dari terbaru ke terlama)
             ->get();
 
         // Loop melalui setiap item dalam $kunjungan
