@@ -16,21 +16,25 @@ class ObatpasienController extends Controller
      */
     public function index()
     {
-        $no = 1;
-        $dokter = User::where('role','dokter')
-            ->where('status','aktif')->get();
-        $pasien = Pasien::get();
-        $periksa = Pemeriksaan::with('pasien')->get();
-        $resep_obat = Obat::get( ); 
-        // Mengambil data pemeriksaan dengan mengurutkan berdasarkan waktu pembuatan secara descending
-        $kunjungan = Resep::select('resepobat.id_periksa','pemeriksaan.no_periksa', 'pasien.nama_pasien', 'pemeriksaan.status as statuspemeriksaan', 'resepobat.status as statusobat', 'pemeriksaan.tgl_kunjungan', 'pemeriksaan.waktu_kunjungan')
-    ->join('pemeriksaan', 'resepobat.id_periksa', '=', 'pemeriksaan.id')
-    ->join('pasien', 'pemeriksaan.pasien_id', '=', 'pasien.id')
-    ->groupBy('pemeriksaan.no_periksa','resepobat.id_periksa', 'pemeriksaan.pasien_id','pemeriksaan.no_periksa', 'pasien.nama_pasien', 'pemeriksaan.status', 'resepobat.status', 'pemeriksaan.tgl_kunjungan', 'pemeriksaan.waktu_kunjungan')
-    ->get();
-       
-        return view('pages.obatpasien',compact('kunjungan','no','dokter','pasien', 'resep_obat','periksa'));
-    }
+    $no = 1;
+    $dokter = User::where('role', 'dokter')
+        ->where('status', 'aktif')->get();
+    $pasien = Pasien::get();
+    $periksa = Pemeriksaan::with('pasien')->get();
+    $resep_obat = Obat::get();
+
+    // Mengambil data pemeriksaan dengan mengurutkan berdasarkan waktu pembuatan secara descending
+    $kunjungan = Resep::select('resepobat.id_periksa', 'pemeriksaan.no_periksa', 'pasien.nama_pasien', 'resepobat.pembelian as pembelian', 'pemeriksaan.status as statuspemeriksaan', 'resepobat.status as statusobat', 'pemeriksaan.tgl_kunjungan', 'pemeriksaan.waktu_kunjungan')
+        ->join('pemeriksaan', 'resepobat.id_periksa', '=', 'pemeriksaan.id')
+        ->join('pasien', 'pemeriksaan.pasien_id', '=', 'pasien.id')
+        ->orderByDesc('pemeriksaan.tgl_kunjungan') // Urutkan berdasarkan tanggal kunjungan secara descending
+        ->orderByDesc('pemeriksaan.waktu_kunjungan') // Urutkan berdasarkan waktu kunjungan secara descending
+        ->groupBy('pemeriksaan.no_periksa', 'resepobat.id_periksa', 'pemeriksaan.pasien_id', 'pemeriksaan.no_periksa', 'pasien.nama_pasien', 'pembelian', 'pemeriksaan.status', 'resepobat.status', 'pemeriksaan.tgl_kunjungan', 'pemeriksaan.waktu_kunjungan')
+        ->get();
+
+    return view('pages.obatpasien', compact('kunjungan', 'no', 'dokter', 'pasien', 'resep_obat', 'periksa'));
+}
+
 
     /**
      * Show the form for creating a new resource.

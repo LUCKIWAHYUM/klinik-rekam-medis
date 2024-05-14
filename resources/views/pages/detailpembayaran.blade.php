@@ -41,6 +41,10 @@
                             <td>: {{ $data->askes }}</td>
                         </tr>
                         <tr>
+                            <th>Pembelian Obat</th>
+                            <td>: {{ $data->pembelian }}</td>
+                        </tr>
+                        <tr>
                             <th>Tanggal Periksa</th>
                             <td>: {{ $data->tgl_kunjungan }}</td>
                         </tr>
@@ -49,16 +53,24 @@
                             <th colspan="2" class="text-center text-primary">Informasi Obat</th>
                         </tr>
                         @endforeach
+
+
+                        <?php $totalhargaobat = 0 ?>
                         @foreach ($resep as $data)
                         <tr>
+                            <?php $data->harga = ($data->pembelian == "sendiri") ? 0 : $data->harga ; ?>
                             <th>{{$data->nama_obat}} x 1</th>
                             <td>Rp. {{ number_format($data->harga, 0, ',', '.') }}</td>
+                            <?php $totalhargaobat += $data->harga ?>
+
                         </tr>
                         @endforeach
+
+
                         @foreach ($kunjungan as $data)
                         <tr>
                             <th>total harga</th>
-                            <td>Rp. {{ number_format($totalobat, 0, ',', '.') }}</td>
+                            <td>Rp. {{ number_format($totalhargaobat, 0, ',', '.') }}</td>
                         </tr>
                         <tr>
                             <th colspan="2" class="text-center text-primary">Semua Total Biaya Tindakan</th>
@@ -82,7 +94,7 @@
                         </tr>
                         <tr>
                             <th>Total pembayaran</th>
-                            <td>Rp. {{ number_format($totalobat + $data->total_harga_tindakan, 0, ',', '.') }} </td>
+                            <td>Rp. {{ number_format($totalhargaobat + $data->total_harga_tindakan, 0, ',', '.') }} </td>
                         
                             
                         </tr>

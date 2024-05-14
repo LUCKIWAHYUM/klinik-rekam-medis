@@ -10,14 +10,10 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-body">
-                        <div class="row">
-                            @foreach ($periksa as $item)
-                                
-                            <a href="/cetak/{{ $item->id }}" class="btn btn-success m-2">
+                        <div class="row">                               
+                            <a href="/cetak/{{ request()->query('id_periksa'); }}" class="btn btn-success m-2">
                                 Cetak
                             </a>
-                            @endforeach
-                            
                         </div>
                         
                         @foreach($kunjungan as $data)

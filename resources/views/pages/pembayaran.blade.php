@@ -34,7 +34,7 @@
                                         <th>No. rmd</th>
                                         <th>No. Periksa</th>
                                         <th>Nama Pasien</th>
-                                        <th>Biaya Periksa</th>
+                                        <th>Biaya Tindakan</th>
                                         <th>Biaya Obat</th>
                                         <th>Status</th>
                                         <th>Jenis Pasien</th>
@@ -49,6 +49,7 @@
                                         <td>{{ $data->no_periksa }}</td>
                                         <td>{{ $data->nama_pasien }}</td>
                                         <td>{{ $data->total_harga_tindakan }}</td>
+                                        
                                         <td>{{ $data->total_harga_obat }}</td>
                                         @if(empty($data->statuspembayaran) OR $data->statuspembayaran == 'belum')
                                         <td><span class="mb-1 badge font-medium badge-secondary py-2 px-3 fs-7">Menunggu pembayaran</span></td>
@@ -68,7 +69,7 @@
                                     <th>No. rmd</th>
                                     <th>No. Periksa</th>
                                     <th>Nama Pasien</th>
-                                    <th>Biaya Periksa</th>
+                                    <th>Biaya Tindakan</th>
                                     <th>Biaya Obat</th>
                                     <th>Status</th>
                                     <th>Jenis Pasien</th>

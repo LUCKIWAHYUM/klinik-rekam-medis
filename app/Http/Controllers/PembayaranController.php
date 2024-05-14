@@ -22,16 +22,44 @@ class PembayaranController extends Controller
             ->get();
 
         // Loop melalui setiap item dalam $kunjungan
-        foreach ($kunjungan as $data) {
-            // Ambil nama tindakan dari baris saat ini
-            $nama_tindakan = $data->tindakan;
+       foreach ($kunjungan as $data) {
+    //     if ($data->askes == "Dana_Sehat") {
+    //    $harga = Tindakan::select('harga')->where('nama_tindakan','!=','periksa')->whereIn('nama_tindakan', json_decode($data->tindakan, true))->get();
 
-            // Hitung total harga tindakan berdasarkan nama tindakan dari baris saat ini
-            $harga_tindakan = Tindakan::where('nama_tindakan', $nama_tindakan)->sum('harga');
+    //     }else {
+    $harga = Tindakan::select('harga', 'nama_tindakan')->whereIn('nama_tindakan', json_decode($data->tindakan, true))->get();
 
-            // Menyimpan total harga tindakan ke dalam item saat ini
-            $data->total_harga_tindakan = $harga_tindakan;
+    // }
+    $data->total_harga_tindakan = 0;
+    $hargatindakan = [];
+    $namatindakan = [];
+    // $data->hargatindakan = $harga->harga;
+    foreach ($harga as $item) {
+        $namatindakan[] = $item->nama_tindakan;
+        if ($data->askes == "Dana_Sehat") {
+
+            if ($item->nama_tindakan == "periksa") {
+                $hargatindakan[] = 0;
+
+                $data->total_harga_tindakan += 0;
+            } else {
+                $hargatindakan[] = $item->harga;
+
+                $data->total_harga_tindakan += $item->harga;
+
+            }
+        } else {
+            $hargatindakan[] = $item->harga;
+
+            $data->total_harga_tindakan += $item->harga;
+
         }
+
+    }
+    $data->hargatindakan = $hargatindakan;
+    $data->namatindakan = $namatindakan;
+}
+
 
         return view('pages.pembayaran', compact('kunjungan', 'no'));
     }

@@ -40,6 +40,7 @@ class ResepobatController extends Controller
      */
     public function store(Request $request)
     {
+        // var_dump($request); die();
         try {
             foreach ($request['id_obat'] as $index => $id_obat) {
                 $aturanpakai = (string) $request['aturanpakai'][$index];

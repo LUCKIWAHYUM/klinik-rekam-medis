@@ -12,7 +12,7 @@
             font-size: 16px;
         }
         .invoice-container {
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
             border: 1px solid #ddd;
@@ -48,6 +48,7 @@
                         <th scope="col">NO RM</th>
                         <th scope="col">NO Askes</th>
                         <th scope="col">Nama pasien</th>
+                        <th scope="col">Alamat</th>
                         <th scope="col">Tgl Lahir</th>
                         <th scope="col">Umur</th>
                         <th scope="col">Jenis Kelamin</th>
@@ -64,6 +65,7 @@
                         <td>{{ $data->pasien->no_rmd }}</td>
                         <td>{{ $data->pasien->no_dana_sehat }}</td>
                         <td>{{ $data->pasien->nama_pasien }}</td>
+                        <td>{{ $data->pasien->alamat }}</td>
                         <td>{{ $data->pasien->tanggal_lahir }}</td>
                         <td>{{ $data->pasien->usia }}</td>
                         <td>{{ $data->pasien->jenis_kelamin }}</td>
@@ -75,7 +77,7 @@
                                             @endforeach
                                         @endif</td>
                         <td>{{ $data->diagnosa }}</td>
-                        <td>{{ $data->pasien->status }}</td>
+                        <td>{{ $data->pasien->statuspasien }}</td>
                     </tr>
                     @endforeach
                 </tbody>

@@ -24,6 +24,7 @@
                                         <th>Nama</th>
                                         <th>Status Pemeriksaan</th>
                                         <th>Status Obat</th>
+                                        <th>Pembelian Obat</th>
                                         <th>Tanggal Kunjungan</th>
                                         <th>Waktu Kunjungan</th>
                                         <th>Aksi</th>
@@ -50,6 +51,7 @@
                                         @else
                                       <td> <span class="mb-1 badge font-medium badge-danger py-2 px-3 fs-7">undifined</span></td>
                                         @endif
+                                        <td>{{ $data->pembelian }}</td>
                                         <td>{{ $data->tgl_kunjungan }}</td>
                                         <td>{{ $data->waktu_kunjungan }}</td>
                                         <td>
@@ -107,6 +109,7 @@
                                         <th>Nama</th>
                                         <th>Status Pemeriksaan</th>
                                         <th>Status Obat</th>
+                                        <th>Pembelian Obat</th>
                                         <th>Tanggal Kunjungan</th>
                                         <th>Waktu Kunjungan</th>
                                         <th>Aksi</th>
