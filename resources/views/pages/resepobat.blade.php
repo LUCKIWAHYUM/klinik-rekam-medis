@@ -19,10 +19,11 @@
                             <table id="UserData" class="display" style="width:100%">
                                 <thead>
                                     <tr>
-                                        <th>No</th>
+                                         <th>No</th>
                                         <th>no_rm</th>
                                         <th>No Periksa</th>
                                         <th>Nama</th>
+                                         <th>Alergi</th>
                                         <th>Diagnosa</th>
                                         <th>Tindakan</th>
                                         <th>Status</th>
@@ -38,8 +39,9 @@
                                         <td>{{ $data->pasien->no_rmd }}</td>
                                         <td>{{ $data->no_periksa }}</td>
                                         <td>{{ $data->pasien->nama_pasien }}</td>
+                                        <td>{{ $data->alergi }}</td>
                                         <td>{{ $data->diagnosa }}</td>
-                                        <td> @if ($data->tindakan)
+                                         <td> @if ($data->tindakan)
                                             @foreach ($data->tindakan as $nama_tindakan)
                                                 <ul>
                                                     <li>{{ $nama_tindakan }}</li>
@@ -133,36 +135,11 @@
                                                         action="{{ route('resepobat.store') }}">
                                                         @csrf
                                                         @method('POST')
-                                                        <div class="mb-3">
-                                                            <label for="diagnosa">Diagnosa</label>
-                                                            <input value="{{ $data->diagnosa }}" type="text" name="diagnosa" class="form-control" id="id_periksa" aria-describedby="emailHelp" readonly>
-                                                        </div>
-                                                        <input type="hidden" name="id_periksa" value="{{ $data->id }}">
-                                                        <div class="mb-3">
-                                                            <label for="tindakan">Tindakan</label>
-                                                             @if ($data->tindakan)
-                                            @foreach ($data->tindakan as $nama_tindakan)
-                                                            <input value="{{ $nama_tindakan }}" type="text" name="" class="form-control" id="id_periksa" aria-describedby="emailHelp" readonly>
-                                                               @endforeach
-                                        @endif
-                                                        </div>
-                                                        <div class="mb-3">
-                                                            <label for="alergi">Alergi</label>
-                                                            <input value="{{ $data->alergi }}" type="text" name="alergi" class="form-control" id="id_periksa" aria-describedby="emailHelp" readonly>
-                                                        </div>
-                                                        <div class="mb-3">
-                                                            <div class="mb-3">
-                                                                <label for="exampleInputEmail1"
-                                                                class="form-label">Pembelian</label>
-                                                                <select name="pembelian" id="pembelian"  class="form-control">
-                                                                    <option value="sendiri">Sendiri</option>
-                                                                    <option value="apotek">Apotek</option>
-                                                                </select>
                                                                 <input value="belum" type="hidden" name="status"
                                                                 class="form-control" id="status"
                                                                 aria-describedby="emailHelp">
                                                                 <!-- <input value="{{ $data->id }}" type="hidden" name="id_periksa" class="form-control" id="id_periksa" aria-describedby="emailHelp"> -->
-                                                        </div>
+                                                        
 
                                                         
                                                         <!-- <div class="row">
@@ -196,8 +173,20 @@
                                                         <div id="entriesContainer{{ $data->id }}">
                                                                 <!-- Container untuk field-field entri -->
                                                           </div>
-                                                <button type="button" class="btn btn-secondary addEntryButton" data-id="{{ $data->id }}">+</button>
+                                                
+                                               <button type="button" class="btn btn-secondary addEntryButton mb-3" data-id="{{ $data->id }}">+ Tambah Obat</button>
+
+                                                 <input type="hidden" name="id_periksa" value="{{ $data->id }}">
+                                                            <div class="mb-3">
+                                                                <label for="exampleInputEmail1"
+                                                                class="form-label">Pembelian Obat</label>
+                                                                <select name="pembelian" id="pembelian"  class="form-control">
+                                                                    <option value="sendiri">Sendiri</option>
+                                                                    <option value="apotek">Apotek</option>
+                                                                </select>
+                                                                </div>
                                                 </div>
+                                                
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary"
                                                         data-bs-dismiss="modal">Close</button>
@@ -216,6 +205,7 @@
                                         <th>no_rm</th>
                                         <th>No Periksa</th>
                                         <th>Nama</th>
+                                         <th>Alergi</th>
                                         <th>Diagnosa</th>
                                         <th>Tindakan</th>
                                         <th>Status</th>

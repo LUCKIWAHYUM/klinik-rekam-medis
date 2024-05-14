@@ -38,45 +38,42 @@ class KunjunganController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
-        try {
-            // Mendapatkan tanggal hari ini
-            // $today = Carbon::now()->format('Y-m-d');
+{
+    try {
+        // Mengambil tanggal kunjungan dari request
+        $today = $request->input('tgl_kunjungan');
 
-            $today = $request['tgl_kunjungan'];
-            // Mencari kunjungan terakhir pada hari ini
-            $lastVisitToday = Pemeriksaan::whereDate('created_at', $today)
-                ->orderBy('id', 'desc')
-                ->first();
+        // Mencari kunjungan terakhir pada tanggal yang sama
+        $lastVisitToday = Pemeriksaan::whereDate('tgl_kunjungan', $today)
+            ->orderBy('id', 'desc')
+            ->first();
 
-            // Mengatur nomor antrian berikutnya
-            $nextQueueNumber = '001';
+        // Mengatur nomor antrian berikutnya
+        $nextQueueNumber = '001';
 
-            if ($lastVisitToday) {
-                // Jika ada kunjungan sebelumnya hari ini, ambil nomor antrian terakhir dan tambahkan 1
-                $lastQueueNumber = substr($lastVisitToday->no_antrian, -3); // Mendapatkan 3 digit terakhir dari nomor antrian terakhir
-                $nextQueueNumber = str_pad((int)$lastQueueNumber + 1, 3, '0', STR_PAD_LEFT); // Tambahkan 1 dan pastikan format nomor antrian adalah 3 digit
-            } else {
-                // Jika tidak ada kunjungan hari ini, maka kembalikan nomor antrian ke "001"
-                $nextQueueNumber = '001';
-            }
-
-            // Membuat data kunjungan baru dengan nomor antrian yang telah di-generate
-            $data = $request->all();
-            $data['no_antrian'] = $nextQueueNumber;
-            $data['no_periksa'] = STR::random(5);
-            Pemeriksaan::create($data);
-
-            // Dapatkan nama pasien yang terkait dengan kunjungan baru
-            $pasien = Pasien::findOrFail($data['pasien_id'])->nama_pasien;
-
-            // Berikan pesan bahwa kunjungan baru telah ditambahkan sesuai dengan nama pasien
-            return redirect()->route('kunjungan.index')->with('success', 'Kunjungan baru untuk ' . $pasien . ' dengan nomor antrian ' . $nextQueueNumber . ' telah ditambahkan.');
-        } catch (\Exception $e) {
-            // Tangkap pengecualian dan tampilkan pesan kesalahan
-            return redirect()->route('kunjungan.index')->with('error', 'Gagal menambahkan kunjungan: ' . $e->getMessage());
+        if ($lastVisitToday) {
+            // Jika ada kunjungan sebelumnya hari ini, ambil nomor antrian terakhir dan tambahkan 1
+            $lastQueueNumber = substr($lastVisitToday->no_antrian, -3); // Mendapatkan 3 digit terakhir dari nomor antrian terakhir
+            $nextQueueNumber = str_pad((int)$lastQueueNumber + 1, 3, '0', STR_PAD_LEFT); // Tambahkan 1 dan pastikan format nomor antrian adalah 3 digit
         }
+
+        // Membuat data kunjungan baru dengan nomor antrian yang telah di-generate
+        $data = $request->all();
+        $data['no_antrian'] = $nextQueueNumber;
+        $data['no_periksa'] = Str::random(5);
+        Pemeriksaan::create($data);
+
+        // Dapatkan nama pasien yang terkait dengan kunjungan baru
+        $pasien = Pasien::findOrFail($data['pasien_id'])->nama_pasien;
+
+        // Berikan pesan bahwa kunjungan baru telah ditambahkan sesuai dengan nama pasien
+        return redirect()->route('kunjungan.index')->with('success', 'Kunjungan baru untuk ' . $pasien . ' dengan nomor antrian ' . $nextQueueNumber . ' telah ditambahkan.');
+    } catch (\Exception $e) {
+        // Tangkap pengecualian dan tampilkan pesan kesalahan
+        return redirect()->route('kunjungan.index')->with('error', 'Gagal menambahkan kunjungan: ' . $e->getMessage());
     }
+}
+
     /**
      * Display the specified resource.
      */
