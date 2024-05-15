@@ -94,7 +94,7 @@
                         </tr>
                         <tr>
                             <th>Total pembayaran</th>
-                            <td>Rp. {{ number_format($totalhargaobat + $data->total_harga_tindakan, 0, ',', '.') }} </td>
+                            <td>Rp. {{ number_format($totalhargaobat + $data->total_harga_tindakan, 0, ',', '.') }}</td>
                         
                             
                         </tr>
