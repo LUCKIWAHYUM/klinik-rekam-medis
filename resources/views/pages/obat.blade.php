@@ -149,7 +149,8 @@
                                                             <option value="pil">Pil</option>
                                                             <option value="puyer">Puyer</option>
                                                             <option value="sirup">Sirup</option>
-                                                            <option value="bedak">Bedak</option>
+                                                            <option value="botol">Botol</option>
+                                                            <option value="pcs">Pcs</option>
                                                         @elseif($data->satuan == 'kapsul')
                                                             <option value="tablet">Tablet</option>
                                                             <option value="kapsul" selected>Kapsul</option>
@@ -157,7 +158,8 @@
                                                             <option value="pil">Pil</option>
                                                             <option value="puyer">Puyer</option>
                                                             <option value="sirup">Sirup</option>
-                                                            <option value="bedak">Bedak</option>
+                                                            <option value="botol">Botol</option>
+                                                            <option value="pcs">Pcs</option>
                                                         @elseif($data->satuan == 'kaplet')
                                                             <option value="tablet">Tablet</option>
                                                             <option value="kapsul">Kapsul</option>
@@ -165,7 +167,8 @@
                                                             <option value="pil">Pil</option>
                                                             <option value="puyer">Puyer</option>
                                                             <option value="sirup">Sirup</option>
-                                                            <option value="bedak">Bedak</option>
+                                                            <option value="botol">Botol</option>
+                                                            <option value="pcs">Pcs</option>
                                                         @elseif($data->satuan == 'pil')
                                                             <option value="tablet">Tablet</option>
                                                             <option value="kapsul">Kapsul</option>
@@ -173,7 +176,8 @@
                                                             <option value="pil" selected>Pil</option>
                                                             <option value="puyer">Puyer</option>
                                                             <option value="sirup">Sirup</option>
-                                                            <option value="bedak">Bedak</option>
+                                                            <option value="botol">Botol</option>
+                                                            <option value="pcs">Pcs</option>
                                                         @elseif($data->satuan == 'puyer')
                                                             <option value="tablet">Tablet</option>
                                                             <option value="kapsul">Kapsul</option>
@@ -181,7 +185,8 @@
                                                             <option value="pil">Pil</option>
                                                             <option value="puyer" selected>Puyer</option>
                                                             <option value="sirup">Sirup</option>
-                                                            <option value="bedak">Bedak</option>
+                                                            <option value="botol">Botol</option>
+                                                            <option value="pcs">Pcs</option>
                                                         @elseif($data->satuan == 'sirup')
                                                             <option value="tablet">Tablet</option>
                                                             <option value="kapsul">Kapsul</option>
@@ -189,15 +194,24 @@
                                                             <option value="pil">Pil</option>
                                                             <option value="puyer">Puyer</option>
                                                             <option value="sirup" selected>Sirup</option>
-                                                            <option value="bedak">Bedak</option>
-                                                        @elseif($data->satuan == 'bedak')
+                                                            <option value="botol">Botol</option>
+                                                            <option value="pcs">Pcs</option>
+                                                        @elseif($data->satuan == 'botol')
                                                             <option value="tablet">Tablet</option>
                                                             <option value="kapsul">Kapsul</option>
                                                             <option value="kaplet">Kaplet</option>
                                                             <option value="pil">Pil</option>
                                                             <option value="puyer">Puyer</option>
-                                                            <option value="sirup">Sirup</option>
-                                                            <option value="bedak" selected>Bedak</option>
+                                                            <option value="botol" selected>Botol</option>
+                                                            <option value="pcs">Pcs</option>
+                                                        @elseif($data->satuan == 'botol')
+                                                            <option value="tablet">Tablet</option>
+                                                            <option value="kapsul">Kapsul</option>
+                                                            <option value="kaplet">Kaplet</option>
+                                                            <option value="pil">Pil</option>
+                                                            <option value="puyer">Puyer</option>
+                                                            <option value="botol">Botol</option>
+                                                            <option value="pcs" selected>Pcs</option>
                                                         @else 
                                                             <option value="tablet">Tablet</option>
                                                             <option value="kapsul">Kapsul</option>
@@ -205,7 +219,8 @@
                                                             <option value="pil">Pil</option>
                                                             <option value="puyer">Puyer</option>
                                                             <option value="sirup">Sirup</option>
-                                                            <option value="bedak">Bedak</option>
+                                                            <option value="botol">Botol</option>
+                                                            <option value="pcs">Pcs</option>
                                                         @endif
                                                     </select>
 
@@ -284,7 +299,8 @@
                             <option value="pil">Pil</option>
                             <option value="puyer">Puyer</option>
                             <option value="sirup">Sirup</option>
-                            <option value="bedak">Bedak</option>
+                            <option value="botol">Botol</option>
+                            <option value="pcs">Pcs</option>
                         </select>
                     </div>
                     <div class="mb-3">

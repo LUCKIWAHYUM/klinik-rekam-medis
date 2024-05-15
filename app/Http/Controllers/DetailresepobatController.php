@@ -27,6 +27,7 @@ class DetailresepobatController extends Controller
             ->where('resepobat.id_periksa', $periksaId)
             ->get();
         $periksa = Pemeriksaan::with('pasien')->orderBy('created_at', 'desc')->get();
+
         return view('pages.detailresepobat', compact(
             'no',
             'kunjungan',
@@ -58,5 +59,6 @@ class DetailresepobatController extends Controller
             'kunjungan',
             'resep'
         ));
+        
     }
 }

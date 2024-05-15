@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('obat', function (Blueprint $table) {
-            \DB::statement("ALTER TABLE `obat` MODIFY COLUMN `satuan` ENUM('tablet', 'kapsul', 'kaplet', 'pil', 'puyer', 'sirup', 'bedak')");
+            \DB::statement("ALTER TABLE `obat` MODIFY COLUMN `satuan` ENUM('tablet', 'kapsul', 'kaplet', 'pil', 'puyer', 'sirup', 'botol', 'pcs')");
 
         });
     }

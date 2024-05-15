@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('nama_obat');
             $table->string('stok');
             $table->string('harga');
-            $table->enum('satuan',['tablet', 'kapsul', 'kaplet', 'pil', 'puyer','sirup', 'bedak']);
+            $table->enum('satuan',['tablet', 'kapsul', 'kaplet', 'pil', 'puyer','sirup','botol']);
             $table->timestamps();
         });
     }
