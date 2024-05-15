@@ -9,6 +9,7 @@ use App\Models\Pemeriksaan;
 use App\Models\Resep;
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -37,18 +38,27 @@ class HomeController extends Controller
         $pembelianobat = Resep::where('pembelian', 'sendiri')->get()->count();
         $jumlahobat = Obat::get()->count();
         $pemeriksaan = Pemeriksaan::whereIn('status', ['0', '1'])->get()->count();
+        $per = Pemeriksaan::get()->count();
         $pemeriksaandone = Pemeriksaan::where('status', '2')->get()->count();
         $pemeriksaanwait = Pemeriksaan::where('status', '0')->get()->count();
         $pemeriksaanperiksa = Pemeriksaan::where('status', '1')->get()->count();
         $pembayarandone = Pembayaran::where('status', 'sudah bayar')->get()->count();
         $pembayaranwait = Pembayaran::where('status', 'belum')->get()->count();
+
+        $jumlahIdPeriksa = DB::table('pemeriksaan')
+    ->leftJoin('pembayaran', 'pemeriksaan.id', '=', 'pembayaran.id_periksa')
+    ->whereNull('pembayaran.id_periksa')
+    ->count('pemeriksaan.id');
+
+
+
         // Mengarahkan pengguna berdasarkan peran (role)
         if ($role === 'dokter') {
             return view('pages.dashboard-dokter', compact('pasien', 'pemeriksaan', 'pemeriksaandone', 'resep'));
         } elseif ($role === 'perawat') {
             return view('pages.dashboard-perawat', compact('pemeriksaandone', 'pemeriksaanwait', 'pemeriksaanperiksa'));
         } elseif ($role === 'admin') {
-            return view('pages.dashboard-admin', compact('pasien', 'pemeriksaan', 'pembayarandone', 'pembayaranwait'));
+            return view('pages.dashboard-admin', compact('pasien', 'pemeriksaan', 'pembayarandone', 'pembayaranwait','jumlahIdPeriksa'));
         } elseif ($role === 'apoteker') {
             return view('pages.dashboard-apoteker', compact('jumlahobat', 'resepdiambil', 'pembelianobat'));
         } else {
