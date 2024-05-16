@@ -50,7 +50,7 @@
          <li class="nav-item">
         <a class="nav-link {{ (request()->is('laporan-kunjungan')) ? 'active' : ''}}" href="{{ route('laporan-kunjungan.index') }}">
             <i class="far fa-file-alt" style="--fa-primary-color: #0b64fe; --fa-secondary-color: #0b64fe;"></i>
-            <span>Cetak Laporan</span></a>
+            <span>Laporan Kunjungan Pasien</span></a>
     </li>
      <hr class="sidebar-divider my-0">
 
