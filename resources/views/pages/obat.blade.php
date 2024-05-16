@@ -46,8 +46,8 @@
                                         <th>Nama_Obat</th>
                                         <th>Kode_Obat</th>
                                         <th>Harga</th>
+                                        <th>Jumlah</th>
                                         <th>Satuan</th>
-                                        <th>Status</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>    
@@ -252,8 +252,8 @@
                                         <th>Nama_Obat</th>
                                         <th>Kode_Obat</th>
                                         <th>Harga</th>
+                                        <th>Jumlah</th>
                                         <th>Satuan</th>
-                                        <th>Status</th>
                                         <th>Aksi</th>
                             </tr>
                         </tfoot>

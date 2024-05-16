@@ -155,31 +155,31 @@
                                                                 class="form-label">No Rmd</label>
                                                             <input value="{{ $data->pasien->no_rmd }}" type="text" name=""
                                                                 class="form-control" id="exampleInputEmail1"
-                                                                aria-describedby="emailHelp">
+                                                                aria-describedby="emailHelp" readonly>
                                                         </div>
                                                         <div class="mb-3">
                                                             <label for="exampleInputEmail1" class="form-label">Nama Pasien</label>
                                                             <input value="{{ $data->pasien->nama_pasien }}" type="text"
                                                                 name="" class="form-control"
-                                                                id="exampleInputEmail1" aria-describedby="emailHelp">
+                                                                id="exampleInputEmail1" aria-describedby="emailHelp" readonly>
                                                         </div>
                                                         <div class="mb-3">
                                                             <label for="exampleInputEmail1" class="form-label">Jenis Kelamin</label>
                                                             <input value="{{ $data->pasien->jenis_kelamin }}" type="text"
                                                                 name="" class="form-control"
-                                                                id="exampleInputEmail1" aria-describedby="emailHelp">
+                                                                id="exampleInputEmail1" aria-describedby="emailHelp" readonly>
                                                         </div>
                                                         <div class="mb-3">
                                                             <label for="exampleInputEmail1" class="form-label">Tanggal Lahir</label>
                                                             <input value="{{ $data->pasien->tanggal_lahir }}" type="text"
                                                                 name="" class="form-control"
-                                                                id="exampleInputEmail1" aria-describedby="emailHelp">
+                                                                id="exampleInputEmail1" aria-describedby="emailHelp" readonly>
                                                         </div>
                                                         <div class="mb-3">
                                                             <label for="exampleInputEmail1" class="form-label">Tanggal Kunjungan</label>
                                                             <input value="{{ $data->tgl_kunjungan }}" type="text"
                                                                 name="" class="form-control"
-                                                                id="exampleInputEmail1" aria-describedby="emailHelp">
+                                                                id="exampleInputEmail1" aria-describedby="emailHelp" readonly>
                                                         </div>
                                                         <div class="mb-3">
                                                             <label for="exampleInputEmail1" class="form-label">Tinggi Badan</label>
