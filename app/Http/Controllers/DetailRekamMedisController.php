@@ -17,7 +17,7 @@ class DetailRekamMedisController extends Controller
         $periksaId = $request['id_periksa'];
         // dd($periksaId);
         $no = 1;
-        $kunjungan = Resep::select('resepobat.id_periksa', 'pemeriksaan.no_periksa', 'pemeriksaan.tindakan', 'pembayaran.status as statuspembayaran', 'pasien.nama_pasien', 'pasien.no_rmd', 'pemeriksaan.status as statuspemeriksaan', 'resepobat.status as statusobat', 'pemeriksaan.tgl_kunjungan', 'pasien.askes', 'pemeriksaan.waktu_kunjungan', DB::raw('SUM(obat.harga) as total_harga_obat'))
+        $kunjungan = Resep::select('resepobat.id_periksa', 'pemeriksaan.no_periksa', 'pemeriksaan.tindakan', 'pembayaran.status as statuspembayaran', 'pasien.nama_pasien', 'pasien.no_rmd', 'pemeriksaan.status as statuspemeriksaan', 'resepobat.status as statusobat', 'pemeriksaan.tgl_kunjungan', 'pasien.askes', 'pasien.nik', 'pasien.pekerjaan', 'pasien.nik', 'pasien.agama', 'pasien.jenis_kelamin', 'pasien.alamat', 'pasien.no_telp', 'pasien.no_dana_sehat', 'pasien.tanggal_lahir', 'pemeriksaan.alergi', 'pemeriksaan.keluhan', 'pemeriksaan.subjective', 'pemeriksaan.objective', 'pemeriksaan.assessment', 'pemeriksaan.plan','pemeriksaan.waktu_kunjungan','pemeriksaan.diagnosa', DB::raw('SUM(obat.harga) as total_harga_obat'))
             ->join('pemeriksaan', 'resepobat.id_periksa', '=', 'pemeriksaan.id')
             ->join('pasien', 'pemeriksaan.pasien_id', '=', 'pasien.id') // Join dengan tabel resepobat
             ->join('obat', 'resepobat.id_obat', '=', 'obat.id')
@@ -86,7 +86,7 @@ class DetailRekamMedisController extends Controller
         // $periksaId = $request['id_periksa'];
         // dd($periksaId);
         $no = 1;
-        $kunjungan = Resep::select('resepobat.id_periksa', 'pemeriksaan.no_periksa','pemeriksaan.alergi', 'pemeriksaan.keterangan_dokter', 'pemeriksaan.tindakan', 'pasien.agama', 'pasien.tanggal_lahir', 'pasien.nik', 'pasien.jenis_kelamin', 'pasien.pekerjaan', 'pasien.no_telp', 'pasien.no_dana_sehat', 'pemeriksaan.diagnosa', 'pasien.tempat_lahir', 'pembayaran.status as statuspembayaran', 'pasien.nama_pasien', 'pasien.no_rmd', 'pemeriksaan.status as statuspemeriksaan', 'resepobat.status as statusobat', 'pemeriksaan.tgl_kunjungan', 'pasien.askes', 'pemeriksaan.waktu_kunjungan', DB::raw('SUM(obat.harga) as total_harga_obat'))
+        $kunjungan = Resep::select('resepobat.id_periksa', 'pemeriksaan.no_periksa', 'pemeriksaan.keluhan','pemeriksaan.alergi','pemeriksaan.subjective', 'pemeriksaan.objective', 'pemeriksaan.assessment', 'pemeriksaan.plan', 'pemeriksaan.keterangan_dokter', 'pemeriksaan.tindakan', 'pasien.agama', 'pasien.tanggal_lahir', 'pasien.nik', 'pasien.jenis_kelamin', 'pasien.pekerjaan', 'pasien.no_telp', 'pasien.no_dana_sehat', 'pemeriksaan.diagnosa', 'pasien.tempat_lahir', 'pembayaran.status as statuspembayaran', 'pasien.nama_pasien', 'pasien.no_rmd', 'pemeriksaan.status as statuspemeriksaan', 'resepobat.status as statusobat', 'pemeriksaan.tgl_kunjungan', 'pasien.askes', 'pemeriksaan.waktu_kunjungan', DB::raw('SUM(obat.harga) as total_harga_obat'))
             ->join('pemeriksaan', 'resepobat.id_periksa', '=', 'pemeriksaan.id')
             ->join('pasien', 'pemeriksaan.pasien_id', '=', 'pasien.id') // Join dengan tabel resepobat
             ->join('obat', 'resepobat.id_obat', '=', 'obat.id')

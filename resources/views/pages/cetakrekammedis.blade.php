@@ -108,12 +108,32 @@
             <p>===============================================================================================</p>
             <table class="table table-bordered">
                 <tr>
-                    <th>Diagnosa</th>
-                    <td>{{ $data->diagnosa }}</td>
+                    <th>Keluhan</th>
+                    <td>{{ $data->keluhan }}</td>
                 </tr>
                 <tr>
                     <th>Alergi</th>
                     <td>{{ $data->alergi }}</td>
+                </tr>
+                <tr>
+                    <th>(S) subjective</th>
+                    <td>{{ $data->subjective }}</td>
+                </tr>
+                <tr>
+                    <th>(O) objective</th>
+                    <td>{{ $data->objective }}</td>
+                </tr>
+                 <tr>
+                    <th>(A) assessment</th>
+                    <td>{{ $data->assessment }}</td>
+                </tr>
+                 <tr>
+                    <th>(P) plan</th>
+                    <td>{{ $data->objective }}</td>
+                </tr>
+                <tr>
+                    <th>Diagnosa</th>
+                    <td>{{ $data->diagnosa }}</td>
                 </tr>
                 <tr>
                     <th>Tindakan</th>

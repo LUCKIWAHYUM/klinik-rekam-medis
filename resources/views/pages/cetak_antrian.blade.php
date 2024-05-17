@@ -18,6 +18,11 @@
             border-radius: 5px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+            margin-top: 20%;
+        }
         h1 {
             text-align: center;
             margin-bottom: 20px;
@@ -50,6 +55,7 @@
             .container {
                 max-width: 100%; /* Mengisi seluruh lebar kertas saat mencetak */
                 margin: 0;
+                margin-top: 20%;
                 padding: 0;
                 border: none;
                 border-radius: 0;
@@ -58,7 +64,7 @@
                 flex-direction: column;
                 justify-content: center; /* Menengahkan secara vertikal */
                 align-items: center; /* Menengahkan secara horizontal */
-                height: 100vh; /* Menggunakan tinggi layar penuh */
+                height: 100%; /* Menggunakan tinggi layar penuh */
     
             }
             
@@ -89,6 +95,14 @@
     </style>
 </head>
 <body>
+    <div class="header">
+        @foreach ($kunjungan as $data)
+        <h2>KLINIK PRATAMA AISYIYAH AMBULU</h2>
+        <p>JL.Hasanudin Gg.III No.94 Telp.085234199394</p>
+        <p>AMBULU - JEMBER</p>
+        <p>===============================================================================================</p>
+        <p>Tanggal Kunjungan {{ $data->tgl_kunjungan }} </p>
+    </div>
     <div class="container">
         <!-- <h1>Daftar Antrian Hari Ini</h1> -->
         <table>
@@ -102,6 +116,7 @@
                 <tr>
                     <td class="large-number">{{ $antrian->no_antrian }}</td>
                 </tr>
+                @endforeach
                 @endforeach
             </tbody>
         </table>

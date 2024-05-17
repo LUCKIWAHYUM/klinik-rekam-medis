@@ -1,5 +1,5 @@
 @extends('layouts.dashboard')
-@section('title','Detail Pembayaran' )
+@section('title','Detail Rekam Medis' )
 @section('content')
 <div class="container-fluid">
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
@@ -53,6 +53,14 @@
                             <th>Jenis Kelamin</th>
                             <td>: {{ $data->jenis_kelamin }}</td>
                         </tr>
+                        <tr>
+                            <th>Alamat</th>
+                            <td>: {{ $data->alamat }}</td>
+                        </tr>
+                        <tr>
+                            <th>No. Telp</th>
+                            <td>: {{ $data->no_telp }}</td>
+                        </tr>
                           <tr>
                             <th>Biaya</th>
                             <td>: {{ $data->askes }}</td>
@@ -65,7 +73,37 @@
                             <th>Tanggal Periksa</th>
                             <td>: {{ $data->tgl_kunjungan }}</td>
                         </tr>
-                       
+                        <tr>
+                            <th colspan="2" class="text-center text-primary">Informasi Pemeriksaan</th>
+                        </tr>
+                         <tr>
+                            <th>Keluhan</th>
+                            <td>: {{ $data->keluhan }}</td>
+                        </tr>
+                        <tr>
+                            <th>Alergi</th>
+                            <td>: {{ $data->alergi }}</td>
+                        </tr>
+                        <tr>
+                            <th>(S) subjective</th>
+                            <td>: {{ $data->subjective }}</td>
+                        </tr>
+                        <tr>
+                            <th>(O) objective</th>
+                            <td>: {{ $data->objective }}</td>
+                        </tr>
+                        <tr>
+                            <th>(A) assessment</th>
+                            <td>: {{ $data->assessment }}</td>
+                        </tr>
+                        <tr>
+                            <th>(P) plan</th>
+                            <td>: {{ $data->plan }}</td>
+                        </tr>
+                        <tr>
+                            <th>Diagnosa</th>
+                            <td>: {{ $data->diagnosa }}</td>
+                        </tr>
                         <tr>
                             <th colspan="2" class="text-center text-primary">Informasi Obat</th>
                         </tr>
@@ -73,25 +111,15 @@
                         @foreach ($resep as $data)
                         <tr>
                             <th>{{$data->nama_obat}} x 1</th>
-                            <td>Rp. {{ number_format($data->harga, 0, ',', '.') }}</td>
+                        
                         </tr>
                         @endforeach
                         @foreach ($kunjungan as $data)
-                        <tr>
-                            <th>total harga</th>
-                            <td>Rp. {{ number_format($totalobat, 0, ',', '.') }}</td>
-                        </tr>
                          <tr>
-                            <th colspan="2" class="text-center text-primary">Semua Total Biaya Tindakan</th>
+                            <th colspan="2" class="text-center text-primary">Informasi Tindakan</th>
                         </tr>
                             <tr>
                             <th>@foreach (($data->namatindakan) as $nama_tindakan)
-                            <ul>
-                                <li>{{ $nama_tindakan }}</li>
-                            </ul>
-                            @endforeach</th>
-
-                             <th>@foreach (($data->hargatindakan) as $nama_tindakan)
                             <ul>
                                 <li>{{ $nama_tindakan }}</li>
                             </ul>

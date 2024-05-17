@@ -70,7 +70,15 @@
                         </tr>
                         <tr>
                             <th>Tekanan Darah</th>
+                            <td>: {{ $data->td }}</td>
+                        </tr>
+                        <tr>
+                            <th>Nadi</th>
                             <td>: {{ $data->nadi }}</td>
+                        </tr>
+                        <tr>
+                            <th>Suhu Tubuh</th>
+                            <td>: {{ $data->suhutubuh }}</td>
                         </tr>
                         <tr>
                             <th>Keluhan</th>

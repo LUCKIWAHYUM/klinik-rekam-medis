@@ -31,6 +31,7 @@ class Pemeriksaan extends Model
         'objective',
         'assessment',
         'plan',
+        'suhutubuh',
         'tindakan',
         'keterangan_dokter',
         'diameter',
