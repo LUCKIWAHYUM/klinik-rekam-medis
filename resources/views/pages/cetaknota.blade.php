@@ -131,7 +131,7 @@
         Ambulu, {{ \Carbon\Carbon::parse($data->tgl_kunjungan)->translatedFormat('d F Y') }} <br>
         @endforeach
         Tanda tangan,<br><br><br>
-        Administrasi
+        .................
     </div>
 </body>
 </html>

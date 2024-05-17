@@ -23,6 +23,10 @@
             text-align: center;
             margin-bottom: 20px;
         }
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
         .invoice-details {
             margin-bottom: 20px;
         }
@@ -32,14 +36,18 @@
         .invoice-details table td {
             padding: 8px;
         }
+
     </style>
 </head>
 <body>
-    <div class="invoice-container" id="invoice-content">
-        <div class="invoice-header">
-            <h2>Resep Obat</h2>
+     <div class="invoice-container" id="invoice-content">
+        <div class="header">
+            @foreach ($resep as $data)
+            <h2>KLINIK PRATAMA AISYIYAH AMBULU</h2>
+            <p>JL.Hasanudin Gg.III No.94 Telp.085234199394</p>
+            <p>AMBULU - JEMBER</p>
+            <p>===================================================================</p>
         </div>
-        @foreach($kunjungan as $data)
         <div class="invoice-details">
             <table class="table table-bordered">
                 <tbody>
@@ -77,7 +85,9 @@
                 </tbody>
             </table>
         </div>
+     
     </div>
+    
 
     <!-- Bootstrap JS dan jQuery -->
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
