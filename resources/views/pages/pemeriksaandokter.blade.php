@@ -104,28 +104,25 @@
                                                         @method('PUT')
                                                         <div class="mb-3">
                                                             <label for="exampleInputEmail1"
-                                                                class="form-label">No Periksa</label>
-                                                            <input value="{{ $data->no_periksa }}" type="text" name="no_periksa"
+                                                                class="form-label">(S) subjective</label>
+                                                            <input value="{{ $data->subjective }}" type="text" name="subjective"
                                                                 class="form-control" id="exampleInputEmail1"
-                                                                aria-describedby="emailHelp" readonly>
-                                                                <div class="mb-3">
-                                                                    <div class="mb-3">
+                                                                aria-describedby="emailHelp">
                                                             <label for="exampleInputEmail1"
-                                                                class="form-label">No Rmd</label>
-                                                            <input value="{{ $data->pasien->no_rmd }}" type="text" name="no_rmd"
+                                                                class="form-label">(O) objective</label>
+                                                            <input value="{{ $data->objective }}" type="text" name="objective"
                                                                 class="form-control" id="exampleInputEmail1"
-                                                                aria-describedby="emailHelp" readonly>
+                                                                aria-describedby="emailHelp">
                                                             <label for="exampleInputEmail1"
-                                                                class="form-label">Nama Pasien</label>
-                                                            <input value="{{ $data->pasien->nama_pasien }}" type="text" name="nama_pasien"
+                                                                class="form-label">(A) assessment</label>
+                                                            <input value="{{ $data->assessment }}" type="text" name="assessment"
                                                                 class="form-control" id="exampleInputEmail1"
-                                                                aria-describedby="emailHelp" readonly>
-                                                                <div class="mb-3">
+                                                                aria-describedby="emailHelp">
                                                             <label for="exampleInputEmail1"
-                                                                class="form-label">Alergi</label>
-                                                            <input value="{{ $data->alergi }}" type="text" name="alergi"
+                                                                class="form-label">(P) plan</label>
+                                                            <input value="{{ $data->plan }}" type="text" name="plan"
                                                                 class="form-control" id="exampleInputEmail1"
-                                                                aria-describedby="emailHelp" readonly>
+                                                                aria-describedby="emailHelp">
                                                         <div class="mb-3">
                                                             <label for="exampleInputEmail1"
                                                                 class="form-label">Diagnosa</label>

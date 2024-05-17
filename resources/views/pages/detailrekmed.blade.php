@@ -34,13 +34,33 @@
                             <td>: {{ $data->nama_pasien }}</td>
                         </tr>
                         <tr>
-                            <th>No Askes</th>
-                            <td>: {{ $data->no_dana_sehat }}</td>
+                            <th>Nik</th>
+                            <td>: {{ $data->nik }}</td>
                         </tr>
                         <tr>
-                            <th>Tipe Pasien</th>
+                            <th>Pekerjaan</th>
+                            <td>: {{ $data->pekerjaan }}</td>
+                        </tr>
+                        <tr>
+                            <th>Tanggal Lahir</th>
+                            <td>: {{ $data->tanggal_lahir }}</td>
+                        </tr>
+                        <tr>
+                            <th>Agama</th>
+                            <td>: {{ $data->agama }}</td>
+                        </tr>
+                        <tr>
+                            <th>Jenis Kelamin</th>
+                            <td>: {{ $data->jenis_kelamin }}</td>
+                        </tr>
+                          <tr>
+                            <th>Biaya</th>
                             <td>: {{ $data->askes }}</td>
                         </tr>
+                        <tr>
+                            <th>No Askes</th>
+                            <td>: {{ $data->no_dana_sehat }}</td>
+                        </tr>                    
                         <tr>
                             <th>Tanggal Periksa</th>
                             <td>: {{ $data->tgl_kunjungan }}</td>
