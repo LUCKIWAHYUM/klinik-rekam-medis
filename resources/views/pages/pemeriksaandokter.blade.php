@@ -34,8 +34,6 @@
                                         <th>no_rm</th>
                                         <th>No Periksa</th>
                                         <th>Nama</th>
-                                        <th>Keluhan</th>
-                                        <th>Alergi</th>
                                         <th>Status</th>
                                         <th>Tanggal Kunjungan</th>
                                         <th>Diameter</th>
@@ -53,8 +51,6 @@
                                         <td>{{ $data->pasien->no_rmd }}</td>
                                         <td>{{ $data->no_periksa }}</td>
                                         <td>{{ $data->pasien->nama_pasien }}</td>
-                                        <td>{{ $data->keluhan }}</td>
-                                        <td>{{ $data->alergi }}</td>
                                         @if($data->status == '0')
                                         <td><span class="mb-1 badge font-medium badge-secondary py-2 px-3 fs-7">Menunggu</span></td>
                                         @elseif($data->status == '1')
@@ -174,8 +170,6 @@
                                         <th>no_rm</th>
                                         <th>No Periksa</th>
                                         <th>Nama</th>
-                                        <th>Keluhan</th>
-                                        <th>Alergi</th>
                                         <th>Status</th>
                                         <th>Tanggal Kunjungan</th>
                                         <th>Diameter</th>
