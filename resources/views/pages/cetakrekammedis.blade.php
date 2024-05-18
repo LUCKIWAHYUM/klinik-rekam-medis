@@ -157,8 +157,8 @@
                 <tr>
                     <th>Keterangan Dokter</th>
                     <td>
-                        @foreach ($kunjungan as $data)
-                        {{ $data->keterangan_dokter }}
+                        @foreach ($resep as $data)
+                        {{ $data->deskripsi }}
                     @endforeach
                     </td>
                 </tr>
