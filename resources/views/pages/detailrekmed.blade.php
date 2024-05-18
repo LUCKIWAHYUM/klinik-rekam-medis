@@ -93,6 +93,9 @@
                                 : Tekanan Darah&nbsp;:&nbsp;{{ $data->td }}<br>
                                 : Denyut Nadi&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;{{ $data->nadi }}<br>
                                 : Suhu Tubuh&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;{{ $data->suhutubuh }}
+                                : SPO2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;{{ $data->spo2 }}
+                                : Pernapasan/RR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;{{ $data->pernapasan }}
+                                : Pemeriksaan Lain&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;{{ $data->periksalain }}
                             </td>
                         </tr>
                         <tr>

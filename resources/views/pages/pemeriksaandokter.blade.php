@@ -109,18 +109,18 @@
                                                     
                                                         <div class="mb-3">
                                                             <label for="" class="form-label">(O) Objective</label>
-                                                            <textarea class="form-control" id="" name="" rows="8" readonly style="font-family: 'Courier New', monospace; white-space: pre; resize: none; border: 0px solid #ced4da;">
-    Keterangan       | Nilai       
-    -----------------|-------------
-    Tinggi Badan     | {{ $data->tb }}
-    Berat Badan      | {{ $data->bb }}
-    Tekanan Darah    | {{ $data->td }}
-    Denyut Nadi      | {{ $data->nadi }}
-    Suhu Tubuh       | {{ $data->suhutubuh }}
-</textarea>
-
-                                                            
-                                                        </div>
+                                                            <textarea class="form-control" rows="8" readonly style="font-family: 'Courier New', monospace; white-space: pre; resize: none; border: 0px solid #ced4da;">
+Keterangan       | Nilai       
+-----------------|-------------
+Tinggi Badan     | {{ $data->tb }}
+Berat Badan      | {{ $data->bb }}
+Tekanan Darah    | {{ $data->td }}
+Denyut Nadi      | {{ $data->nadi }}
+Suhu Tubuh       | {{ $data->suhutubuh }}
+SPO2             | {{ $data->spo2 }}
+Pernapasan/RR    | {{ $data->pernapasan }}
+Pemeriksaan Lain | {{ $data->periksalain }}
+                                                            </textarea> 
 
                                                         <div class="mb-3">
                                                             <label for="exampleInputEmail1"

@@ -151,6 +151,21 @@
                                                         @csrf
                                                         @method('PUT')
                                                         <div class="mb-3">
+                                                            <label for="exampleInputEmail1" class="form-label">Keluhan</label>
+                                                            <input value="{{ $data->keluhan }}" type="text"
+                                                                name="keluhan" class="form-control"
+                                                                id="exampleInputEmail1" aria-describedby="emailHelp">
+                                                            <input value="1" type="hidden"
+                                                                name="status" class="form-control"
+                                                                id="exampleInputEmail1" aria-describedby="emailHelp">
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="exampleInputEmail1" class="form-label">Alergi</label>
+                                                            <input value="{{ $data->alergi }}" type="text"
+                                                                name="alergi" class="form-control"
+                                                                id="exampleInputEmail1" aria-describedby="emailHelp">
+                                                        </div>
+                                                        <div class="mb-3">
                                                             <label for="exampleInputEmail1" class="form-label">Tinggi Badan</label>
                                                             <input value="{{ $data->tb }}" type="text"
                                                                 name="tb" class="form-control"
@@ -181,20 +196,24 @@
                                                                 id="exampleInputEmail1" aria-describedby="emailHelp">
                                                         </div>
                                                         <div class="mb-3">
-                                                            <label for="exampleInputEmail1" class="form-label">Keluhan</label>
-                                                            <input value="{{ $data->keluhan }}" type="text"
-                                                                name="keluhan" class="form-control"
-                                                                id="exampleInputEmail1" aria-describedby="emailHelp">
-                                                            <input value="1" type="hidden"
-                                                                name="status" class="form-control"
+                                                            <label for="exampleInputEmail1" class="form-label">SPO2</label>
+                                                            <input value="{{ $data->spo2 }}" type="text"
+                                                                name="spo2" class="form-control"
                                                                 id="exampleInputEmail1" aria-describedby="emailHelp">
                                                         </div>
                                                         <div class="mb-3">
-                                                            <label for="exampleInputEmail1" class="form-label">Alergi</label>
-                                                            <input value="{{ $data->alergi }}" type="text"
-                                                                name="alergi" class="form-control"
+                                                            <label for="exampleInputEmail1" class="form-label">Pernapasan/RR</label>
+                                                            <input value="{{ $data->pernapasan }}" type="text"
+                                                                name="pernapasan" class="form-control"
                                                                 id="exampleInputEmail1" aria-describedby="emailHelp">
                                                         </div>
+                                                        <div class="mb-3">
+                                                            <label for="exampleInputEmail1" class="form-label">Pemeriksan Lain</label>
+                                                            <input value="{{ $data->periksalain }}" type="text"
+                                                                name="periksalain" class="form-control"
+                                                                id="exampleInputEmail1" aria-describedby="emailHelp">
+                                                        </div>
+                                                        
 
 
                                                 </div>

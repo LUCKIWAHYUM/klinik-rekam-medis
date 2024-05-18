@@ -26,6 +26,9 @@ return new class extends Migration
             $table->string('td')->nullable();
             $table->string('bb')->nullable();
             $table->string('nadi')->nullable();
+            $table->string('spo2')->nullable();
+            $table->string('pernapasan')->nullable();
+            $table->string('periksalain')->nullable();
             $table->string('alergi')->nullable();
             $table->string('diagnosa')->nullable();
             $table->string('tindakan')->nullable();
