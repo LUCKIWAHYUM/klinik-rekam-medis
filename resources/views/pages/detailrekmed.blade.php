@@ -88,14 +88,18 @@
                         <tr>
                             <th>(O) objective</th>
                             <td>
-                                : Tinggi Badan&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;{{ $data->tb }}<br>
-                                : Berat Badan&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;{{ $data->bb }}<br>
-                                : Tekanan Darah&nbsp;:&nbsp;{{ $data->td }}<br>
-                                : Denyut Nadi&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;{{ $data->nadi }}<br>
-                                : Suhu Tubuh&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;{{ $data->suhutubuh }}
-                                : SPO2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;{{ $data->spo2 }}
-                                : Pernapasan/RR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;{{ $data->pernapasan }}
-                                : Pemeriksaan Lain&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;{{ $data->periksalain }}
+                              <div>
+                            <span style="display: inline-block; width: 150px;">: Tinggi Badan&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="display: inline-block; width: 15px; text-align: center;">:</span>&nbsp;{{ $data->tb }}<br>
+                            <span style="display: inline-block; width: 150px;">: Berat Badan&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="display: inline-block; width: 15px; text-align: center;">:</span>&nbsp;{{ $data->bb }}<br>
+                            <span style="display: inline-block; width: 150px;">: Tekanan Darah&nbsp;</span><span style="display: inline-block; width: 15px; text-align: center;">:</span>&nbsp;{{ $data->td }}<br>
+                            <span style="display: inline-block; width: 150px;">: Denyut Nadi&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="display: inline-block; width: 15px; text-align: center;">:</span>&nbsp;{{ $data->nadi }}<br>
+                            <span style="display: inline-block; width: 150px;">: Suhu Tubuh&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="display: inline-block; width: 15px; text-align: center;">:</span>&nbsp;{{ $data->suhutubuh }}<br>
+                            <span style="display: inline-block; width: 150px;">: SPO2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="display: inline-block; width: 15px; text-align: center;">:</span>&nbsp;{{ $data->spo2 }}<br>
+                            <span style="display: inline-block; width: 150px;">: Pernapasan/RR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="display: inline-block; width: 15px; text-align: center;">:</span>&nbsp;{{ $data->pernapasan }}<br>
+                            <span style="display: inline-block; width: 150px;">: Pemeriksaan Lain&nbsp;&nbsp;</span><span style="display: inline-block; width: 15px; text-align: center;">:</span>&nbsp;{{ $data->periksalain }}<br>
+                        </div>
+
+
                             </td>
                         </tr>
                         <tr>

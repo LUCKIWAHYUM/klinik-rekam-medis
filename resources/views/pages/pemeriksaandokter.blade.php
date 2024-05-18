@@ -107,9 +107,9 @@
                                                             <input value="{{ $data->keluhan }}" type="text" name="keluhan" class="form-control" id="exampleColumn" readonly>
                                                         </div>
                                                     
-                                                        <div class="mb-3">
-                                                            <label for="" class="form-label">(O) Objective</label>
-                                                            <textarea class="form-control" rows="8" readonly style="font-family: 'Courier New', monospace; white-space: pre; resize: none; border: 0px solid #ced4da;">
+                                                       <div class="mb-3">
+    <label for="" class="form-label">(O) Objective</label>
+    <textarea class="form-control" rows="8" readonly style="font-family: 'Courier New', monospace; white-space: pre; resize: none; border: 0px solid #ced4da;">
 Keterangan       | Nilai       
 -----------------|-------------
 Tinggi Badan     | {{ $data->tb }}
@@ -120,7 +120,9 @@ Suhu Tubuh       | {{ $data->suhutubuh }}
 SPO2             | {{ $data->spo2 }}
 Pernapasan/RR    | {{ $data->pernapasan }}
 Pemeriksaan Lain | {{ $data->periksalain }}
-                                                            </textarea> 
+    </textarea>
+</div>
+
 
                                                         <div class="mb-3">
                                                             <label for="exampleInputEmail1"
