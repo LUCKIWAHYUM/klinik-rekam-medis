@@ -108,35 +108,29 @@
             <p>===============================================================================================</p>
             <table class="table table-bordered">
                 <tr>
-                    <th>Keluhan</th>
-                    <td>{{ $data->keluhan }}</td>
-                </tr>
-                <tr>
                     <th>Alergi</th>
                     <td>{{ $data->alergi }}</td>
                 </tr>
                 <tr>
                     <th>(S) subjective</th>
-                    <td>{{ $data->subjective }}</td>
+                    <td>{{ $data->keluhan }}</td>
                 </tr>
                 <tr>
-                    <th>(O) objective</th>
-                    <td>{{ $data->objective }}</td>
-                </tr>
-                 <tr>
+                            <th>(O) objective</th>
+                            <td>
+                                : Tinggi Badan&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;{{ $data->tb }}<br>
+                                : Berat Badan&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;{{ $data->bb }}<br>
+                                : Tekanan Darah&nbsp;:&nbsp;{{ $data->td }}<br>
+                                : Denyut Nadi&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;{{ $data->nadi }}<br>
+                                : Suhu Tubuh&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;{{ $data->suhutubuh }}
+                            </td>
+                        </tr>
+                <tr>
                     <th>(A) assessment</th>
-                    <td>{{ $data->assessment }}</td>
-                </tr>
-                 <tr>
-                    <th>(P) plan</th>
-                    <td>{{ $data->objective }}</td>
-                </tr>
-                <tr>
-                    <th>Diagnosa</th>
                     <td>{{ $data->diagnosa }}</td>
                 </tr>
                 <tr>
-                    <th>Tindakan</th>
+                    <th>(P) planning</th>
                     <td>@foreach (json_decode($data->tindakan, true) as $nama_tindakan)
         <ul>
             <li>{{ $nama_tindakan }}</li>

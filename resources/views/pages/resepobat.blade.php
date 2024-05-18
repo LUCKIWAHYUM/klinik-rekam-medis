@@ -93,16 +93,16 @@
                                         <div class="modal-dialog">
                                             <div class="modal-content">
                                                 <div class="modal-header">
-                                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Hapus Data Tindakan</h1>
+                                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Hapus Data Resep Obat</h1>
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                         aria-label="Close"></button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <form action="{{ route('kunjungan.destroy', $data->id) }}"
+                                                    <form action="{{ route('resepobat.destroy', $data->id) }}"
                                                         method="POST">
                                                         @csrf
                                                         @method('DELETE')
-                                                        <p>Anda Yakin akan menghapus data {{ $data->nama_tindakan }}?</p>
+                                                        <p>Anda Yakin akan menghapus data resep obat {{ $data->nama_pasien }}?</p>
 
                                                 </div>
                                                 <div class="modal-footer">

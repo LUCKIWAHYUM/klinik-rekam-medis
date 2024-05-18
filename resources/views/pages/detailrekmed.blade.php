@@ -76,34 +76,41 @@
                         <tr>
                             <th colspan="2" class="text-center text-primary">Informasi Pemeriksaan</th>
                         </tr>
-                         <tr>
-                            <th>Keluhan</th>
-                            <td>: {{ $data->keluhan }}</td>
-                        </tr>
                         <tr>
                             <th>Alergi</th>
                             <td>: {{ $data->alergi }}</td>
                         </tr>
+                         <tr>
                         <tr>
                             <th>(S) subjective</th>
-                            <td>: {{ $data->subjective }}</td>
-                        </tr>
+                            <td>: {{ $data->keluhan }}</td>
+                        </tr>                     
                         <tr>
                             <th>(O) objective</th>
-                            <td>: {{ $data->objective }}</td>
+                            <td>
+                                : Tinggi Badan&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;{{ $data->tb }}<br>
+                                : Berat Badan&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;{{ $data->bb }}<br>
+                                : Tekanan Darah&nbsp;:&nbsp;{{ $data->td }}<br>
+                                : Denyut Nadi&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;{{ $data->nadi }}<br>
+                                : Suhu Tubuh&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;{{ $data->suhutubuh }}
+                            </td>
                         </tr>
                         <tr>
                             <th>(A) assessment</th>
-                            <td>: {{ $data->assessment }}</td>
-                        </tr>
-                        <tr>
-                            <th>(P) plan</th>
-                            <td>: {{ $data->plan }}</td>
-                        </tr>
-                        <tr>
-                            <th>Diagnosa</th>
                             <td>: {{ $data->diagnosa }}</td>
                         </tr>
+                       <tr>
+                        <tr>
+                            <th>(P) planning</th>
+                            <td>
+                                <ul>
+                                    @foreach (json_decode($data->tindakan, true) as $nama_tindakan)
+                                        <li>{{ $nama_tindakan }}</li>
+                                    @endforeach
+                                </ul>
+                            </td>
+                        </tr>
+
                         <tr>
                             <th colspan="2" class="text-center text-primary">Informasi Obat</th>
                         </tr>

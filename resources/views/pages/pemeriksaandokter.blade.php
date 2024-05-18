@@ -103,42 +103,34 @@
                                                         @csrf
                                                         @method('PUT')
                                                         <div class="mb-3">
-                                                            <label for="exampleInputEmail1"
-                                                                class="form-label">(S) subjective</label>
-                                                            <input value="{{ $data->subjective }}" type="text" name="subjective"
-                                                                class="form-control" id="exampleInputEmail1"
-                                                                aria-describedby="emailHelp">
-                                                            <label for="exampleInputEmail1"
-                                                                class="form-label">(O) objective</label>
-                                                            <input value="{{ $data->objective }}" type="text" name="objective"
-                                                                class="form-control" id="exampleInputEmail1"
-                                                                aria-describedby="emailHelp">
-                                                            <label for="exampleInputEmail1"
-                                                                class="form-label">(A) assessment</label>
-                                                            <input value="{{ $data->assessment }}" type="text" name="assessment"
-                                                                class="form-control" id="exampleInputEmail1"
-                                                                aria-describedby="emailHelp">
-                                                            <label for="exampleInputEmail1"
-                                                                class="form-label">(P) plan</label>
-                                                            <input value="{{ $data->plan }}" type="text" name="plan"
-                                                                class="form-control" id="exampleInputEmail1"
-                                                                aria-describedby="emailHelp">
+                                                            <label for="keluhan" class="form-label">(S) subjective</label>
+                                                            <input value="{{ $data->keluhan }}" type="text" name="keluhan" class="form-control" id="exampleColumn" readonly>
+                                                        </div>
+                                                    
+                                                        <div class="mb-3">
+                                                            <label for="" class="form-label">(O) Objective</label>
+                                                            <textarea class="form-control" id="" name="" rows="8" readonly style="font-family: 'Courier New', monospace; white-space: pre; resize: none; border: 0px solid #ced4da;">
+    Keterangan       | Nilai       
+    -----------------|-------------
+    Tinggi Badan     | {{ $data->tb }}
+    Berat Badan      | {{ $data->bb }}
+    Tekanan Darah    | {{ $data->td }}
+    Denyut Nadi      | {{ $data->nadi }}
+    Suhu Tubuh       | {{ $data->suhutubuh }}
+</textarea>
+
+                                                            
+                                                        </div>
+
                                                         <div class="mb-3">
                                                             <label for="exampleInputEmail1"
-                                                                class="form-label">Diagnosa</label>
+                                                                class="form-label">(A) assessment</label>
                                                             <input value="{{ $data->diagnosa }}" type="text" name="diagnosa"
                                                                 class="form-control" id="exampleInputEmail1"
                                                                 aria-describedby="emailHelp">
                                                         </div>
-                                                        <div class="mb-3">
-                                                            <label for="keterangan_dokter"
-                                                                class="form-label">Keterangan</label>
-                                                            <input value="{{ $data->keterangan_dokter }}" type="text" name="keterangan_dokter"
-                                                                class="form-control" id="exampleInputEmail1"
-                                                                aria-describedby="emailHelp">
-                                                        </div>
                                                             <div class="mb-3">
-                                                            <label for="tindakan{{ $data->id }}" class="form-label">Tindakan</label>
+                                                            <label for="tindakan{{ $data->id }}" class="form-label">(P) planning</label>
                                                             <select class="js-example-basic-multiple form-control" name="tindakan[]" multiple="multiple" id="tindakan{{ $data->id }}" style="width: 100%;" >
                                                                 @foreach($tindakan as $data)
                                                                     <option value="{{ $data->nama_tindakan }}">{{ $data->nama_tindakan }}</option>
