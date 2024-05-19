@@ -152,7 +152,7 @@ if ($tindakan) {
     $harga = Tindakan::select('harga', 'nama_tindakan')->whereIn('nama_tindakan', [$tindakan])->get();
 }else{
     //  $harga = Tindakan::select('harga', 'nama_tindakan')->whereIn('nama_tindakan', json_decode($data->tindakan, true))->get();
-    $harga = Tindakan::get();
+    $harga = Tindakan::select('harga', 'nama_tindakan')->whereIn('nama_tindakan', json_decode($data->tindakan, true))->get();
 }
     // $data->total_harga_tindakan = 0;
     $hargatindakan = [];

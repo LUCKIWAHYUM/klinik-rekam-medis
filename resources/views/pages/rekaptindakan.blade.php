@@ -101,7 +101,7 @@
                                         <th>No Periksa</th>
                                         <th>Nama</th>
                                         <th>Tindakan</th>
-                                        <!-- <th>Harga</th> -->
+                                        <th>Harga</th>
                                         <th>Tanggal Kunjungan</th>
                                     </tr>
                             </tr>
