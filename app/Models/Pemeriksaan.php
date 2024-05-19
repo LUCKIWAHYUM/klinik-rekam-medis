@@ -53,4 +53,8 @@ class Pemeriksaan extends Model
     {
         return $this->belongsTo(Pasien::class, 'pasien_id', 'id');
     }
+
+    public function harga(){
+        return $this -> belongsTo(Tindakan::class, "id", "nama_tindakan");
+    }
 }

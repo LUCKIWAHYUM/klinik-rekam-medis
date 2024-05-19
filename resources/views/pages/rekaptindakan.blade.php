@@ -70,25 +70,32 @@
                                 </thead>
                                 <tbody>
                                     @foreach ($kunjungan as $data)
-                                    <tr>
-                                        <td>{{ $no++ }}</td>
-                                        <td>{{ $data->no_periksa }}</td>
-                                        <td>{{ $data->pasien->nama_pasien }}</td>
-                                         <td> @if ($data->tindakan)
-                                            @foreach ($data->tindakan as $nama_tindakan)
-                                                <ul>
-                                                    <li>{{ $nama_tindakan }}</li>
-                                                </ul>
-                                            @endforeach
-                                        @endif</td>
-                                        <td>@foreach (($data->hargatindakan) as $nama_tindakan)
-                            <ul>
-                                <li>{{ $nama_tindakan }}</li>
-                            </ul>
-                            @endforeach</td>
-                                        <td>{{ $data->tgl_kunjungan }}</td>
-</tr>
+                                        <tr>
+                                            <td>{{ $no++ }}</td>
+                                            <td>{{ $data->no_periksa }}</td>
+                                            <td>{{ $data->pasien->nama_pasien }}</td>
+                                            <td>
+                                                @if ($data->tindakan)
+                                                    @foreach ($data->tindakan as $nama_tindakan)
+                                                        <ul>
+                                                            <li>{{ $nama_tindakan }}</li>
+                                                        </ul>
+                                                    @endforeach
+                                                @endif
+                                            </td>
+                                            <td>
+                                                @if ($data->hargatindakan)
+                                                    @foreach ($data->hargatindakan as $nama_tindakan => $harga_tindakan)
+                                                        <ul>
+                                                            <li>{{ $harga_tindakan }}</li>
+                                                        </ul>
+                                                    @endforeach
+                                                @endif
+                                            </td>
+                                            <td>{{ $data->tgl_kunjungan }}</td>
+                                        </tr>
                                         @endforeach
+
         
 
                           
