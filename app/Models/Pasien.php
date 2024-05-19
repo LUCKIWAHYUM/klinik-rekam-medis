@@ -26,4 +26,8 @@ class Pasien extends Model
         'statuspasien',
         'no_dana_sehat'
     ];
+        public function resep()
+    {
+        return $this->hasmany(Resep::class, 'id','id_pasien');
+    }
 }

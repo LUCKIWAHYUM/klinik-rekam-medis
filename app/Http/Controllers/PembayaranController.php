@@ -14,7 +14,7 @@ class PembayaranController extends Controller
     {
         $no = 1;
         
-        $kunjungan = Resep::select('resepobat.id_periksa', 'pemeriksaan.no_periksa', 'pemeriksaan.tindakan', 'pembayaran.status as statuspembayaran', 'pasien.nama_pasien', 'pasien.no_rmd', 'pemeriksaan.status as statuspemeriksaan', 'resepobat.status as statusobat', 'pemeriksaan.tgl_kunjungan', 'pasien.askes', 'pemeriksaan.waktu_kunjungan', DB::raw('SUM(obat.harga) as total_harga_obat'))
+        $kunjungan = Resep::select('resepobat.id_periksa', 'pemeriksaan.no_periksa', 'pemeriksaan.tindakan', 'pembayaran.status as statuspembayaran', 'pasien.nama_pasien', 'pemeriksaan.tgl_kunjungan', 'pasien.no_rmd', 'pemeriksaan.status as statuspemeriksaan', 'resepobat.status as statusobat', 'pemeriksaan.tgl_kunjungan', 'pasien.askes', 'pemeriksaan.waktu_kunjungan', DB::raw('SUM(obat.harga) as total_harga_obat'))
             ->join('pemeriksaan', 'resepobat.id_periksa', '=', 'pemeriksaan.id')
             ->join('pasien', 'pemeriksaan.pasien_id', '=', 'pasien.id') // Join dengan tabel resepobat
             ->join('obat', 'resepobat.id_obat', '=', 'obat.id')

@@ -52,6 +52,17 @@
             <i class="far fa-file-alt" style="--fa-primary-color: #0b64fe; --fa-secondary-color: #0b64fe;"></i>
             <span>Laporan Kunjungan Pasien</span></a>
     </li>
+         <li class="nav-item">
+        <a class="nav-link {{ (request()->is('rekapobat')) ? 'active' : ''}}" href="{{ route('rekapobat.index') }}">
+            <i class="far fa-file-alt" style="--fa-primary-color: #0b64fe; --fa-secondary-color: #0b64fe;"></i>
+            <span>Rekapitulasi Obat</span></a>
+    </li>
+     </li>
+         <li class="nav-item">
+        <a class="nav-link {{ (request()->is('rekaptindakan')) ? 'active' : ''}}" href="{{ route('rekaptindakan.index') }}">
+            <i class="far fa-file-alt" style="--fa-primary-color: #0b64fe; --fa-secondary-color: #0b64fe;"></i>
+            <span>Rekapitulasi Tindakan</span></a>
+    </li>
      <hr class="sidebar-divider my-0">
 
     @elseif(Auth::user()->role == 'dokter')

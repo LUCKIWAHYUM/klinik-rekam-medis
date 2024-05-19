@@ -34,10 +34,9 @@
                                         <th>No. rmd</th>
                                         <th>No. Periksa</th>
                                         <th>Nama Pasien</th>
-                                        <th>Biaya Tindakan</th>
-                                        <th>Biaya Obat</th>
                                         <th>Status</th>
                                         <th>Jenis Pasien</th>
+                                        <th>Tanggal Kunjungan</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
@@ -48,18 +47,17 @@
                                         <td>{{ $data->no_rmd }}</td>
                                         <td>{{ $data->no_periksa }}</td>
                                         <td>{{ $data->nama_pasien }}</td>
-                                        <td>{{ $data->total_harga_tindakan }}</td>
-                                        
-                                        <td>{{ $data->total_harga_obat }}</td>
                                         @if(empty($data->statuspembayaran) OR $data->statuspembayaran == 'belum')
                                         <td><span class="mb-1 badge font-medium badge-secondary py-2 px-3 fs-7">Menunggu pembayaran</span></td>
                                         @elseif($data->statuspembayaran == 'sudah bayar')
                                         <td><span class="mb-1 badge font-medium badge-success py-2 px-3 fs-7">Selesai</span></td>
                                         @endif
                                         <td>{{ $data->askes }}</td>
+                                        <td>{{ $data->tgl_kunjungan }}</td>
                                         <td>
                                             <a href="{{ route('detailpembayaran.index', ['id_periksa' => $data->id_periksa]) }}" class="btn btn-primary m-1">Detail</a>
                                         </td>
+                                        
                                         @endforeach
 
                         </tbody>
@@ -69,10 +67,9 @@
                                     <th>No. rmd</th>
                                     <th>No. Periksa</th>
                                     <th>Nama Pasien</th>
-                                    <th>Biaya Tindakan</th>
-                                    <th>Biaya Obat</th>
                                     <th>Status</th>
                                     <th>Jenis Pasien</th>
+                                    <th>Tanggal Kunjungan</th>
                                     <th>Aksi</th>
                             </tr>
                         </tfoot>

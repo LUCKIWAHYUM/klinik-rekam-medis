@@ -51,6 +51,8 @@ Route::resource('detailpembayaran', 'App\Http\Controllers\DetailPembayaranContro
 Route::resource('detailrekmed', 'App\Http\Controllers\DetailRekamMedisController')->middleware('auth');
 Route::resource('detailperiksa', 'App\Http\Controllers\DetailPeriksaController')->middleware('auth');
 Route::resource('laporan-kunjungan', 'App\Http\Controllers\LaporanController')->middleware('auth');
+Route::resource('rekapobat', 'App\Http\Controllers\rekapobatController')->middleware('auth');
+Route::resource('rekaptindakan', 'App\Http\Controllers\rekaptindakanController')->middleware('auth');
 Route::get('/cetak-antrian/{id}',  [KunjunganController::class, 'cetakAntrian']);
 Route::get('/cetak-laporan/{bulan}/{tahun}',  [LaporanController::class, 'cetak']);
 Route::get('/cetak/{id}',  [DetailresepobatController::class, 'cetak']);

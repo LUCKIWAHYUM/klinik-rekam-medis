@@ -24,4 +24,12 @@ class Resep extends Model
     {
         return $this->belongsTo(Pemeriksaan::class, 'id_periksa','id');
     }
+    public function obat()
+    {
+        return $this->belongsTo(Obat::class, 'id_obat','id');
+    }
+    public function pasien()
+    {
+        return $this->belongsTo(Pasien::class, 'id_pasien','id');
+    }
 }
