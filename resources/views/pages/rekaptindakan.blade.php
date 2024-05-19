@@ -64,7 +64,7 @@
                                         <th>No Periksa</th>
                                         <th>Nama</th>
                                         <th>Tindakan</th>
-                                        <!-- <th>Harga</th> -->
+                                        <th>Harga</th>
                                         <th>Tanggal Kunjungan</th>
                                     </tr>
                                 </thead>
@@ -81,11 +81,11 @@
                                                 </ul>
                                             @endforeach
                                         @endif</td>
-                                        <!-- <td>@foreach (($data->hargatindakan) as $nama_tindakan)
+                                        <td>@foreach (($data->hargatindakan) as $nama_tindakan)
                             <ul>
                                 <li>{{ $nama_tindakan }}</li>
                             </ul>
-                            @endforeach</td> -->
+                            @endforeach</td>
                                         <td>{{ $data->tgl_kunjungan }}</td>
 </tr>
                                         @endforeach
@@ -159,6 +159,30 @@ function handleSubmit() {
 
     // Buat URL dengan parameter yang dipilih
     var url = "{{ route('rekaptindakan.index') }}?";
+    if (selectedMonth) {
+        url += "bulan=" + selectedMonth + "&";
+    }
+    if (selectedYear) {
+        url += "tahun=" + selectedYear + "&";
+    }
+    if (selectedTindakan) {
+        url += "tindakan=" + selectedTindakan + "&";
+    }
+
+    // Hapus karakter '&' terakhir jika ada
+    url = url.slice(0, -1);
+
+    // Redirect ke URL yang dibangun
+    window.location.href = url;
+}
+function print() {
+    // Dapatkan nilai yang dipilih dari elemen <select> bulan dan tahun
+    var selectedMonth = document.getElementById('bulan').value;
+    var selectedYear = document.getElementById('tahun').value;
+    var selectedTindakan = document.getElementById('tindakan').value;
+
+    // Buat URL dengan parameter yang dipilih
+    var url = "{{ route('cetak.tindakan') }}?";
     if (selectedMonth) {
         url += "bulan=" + selectedMonth + "&";
     }

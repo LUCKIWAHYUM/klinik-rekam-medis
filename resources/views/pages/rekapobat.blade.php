@@ -148,6 +148,30 @@
             selectobatId.value = selectedObatId;
         }
     });
+function print() {
+    // Dapatkan nilai yang dipilih dari elemen <select> bulan dan tahun
+    var selectedMonth = document.getElementById('bulan').value;
+    var selectedYear = document.getElementById('tahun').value;
+    var selectedObatId = document.getElementById('obat_id').value;
+
+    // Buat URL dengan parameter yang dipilih
+    var url = "{{ route('cetak.obat') }}?";
+    if (selectedMonth) {
+        url += "bulan=" + selectedMonth + "&";
+    }
+    if (selectedYear) {
+        url += "tahun=" + selectedYear + "&";
+    }
+    if (selectedObatId) {
+        url += "obat_id=" + selectedObatId + "&";
+    }
+
+    // Hapus karakter '&' terakhir jika ada
+    url = url.slice(0, -1);
+
+    // Redirect ke URL yang dibangun
+    window.location.href = url;
+}
 function handleSubmit() {
     // Dapatkan nilai yang dipilih dari elemen <select> bulan dan tahun
     var selectedMonth = document.getElementById('bulan').value;

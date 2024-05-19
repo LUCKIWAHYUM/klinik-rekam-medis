@@ -59,6 +59,10 @@ class HomeController extends Controller
             ->select('id_periksa', DB::raw('COUNT(*) as total'))
             ->get()
             ->count();
+        $pendapatan = Pembayaran::where('status' ,'sudah bayar')->get()->sum('total');
+        $pendapatanbulan = Pembayaran::where('status' ,'sudah bayar')
+        ->whereMonth('created_at', $currentMonth)
+        ->get()->sum('total');
         $jumlahobat = Obat::get()->count();
         $pemeriksaan = Pemeriksaan::whereIn('status', ['0', '1'])->get()->count();
         $per = Pemeriksaan::get()->count();
@@ -82,7 +86,7 @@ class HomeController extends Controller
         } elseif ($role === 'perawat') {
             return view('pages.dashboard-perawat', compact('pemeriksaandone', 'pemeriksaanwait', 'pemeriksaanperiksa'));
         } elseif ($role === 'admin') {
-            return view('pages.dashboard-admin', compact('pasien', 'count', 'pembayarandone', 'pembayaranwait','jumlahIdPeriksa'));
+            return view('pages.dashboard-admin', compact('pendapatanbulan','pendapatan','pasien', 'count', 'pembayarandone', 'pembayaranwait','jumlahIdPeriksa'));
         } elseif ($role === 'apoteker') {
             return view('pages.dashboard-apoteker', compact('jumlahobat', 'pembeliansendiri', 'pembelianapotek'));
         } else {

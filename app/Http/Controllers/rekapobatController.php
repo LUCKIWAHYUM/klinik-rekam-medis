@@ -56,52 +56,49 @@ $Obat = $query->get();
         return view('pages.rekapobat', compact('no', 'Obat', 'listbulan','nameobat'));
 
     }
+    public function cetakrekapobat(Request $request)
+    {   
+        $listbulan = [
+    '1' => 'Januari',
+    '2' => 'Februari',
+    '3' => 'Maret',
+    '4' => 'April',
+    '5' => 'Mei',
+    '6' => 'Juni',
+    '7' => 'Juli',
+    '8' => 'Agustus',
+    '9' => 'September',
+    '10' => 'Oktober',
+    '11' => 'November',
+    '12' => 'Desember'];
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
+        $namaobat = $request->input('obat_id');
+        $bulan = $request->input('bulan');
+        $tahun = $request->input('tahun');
+        $no = 1;
+        $nameobat = Obat::get();
+$query = Resep::with(['periksa', 'periksa.pasien', 'obat'])
+                ->where('pembelian', 'apotek');
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+if ($namaobat) {
+    $query->where('id_obat', $namaobat);
+}
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
+if ($bulan) {
+    $query->whereHas('periksa', function($q) use ($bulan) {
+        $q->whereMonth('tgl_kunjungan', $bulan);
+    });
+}
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
+if ($tahun) {
+    $query->whereHas('periksa', function($q) use ($tahun) {
+        $q->whereYear('tgl_kunjungan', $tahun);
+    });
+}
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
+$Obat = $query->get();
+// dd($Obat);
+        return view('pages.cetakrekapobat', compact('no', 'Obat', 'listbulan','nameobat'));
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
     }
 }
