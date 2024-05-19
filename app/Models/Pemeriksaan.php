@@ -45,6 +45,10 @@ class Pemeriksaan extends Model
     {
         return $this->belongsTo(User::class, 'user_id', 'id');
     }
+    public function resep()
+    {
+        return $this->hasmany(Resep::class, 'id', 'id_periksa');
+    }
     public function pasien()
     {
         return $this->belongsTo(Pasien::class, 'pasien_id', 'id');

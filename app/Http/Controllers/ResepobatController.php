@@ -119,8 +119,12 @@ if ($obat) {
      */
     public function destroy(string $id)
     {
-        $data = Pemeriksaan::findOrFail($id);
-        $data->delete();
+$datas = Resep::where('id_periksa', $id)->get(); // Menggunakan where untuk mencari semua data berdasarkan ID periksa
+foreach ($datas as $data) {
+    $data->delete(); // Menghapus data satu per satu
+}
+
+
 
         return redirect()->route('resepobat.index');
     }

@@ -66,7 +66,7 @@
                                                     <ul class="dropdown-menu">
                                                     <li><a data-bs-toggle="modal" data-bs-target="#editUser{{ $data->id }}" class="dropdown-item">Buat Resep</a></li>
                                                     <li><li> <a href="{{ route('detail.index', ['id_periksa' => $data->id]) }}" class="dropdown-item">Detail</a></li> </li>
-                                                    <li><a data-bs-toggle="modal" data-bs-target="#deletedata{{$data->id}}" class="dropdown-item text-danger">Hapus</a></li>
+                                                    <li><a data-bs-toggle="modal" data-bs-target="#deletedata{{$data->id}}" class="dropdown-item text-danger">Hapus Resep</a></li>
                                                 </ul>
                                             </div>
                                             @if($data->status == "0")

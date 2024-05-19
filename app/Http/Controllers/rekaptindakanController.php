@@ -44,8 +44,6 @@ $tahun = $request->input('tahun');
     if ($tindakan) {
         // $query->whereJsonContains('tindakan', ['infus']);
         $query->whereJsonContains('tindakan', [$tindakan]);
-
-        //  dd($query);
     }
 
     if ($bulan) {
@@ -58,6 +56,37 @@ $tahun = $request->input('tahun');
 
     }
     $kunjungan = $query->get();
+
+
+foreach ($kunjungan as $data) {
+if ($tindakan) {
+    $harga = Tindakan::select('harga', 'nama_tindakan')->whereIn('nama_tindakan', [$tindakan])->get();
+}else{
+    //  $harga = Tindakan::select('harga', 'nama_tindakan')->whereIn('nama_tindakan', json_decode($data->tindakan, true))->get();
+    $harga = Tindakan::get();
+}
+    // $data->total_harga_tindakan = 0;
+    $hargatindakan = [];
+    $namatindakan = [];
+    foreach ($harga as $item) {
+        $namatindakan[] = $item->nama_tindakan;
+        if ($data->askes == "Dana_Sehat") {
+            if ($item->nama_tindakan == "periksa" || $item->nama_tindakan == "pemeriksaan dan konsultasi") {
+                $hargatindakan[] = 0;
+                // $data->total_harga_tindakan += 0;
+            } else {
+                $hargatindakan[] = $item->harga;
+                // $data->total_harga_tindakan += $item->harga;
+            }
+        } else {
+            $hargatindakan[] = $item->harga;
+            // $data->total_harga_tindakan += $item->harga;
+        }
+
+    }
+    $data->hargatindakan = $hargatindakan;
+    $data->namatindakan = $namatindakan;
+}
 
         return view('pages.rekaptindakan', compact('kunjungan', 'no', 'pasien', 'resep_obat', 'periksa', 'datatindakan', 'listbulan'));
     }
