@@ -67,7 +67,7 @@
 <body>
     <div class="header">
         @foreach ($kunjungan as $data)
-        <h2>Surat Rekam Medis</h2>
+        <h2>Lembar Pemeriksaan Rawat Jalan</h2>
         <small>No Rekam Medis : {{ $data->no_rmd }}</small>
         <p>===============================================================================================</p>
     </div>
