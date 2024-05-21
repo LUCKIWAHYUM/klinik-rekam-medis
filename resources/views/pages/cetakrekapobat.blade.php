@@ -79,13 +79,10 @@
                         </tbody>
                         <tfoot>
                             <tr>
-                                        <th>No</th>
-                                        <th>No Periksa</th>
-                                        <th>Nama Pasien</th>
-                                        <th>Nama Obat</th>
-                                        <th>Jumlah Obat</th>
-                                        <th>Total Harga</th>
-                                        <th>Tanggal Kunjungan</th>
+                                        <th colspan="4">Jumlah Obat Keluar</th>
+                                        <th>{{ $totalobat }}</th>
+                                        <th></th>
+                                        <th></th>
                             </tr>
                         </tfoot>
                         </table>

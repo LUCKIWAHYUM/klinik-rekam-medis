@@ -1,5 +1,5 @@
 @extends('layouts.dashboard')
-@section('title','Data Obat Masuk | Admin' )
+@section('title','Data Obat Masuk | Apoteker' )
 @section('content')
 <div class="container-fluid">
     <!-- Page Heading -->
@@ -16,7 +16,7 @@
                     <div class="card-body">
                         <a href="" class="btn btn-primary mb-3" type="button" class="btn btn-primary"
                             data-bs-toggle="modal" data-bs-target="#adduser">
-                            + Tambah Data Obat
+                            + Tambah Stok Obat
                         </a>
                          {{-- Pesan Sukses --}}
                         @if(session('success'))
@@ -45,6 +45,7 @@
                                         <th>No</th>
                                         <th>Nama_Obat</th>
                                         <th>Jumlah</th>
+                                        <th>Tanggal Masuk</th>
                                     </tr>
                                 </thead>    
                                 <tbody>
@@ -53,6 +54,7 @@
                                    <td>{{$no++ }}</td>
                                    <td>{{ $item->obat->nama_obat }}</td>
                                    <td>{{ $item->jumlah }}</td>
+                                   <td>{{ $item->created_at }}</td>
                                    <!-- <td></td> -->
                                    </tr>
                                    @endforeach
@@ -62,6 +64,7 @@
                                         <th>No</th>
                                         <th>Nama_Obat</th>
                                         <th>Jumlah</th>
+                                         <th>Tanggal Masuk</th>
                                         <!-- <th>Aksi</th> -->
                             </tr>
                         </tfoot>

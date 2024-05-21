@@ -98,4 +98,18 @@ class ObatController extends Controller
             return redirect()->route('obat.index')->with('error', 'Gagal menghapus data obat: ' . $e->getMessage());
         }
     }
+    public function addStock(Request $request, string $id)
+    {
+        try {
+            $obat = Obat::findOrFail($id);
+            $obat->stok += $request->input('jumlah'); // Menambah stok obat
+            $obat->save(); // Menyimpan perubahan stok ke database
+
+            \Log::info('Stok obat berhasil ditambahkan: ' . $obat->nama_obat); // Tambahkan pernyataan log
+            return redirect()->route('obat.index')->with('success', 'Stok obat "' . $obat->nama_obat . '" berhasil ditambahkan.');
+        } catch (\Exception $e) {
+            \Log::error('Gagal menambahkan stok obat: ' . $e->getMessage()); // Tambahkan pernyataan log
+            return redirect()->route('obat.index')->with('error', 'Gagal menambahkan stok obat: ' . $e->getMessage());
+        }
+    }
 }

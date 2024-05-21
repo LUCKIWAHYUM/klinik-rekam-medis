@@ -1,5 +1,5 @@
 @extends('layouts.dashboard')
-@section('title','Data Tindakan | Dokter' )
+@section('title','Data Penyakit | Dokter' )
 @section('content')
 <div class="container-fluid">
 
@@ -35,7 +35,7 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>kode</th>
+                                        <th>kode ICD</th>
                                         <th>Nama_Penyakit</th>
                                     </tr>
                                 </thead>
@@ -52,7 +52,7 @@
                         <tfoot>
                             <tr>
                                 <th>No</th>
-                                <th>kode</th>
+                                <th>kode ICD</th>
                                 <th>Nama_Penyakit</th>
                             </tr>
                         </tfoot>
@@ -71,7 +71,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-3" id="exampleModalLabel">Tambah Data Tindakan</h1>
+                <h1 class="modal-title fs-3" id="exampleModalLabel">Tambah Data Penyakit</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">

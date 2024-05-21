@@ -8,6 +8,7 @@ use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\KunjunganController;
 use App\Http\Controllers\DetailresepobatController;
 use App\Http\Controllers\DetailPembayaranController;
+use App\Http\Controllers\ObatController;
 
 /*
 |--------------------------------------------------------------------------

@@ -13,6 +13,7 @@ class obatmasuk extends Model
     [
         'id_obat',
         'jumlah',
+        'created_at',
     ];
       public function obat()
     {

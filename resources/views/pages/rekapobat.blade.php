@@ -90,7 +90,7 @@
                         </tbody>
                         <tfoot>
                             <tr>
-                                        <th colspan="4">Jumlah Obat</th>
+                                        <th colspan="4">Jumlah Obat Keluar</th>
                                         <th>{{ $totalobat }}</th>
                                         <th></th>
                                         <th></th>

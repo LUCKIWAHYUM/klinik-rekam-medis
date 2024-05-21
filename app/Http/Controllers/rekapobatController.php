@@ -96,8 +96,10 @@ if ($tahun) {
 }
 
 $Obat = $query->get();
+$totalobat = $query->select('jumlah')->count();
+
 // dd($Obat);
-        return view('pages.cetakrekapobat', compact('no', 'Obat', 'listbulan','nameobat'));
+        return view('pages.cetakrekapobat', compact('no', 'Obat', 'listbulan','nameobat', 'totalobat'));
 
     }
 }

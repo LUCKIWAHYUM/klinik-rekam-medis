@@ -47,7 +47,7 @@ if ($obat) {
 }
 
         \Log::info('Stok obat berhasil ditambahkan: ' . $obat->nama_obat); // Tambahkan pernyataan log
-        return redirect()->route('obatmasuk.index')->with('success', 'Obat "' . $obat->nama_obat . '" berhasil ditambahkan.');
+        return redirect()->route('obatmasuk.index')->with('success', 'Stok obat "' . $obat->nama_obat . '" berhasil ditambahkan.');
     } catch (\Exception $e) {
         \Log::error('Gagal menambahkan stok obat: ' . $e->getMessage()); // Tambahkan pernyataan log
         // Tangkap pengecualian dan tampilkan pesan kesalahan
