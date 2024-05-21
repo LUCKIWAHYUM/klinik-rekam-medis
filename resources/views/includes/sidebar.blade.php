@@ -58,12 +58,12 @@
             <i class="far fa-file-alt" style="--fa-primary-color: #0b64fe; --fa-secondary-color: #0b64fe;"></i>
             <span>Rekapitulasi Obat</span></a>
     </li>
-     </li>
+     <!-- </li>
          <li class="nav-item">
         <a class="nav-link {{ (request()->is('rekaptindakan')) ? 'active' : ''}}" href="{{ route('rekaptindakan.index') }}">
             <i class="far fa-file-alt" style="--fa-primary-color: #0b64fe; --fa-secondary-color: #0b64fe;"></i>
             <span>Rekapitulasi Tindakan</span></a>
-    </li>
+    </li> -->
       </li>
          <li class="nav-item">
         <a class="nav-link {{ (request()->is('rekapkesakitan')) ? 'active' : ''}}" href="{{ route('rekapkesakitan.index') }}">
