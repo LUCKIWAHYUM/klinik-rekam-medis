@@ -56,9 +56,11 @@ Route::resource('detailperiksa', 'App\Http\Controllers\DetailPeriksaController')
 Route::resource('laporan-kunjungan', 'App\Http\Controllers\LaporanController')->middleware('auth');
 Route::resource('rekapobat', 'App\Http\Controllers\rekapobatController')->middleware('auth');
 Route::resource('rekaptindakan', 'App\Http\Controllers\rekaptindakanController')->middleware('auth');
+Route::resource('rekapkesakitan', 'App\Http\Controllers\rekapkesakitanController')->middleware('auth');
 Route::get('/cetak-antrian/{id}',  [KunjunganController::class, 'cetakAntrian']);
 Route::get('/cetak-rekapobat',  [App\Http\Controllers\rekapobatController::class, 'cetakrekapobat'])->name('cetak.obat');
 Route::get('/cetak-rekaptindakan',  [App\Http\Controllers\rekaptindakanController::class, 'cetakrekaptindakan'])->name('cetak.tindakan');
+Route::get('/cetak-rekapsakit',  [App\Http\Controllers\rekapkesakitanController::class, 'cetakrekapsakit'])->name('cetak.sakit');
 Route::get('/cetak-laporan/{bulan}/{tahun}',  [LaporanController::class, 'cetak']);
 Route::get('/cetak/{id}',  [DetailresepobatController::class, 'cetak']);
 Route::get('/cetak-rekmed/{id}',  [DetailRekamMedisController::class, 'cetak']);

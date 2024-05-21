@@ -125,10 +125,10 @@ Pemeriksaan Lain | {{ $data->periksalain }}
 
 
                                                          <div class="mb-3">
-                                                            <label for="penyakit{{ $data->id }}" class="form-label">(A) assessment</label>
-                                                            <select class=" form-control" name="penyakit[]" id="penyakit{{ $data->id }}" style="width: 100%;" >
+                                                            <label for="diagnosa{{ $data->id }}" class="form-label">(A) assessment</label>
+                                                            <select class=" form-control" name="diagnosa" id="diagnosa{{ $data->id }}" style="width: 100%;" >
                                                                 @foreach($penyakit as $data_penyakit)
-                                                                    <option value="{{ $data_penyakit->id }}">{{ $data_penyakit->kode }} {{ $data_penyakit->nama_penyakit }}</option>
+                                                                    <option value="{{ $data_penyakit->nama_penyakit }}">{{ $data_penyakit->kode }} {{ $data_penyakit->nama_penyakit }}</option>
                                                                 @endforeach
                                                         
                                                             </select>

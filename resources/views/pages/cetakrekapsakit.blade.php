@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Struk Pembelian</title>
+    <title>Rekapitulasi Kesakitan</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
@@ -37,24 +37,24 @@
 <body>
     <div class="invoice-container" id="invoice-content">
         <div class="invoice-header">
-            <h2>Rekapitulasi Obat</h2>
+            <h2>Rekapitulasi Kesakitan</h2>
         </div>
         <div class="invoice-items">
         <table class="table table-bordered">
-                                <thead>
+                                             <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>Nama Obat</th>
-                                        <th>Jumlah Obat</th>
+                                        <th>Diagnosa</th>
+                                        <th>Jumlah</th>
                                     </tr>
 
                                 </thead>
                                 <tbody>
-                                    @foreach($Obat as $data)
+                                    @foreach($periksa as $data)
                                     <tr>
                                         <td> {{$no++}} </td>
-                                        <td> {{$data->nama_obat}} </td>
-                                        <td> {{$data->totalobat}} </td>
+                                        <td>{{ $data->diagnosa }}</td>
+                                        <td>{{ $data->total }}</td>
                                      </tr>
                                      
 
@@ -65,6 +65,7 @@
 
                         </tbody>
                         <tfoot>
+                        
                         </tfoot>
                         </table>
         </div>

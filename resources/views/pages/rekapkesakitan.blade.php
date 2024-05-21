@@ -16,6 +16,7 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="row mb-2">
+                            
                                 <div class="col-md-2">
                                     <select name="bulan" id="bulan" class="form-control">
                                         <option value="">Pilih Bulan</option>
@@ -52,17 +53,17 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>Nama Obat</th>
-                                        <th>Jumlah Obat</th>
+                                        <th>Diagnosa</th>
+                                        <th>Jumlah</th>
                                     </tr>
 
                                 </thead>
                                 <tbody>
-                                    @foreach($Obat as $data)
+                                    @foreach($periksa as $data)
                                     <tr>
                                         <td> {{$no++}} </td>
-                                        <td> {{$data->nama_obat}} </td>
-                                        <td> {{$data->totalobat}} </td>
+                                        <td>{{ $data->diagnosa }}</td>
+                                        <td>{{ $data->total }}</td>
                                      </tr>
                                      
 
@@ -73,6 +74,7 @@
 
                         </tbody>
                         <tfoot>
+                        
                         </tfoot>
                         </table>
                     </div>
@@ -105,12 +107,10 @@
         var urlParams = new URLSearchParams(window.location.search);
         var selectedMonth = urlParams.get('bulan');
         var selectedYear = urlParams.get('tahun');
-        var selectedObatId = urlParams.get('obat_id');
 
         // Setel nilai terpilih pada elemen <select> bulan dan tahun (jika nilai tersedia)
         var selectMonth = document.getElementById('bulan');
         var selectYear = document.getElementById('tahun');
-        var selectobatId = document.getElementById('obat_id');
 
         if (selectedMonth) {
             selectMonth.value = selectedMonth;
@@ -119,26 +119,19 @@
         if (selectedYear) {
             selectYear.value = selectedYear;
         }
-        if (selectedObatId) {
-            selectobatId.value = selectedObatId;
-        }
     });
 function print() {
     // Dapatkan nilai yang dipilih dari elemen <select> bulan dan tahun
     var selectedMonth = document.getElementById('bulan').value;
     var selectedYear = document.getElementById('tahun').value;
-    var selectedObatId = document.getElementById('obat_id').value;
 
     // Buat URL dengan parameter yang dipilih
-    var url = "{{ route('cetak.obat') }}?";
+    var url = "{{ route('cetak.sakit') }}?";
     if (selectedMonth) {
         url += "bulan=" + selectedMonth + "&";
     }
     if (selectedYear) {
         url += "tahun=" + selectedYear + "&";
-    }
-    if (selectedObatId) {
-        url += "obat_id=" + selectedObatId + "&";
     }
 
     // Hapus karakter '&' terakhir jika ada
@@ -151,18 +144,14 @@ function handleSubmit() {
     // Dapatkan nilai yang dipilih dari elemen <select> bulan dan tahun
     var selectedMonth = document.getElementById('bulan').value;
     var selectedYear = document.getElementById('tahun').value;
-    var selectedObatId = document.getElementById('obat_id').value;
 
     // Buat URL dengan parameter yang dipilih
-    var url = "{{ route('rekapobat.index') }}?";
+    var url = "{{ route('rekapkesakitan.index') }}?";
     if (selectedMonth) {
         url += "bulan=" + selectedMonth + "&";
     }
     if (selectedYear) {
         url += "tahun=" + selectedYear + "&";
-    }
-    if (selectedObatId) {
-        url += "obat_id=" + selectedObatId + "&";
     }
 
     // Hapus karakter '&' terakhir jika ada

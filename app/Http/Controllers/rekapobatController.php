@@ -32,21 +32,18 @@ class rekapobatController extends Controller
         $tahun = $request->input('tahun');
         $no = 1;
         $nameobat = Obat::get();
-$query = Resep::with(['periksa', 'periksa.pasien', 'obat'])
+$query = Resep::select('obat.nama_obat', \DB::raw('count(*) as totalobat'))
+                ->join('obat', 'resepobat.id_obat', '=', 'obat.id')
                 ->where('pembelian', 'apotek')
-                ->where('id_obat', $namaobat);
+                ->groupBy('id_obat');
 
 
 if ($bulan) {
-    $query->whereHas('periksa', function($q) use ($bulan) {
-        $q->whereMonth('tgl_kunjungan', $bulan);
-    });
+    $query->whereMonth('resepobat.created_at', $bulan);
 }
 
 if ($tahun) {
-    $query->whereHas('periksa', function($q) use ($tahun) {
-        $q->whereYear('tgl_kunjungan', $tahun);
-    });
+    $query->whereYear('resepobat.created_at', $tahun);
 }
 
 $Obat = $query->get();
@@ -71,35 +68,28 @@ $totalobat = $query->select('jumlah')->count();
     '11' => 'November',
     '12' => 'Desember'];
 
-        $namaobat = $request->input('obat_id');
-        $bulan = $request->input('bulan');
-        $tahun = $request->input('tahun');
-        $no = 1;
-        $nameobat = Obat::get();
-$query = Resep::with(['periksa', 'periksa.pasien', 'obat'])
-                ->where('pembelian', 'apotek');
-
-if ($namaobat) {
-    $query->where('id_obat', $namaobat);
-}
+$namaobat = $request->input('obat_id');
+$bulan = $request->input('bulan');
+$tahun = $request->input('tahun');
+$no = 1;
+$nameobat = Obat::get();
+$query = Resep::select('obat.nama_obat', \DB::raw('count(*) as totalobat'))
+    ->join('obat', 'resepobat.id_obat', '=', 'obat.id')
+    ->where('pembelian', 'apotek')
+    ->groupBy('id_obat');
 
 if ($bulan) {
-    $query->whereHas('periksa', function($q) use ($bulan) {
-        $q->whereMonth('tgl_kunjungan', $bulan);
-    });
+    $query->whereMonth('resepobat.created_at', $bulan);
 }
 
 if ($tahun) {
-    $query->whereHas('periksa', function($q) use ($tahun) {
-        $q->whereYear('tgl_kunjungan', $tahun);
-    });
+    $query->whereYear('resepobat.created_at', $tahun);
 }
 
 $Obat = $query->get();
 $totalobat = $query->select('jumlah')->count();
 
-// dd($Obat);
-        return view('pages.cetakrekapobat', compact('no', 'Obat', 'listbulan','nameobat', 'totalobat'));
+        return view('pages.cetakrekapobat', compact('no', 'Obat', 'listbulan','nameobat','totalobat'));
 
     }
 }

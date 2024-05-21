@@ -19,6 +19,7 @@ class Resep extends Model
         'aturanpakai',
         'jumlah',
         'status',
+        'created_at'
     ];
     public function periksa()
     {
