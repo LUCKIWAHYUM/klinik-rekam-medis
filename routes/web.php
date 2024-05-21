@@ -27,7 +27,7 @@ Route::get('/cetakrekammedis', function () {
 Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware();
-Route::get('/create', 'PasienController@create')->name('pasien.create');
+// Route::get('/create', 'PasienController@create')->name('pasien.create');
 Route::get('/obat', 'ObatController@index');
 // Route::get('/kunjungan', [KunjunganController::class, 'index']);
 
@@ -39,7 +39,9 @@ Route::resource('pasien', 'App\Http\Controllers\PasienController')->middleware('
 Route::resource('kunjungan', 'App\Http\Controllers\KunjunganController')->middleware('auth');
 Route::resource('pemeriksaan', 'App\Http\Controllers\PemeriksaanController')->middleware('auth');
 Route::resource('tindakan', 'App\Http\Controllers\TindakanController')->middleware('auth');
+Route::resource('penyakit', 'App\Http\Controllers\PenyakitController')->middleware('auth');
 Route::resource('obat', 'App\Http\Controllers\ObatController')->middleware('auth');
+Route::resource('obatmasuk', 'App\Http\Controllers\ObatMasukController')->middleware('auth');
 Route::resource('pemeriksaandokter', 'App\Http\Controllers\PemeriksaandokterController')->middleware('auth');
 Route::resource('rekammedis', 'App\Http\Controllers\RekammedisController')->middleware('auth');
 Route::resource('resepobat', 'App\Http\Controllers\ResepobatController')->middleware('auth');

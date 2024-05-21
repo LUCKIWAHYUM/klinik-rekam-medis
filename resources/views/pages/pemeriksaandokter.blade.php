@@ -124,14 +124,16 @@ Pemeriksaan Lain | {{ $data->periksalain }}
 </div>
 
 
-                                                        <div class="mb-3">
-                                                            <label for="exampleInputEmail1"
-                                                                class="form-label">(A) assessment</label>
-                                                            <input value="{{ $data->diagnosa }}" type="text" name="diagnosa"
-                                                                class="form-control" id="exampleInputEmail1"
-                                                                aria-describedby="emailHelp">
+                                                         <div class="mb-3">
+                                                            <label for="penyakit{{ $data->id }}" class="form-label">(A) assessment</label>
+                                                            <select class=" form-control" name="penyakit[]" id="penyakit{{ $data->id }}" style="width: 100%;" >
+                                                                @foreach($penyakit as $data_penyakit)
+                                                                    <option value="{{ $data_penyakit->id }}">{{ $data_penyakit->kode }} {{ $data_penyakit->nama_penyakit }}</option>
+                                                                @endforeach
+                                                        
+                                                            </select>
                                                         </div>
-                                                            <div class="mb-3">
+                                                        <div class="mb-3">
                                                             <label for="tindakan{{ $data->id }}" class="form-label">(P) planning</label>
                                                             <select class="js-example-basic-multiple form-control" name="tindakan[]" multiple="multiple" id="tindakan{{ $data->id }}" style="width: 100%;" >
                                                                 @foreach($tindakan as $data)
@@ -194,6 +196,7 @@ Pemeriksaan Lain | {{ $data->periksalain }}
             $('#foto<?= $data->id ?> #tindakan<?= $data->id ?>').select2();
         <?php }?>
     });
+    
 
 
     </script>

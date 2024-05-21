@@ -33,11 +33,9 @@ class rekapobatController extends Controller
         $no = 1;
         $nameobat = Obat::get();
 $query = Resep::with(['periksa', 'periksa.pasien', 'obat'])
-                ->where('pembelian', 'apotek');
+                ->where('pembelian', 'apotek')
+                ->where('id_obat', $namaobat);
 
-if ($namaobat) {
-    $query->where('id_obat', $namaobat);
-}
 
 if ($bulan) {
     $query->whereHas('periksa', function($q) use ($bulan) {
@@ -52,8 +50,9 @@ if ($tahun) {
 }
 
 $Obat = $query->get();
+$totalobat = $query->select('jumlah')->count();
 
-        return view('pages.rekapobat', compact('no', 'Obat', 'listbulan','nameobat'));
+        return view('pages.rekapobat', compact('no', 'Obat', 'listbulan','nameobat','totalobat'));
 
     }
     public function cetakrekapobat(Request $request)

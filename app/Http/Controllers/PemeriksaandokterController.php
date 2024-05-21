@@ -7,6 +7,7 @@ use App\Models\Pemeriksaan;
 use App\Models\User;
 use App\Models\Pasien;
 use App\Models\Tindakan;
+use App\Models\Penyakit;
 
 class PemeriksaandokterController extends Controller
 {
@@ -20,8 +21,9 @@ class PemeriksaandokterController extends Controller
             ->where('status', 'aktif')->get();
         $pasien = Pasien::get();
         $tindakan = Tindakan::get();
+        $penyakit = Penyakit::get();
         $kunjungan = Pemeriksaan::with('pasien')->orderBy('created_at', 'desc')->get();
-        return view('pages.pemeriksaandokter', compact('kunjungan', 'no', 'dokter', 'pasien', 'tindakan'));
+        return view('pages.pemeriksaandokter', compact('kunjungan', 'no', 'dokter', 'pasien', 'tindakan', 'penyakit'));
     }
 
     /**

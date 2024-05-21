@@ -30,6 +30,7 @@
         <a class="nav-link {{ (request()->is('pasien')) ? 'active' : ''}}" href="{{ route('pasien.index') }}">
             <i class="fas fa-user-edit" style="--fa-primary-color: #0b64fe; --fa-secondary-color: #0b64fe;"></i>
             <span>Data Pasien</span></a>
+    
     </li>
     <li class="nav-item">
         <a class="nav-link {{ (request()->is('material')) ? 'active' : ''}}" href="{{ route('kunjungan.index') }}">
@@ -94,6 +95,11 @@
             <i class="fas fa-file" style="--fa-primary-color: #0b64fe; --fa-secondary-color: #0b64fe;"></i>
             <span>Rekam Medis</span></a>
     </li>
+    <li class="nav-item">
+        <a class="nav-link {{ (request()->is('datapenyakit')) ? 'active' : ''}}" href="{{ route('penyakit.index') }}">
+            <i class="fas fa-file" style="--fa-primary-color: #0b64fe; --fa-secondary-color: #0b64fe;"></i>
+            <span>Data Penyakit</span></a>
+    </li>
     @elseif(Auth::user()->role == 'apoteker')
     <li class="nav-item {{ (request()->is('/')) ? 'active' : ''}}">
         <a class="nav-link" href="{{ route('home') }}">
@@ -108,6 +114,11 @@
             <i class="fas fa-pills" style="--fa-primary-color: #0b64fe; --fa-secondary-color: #0b64fe;"></i>
             <span>Data Obat</span></a>
     </li>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link {{ (request()->is('obatmasuk')) ? 'active' : ''}}" href="{{ route('obatmasuk.index') }}">
+            <i class="fas fa-user-edit" style="--fa-primary-color: #0b64fe; --fa-secondary-color: #0b64fe;"></i>
+            <span>Data Obat Masuk</span></a>
     <!-- <li class="nav-item">
         <a class="nav-link {{ (request()->is('material')) ? 'active' : ''}}" href="#">
             <i class="fa-duotone fa-user" style="--fa-primary-color: #0b64fe; --fa-secondary-color: #0b64fe;"></i>
