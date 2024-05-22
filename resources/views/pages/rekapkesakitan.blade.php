@@ -1,11 +1,11 @@
 @extends('layouts.dashboard')
-@section('title','Data Rekap Obat | Administrasi' )
+@section('title','Data Rekap Kesakitan | Administrasi' )
 @section('content')
 <div class="container-fluid">
 
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Data Rekap Obat</h1>
+        <h1 class="h3 mb-0 text-gray-800">Data Rekap Kesakitan</h1>
     </div>
 
     <!-- Content Row -->
