@@ -85,6 +85,14 @@ if ($obat) {
      */
     public function destroy(string $id)
     {
-        //
+        try {
+            $data = ObatMasuk::findOrFail($id);
+            $data->delete();
+
+            return redirect()->route('obatmasuk.index')->with('success', 'Obat masuk berhasil dihapus.');
+        } catch (\Exception $e) {
+            // Tangkap pengecualian dan tampilkan pesan kesalahan
+            return redirect()->route('obatmasuk.index')->with('error', 'Gagal menghapus obat masuk: ' . $e->getMessage());
+        }
     }
 }

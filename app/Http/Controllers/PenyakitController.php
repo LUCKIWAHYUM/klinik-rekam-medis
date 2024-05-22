@@ -45,4 +45,40 @@ class PenyakitController extends Controller
 
         return redirect()->back()->with('success', 'File Excel berhasil diunggah dan data berhasil diimpor.');
     }
+    public function update(Request $request, string $id)
+    {
+        try {
+            $data = Penyakit::find($id); // Mencari data berdasarkan ID
+
+            // Validasi input data jika diperlukan
+            $request->validate([
+                'kode' => 'required',
+                'nama_penyakit' => 'required',
+                // Tambahkan validasi untuk kolom lain sesuai kebutuhan
+            ]);
+
+            // Simpan perubahan data
+            $data->kode = $request->input('kode');
+            $data->nama_penyakit = $request->input('nama_penyakit');
+            // Setel nilai kolom lain sesuai kebutuhan
+            $data->save();
+           return redirect()->route('penyakit.index')->with('success', 'Data penyakit "' . $data->nama_penyakit . '" berhasil diperbarui.');
+
+        } catch (\Exception $e) {
+            // Tangkap pengecualian dan tampilkan pesan kesalahan
+            return redirect()->route('penyakit.index')->with('error', 'Gagal memperbarui penyakit: ' . $e->getMessage());
+        }
+    }
+    public function destroy(string $id)
+    {
+        try {
+            $data = Penyakit::findOrFail($id);
+            $data->delete();
+
+            return redirect()->route('penyakit.index')->with('success', 'Data penyakit berhasil dihapus.');
+        } catch (\Exception $e) {
+            // Tangkap pengecualian dan tampilkan pesan kesalahan
+            return redirect()->route('penyakit.index')->with('error', 'Gagal menghapus data penyakit: ' . $e->getMessage());
+        }
+    }
 }

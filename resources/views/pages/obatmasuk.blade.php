@@ -8,7 +8,6 @@
     </div>
 
     <!-- Content Row -->
-    {{-- <div class="row"> --}}
     <div class="dashboard-content mb-3">
         <div class="row">
             <div class="col-md-12">
@@ -18,7 +17,7 @@
                             data-bs-toggle="modal" data-bs-target="#adduser">
                             + Tambah Stok Obat
                         </a>
-                         {{-- Pesan Sukses --}}
+                        {{-- Pesan Sukses --}}
                         @if(session('success'))
                             <div class="alert alert-success" role="alert">
                                 {{ session('success') }}
@@ -30,14 +29,15 @@
                             <div class="alert alert-danger" role="alert">
                                 {{ session('error') }}
                             </div>
-                        
-                            !-- Tampilkan pesan peringatan di sini -->
-    @if(session('warning'))
-        <div class="alert alert-warning" role="alert">
-            {{ session('warning') }}
-        </div>
-    @endif
                         @endif
+                        
+                        {{-- Pesan Peringatan --}}
+                        @if(session('warning'))
+                            <div class="alert alert-warning" role="alert">
+                                {{ session('warning') }}
+                            </div>
+                        @endif
+
                         <div class="table-responsive">
                             <table id="UserData" class="display" style="width:100%">
                                 <thead>
@@ -46,6 +46,7 @@
                                         <th>Nama_Obat</th>
                                         <th>Jumlah</th>
                                         <th>Tanggal Masuk</th>
+                                        <th>Aksi</th>
                                     </tr>
                                 </thead>    
                                 <tbody>
@@ -55,30 +56,66 @@
                                    <td>{{ $item->obat->nama_obat }}</td>
                                    <td>{{ $item->jumlah }}</td>
                                    <td>{{ $item->created_at }}</td>
-                                   <!-- <td></td> -->
-                                   </tr>
+                                   <td>
+                                          <div class="dropdown">
+                                                    <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                     Aksi
+                                                    </button>
+                                                    <ul class="dropdown-menu">
+                                                    <li><a data-bs-toggle="modal" data-bs-target="#deletedata{{$item->id}}" class="dropdown-item text-danger">Hapus</a></li>  
+                                                </ul>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <div class="modal fade" id="deletedata{{ $item->id }}" tabindex="-1"
+                                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Hapus Data Obat Masuk</h1>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form action="{{ route('obatmasuk.destroy', $item->id) }}"
+                                                        method="POST">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <p>Anda Yakin akan menghapus data {{ $item->obat->nama_obat }}?</p>
+
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary"
+                                                        data-bs-dismiss="modal">Keluar</button>
+                                                    <button type="submit" class="btn btn-primary">Hapus</button>
+                                                    </form>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                
                                    @endforeach
-                        </tbody>
-                        <tfoot>
-                            <tr>
+                                </tbody>
+                                <tfoot>
+                                    <tr>
                                         <th>No</th>
                                         <th>Nama_Obat</th>
                                         <th>Jumlah</th>
-                                         <th>Tanggal Masuk</th>
-                                        <!-- <th>Aksi</th> -->
-                            </tr>
-                        </tfoot>
-                        </table>
+                                        <th>Tanggal Masuk</th>
+                                        <th>Aksi</th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
 </div>
-{{-- </div> --}}
 
-{{-- modal add --}}
+{{-- Modal Add --}}
 <div class="modal fade" id="adduser" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -90,32 +127,32 @@
                 <form method="POST" action="{{ route('obatmasuk.store') }}">
                     @csrf
                     <div class="mb-3">
-               <select name="id_obat" class="form-control" id="">
-                        @foreach($obat as $data)
-                        <option value="{{ $data->id }}">{{ $data->nama_obat }}</option>
-                        @endforeach
-               </select>
+                        <select name="id_obat" class="form-control" id="">
+                            @foreach($obat as $data)
+                                <option value="{{ $data->id }}">{{ $data->nama_obat }}</option>
+                            @endforeach
+                        </select>
                     </div>
                     <div class="mb-3">
                         <label for="jumlah" class="form-label">Jumlah</label>
-                        <input type="text" name="jumlah" class="form-control" id="jumlah" aria-describedby="emailHelp" required>
+                        <input type="text" name="jumlah" class="form-control" id="jumlah" required>
                     </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary">Save changes</button>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                    </div>
                 </form>
             </div>
         </div>
     </div>
 </div>
 
-
 @endsection
+
 @push('addon-script')
 <script type="text/javascript">
   $(document).ready(function() {
         $('#UserData').DataTable();
     });
-    </script>
+</script>
 @endpush
-
