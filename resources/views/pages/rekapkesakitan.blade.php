@@ -19,7 +19,7 @@
                             
                                 <div class="col-md-2">
                                     <select name="bulan" id="bulan" class="form-control">
-                                        <option value="">Pilih Bulan</option>
+                                        <option value="">Semua Bulan</option>
                                         @foreach($listbulan as $key => $nama_bulan)
                                             <option value="{{ $key }}">{{ $nama_bulan }}</option>
                                         @endforeach

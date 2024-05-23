@@ -62,7 +62,8 @@ class ResepobatController extends Controller
                     'aturanpakai' => (string) $aturanpakai,
                     'id_obat' => (string) $id_obat,
                 ]);
-
+ // Kurangi stok obat di table obat jika pembelian bukan 'sendiri'
+                if($request['pembelian'] != 'sendiri') {
               // Kurangi stok obat di table obat
 $obat = Obat::find($id_obat); // Cari obat berdasarkan id_obat
 if ($obat) {
@@ -81,7 +82,7 @@ if ($obat) {
     // Handle jika obat tidak ditemukan (opsional)
     // Misalnya: throw new Exception("Obat dengan ID $id_obat tidak ditemukan");
 }
-
+                }
             }
 
             return redirect()->route('resepobat.index');
@@ -128,4 +129,5 @@ foreach ($datas as $data) {
 
         return redirect()->route('resepobat.index');
     }
+ 
 }

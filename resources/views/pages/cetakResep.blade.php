@@ -70,6 +70,7 @@
                         <th scope="col">#</th>
                         <th scope="col">Nama Obat</th>
                         <th scope="col">Aturan Pakai</th>
+                        <th scope="col">Jumlah</th>
                         <th scope="col">Deskripsi</th>
                     </tr>
                 </thead>
@@ -79,6 +80,7 @@
                         <th scope="row">{{ $loop->iteration }}</th>
                         <td>{{ $data->nama_obat }}</td>
                         <td>{{ $data->aturanpakai }}</td>
+                        <td>{{ $data->jumlah }}</td>
                         <td>{{ $data->deskripsi }}</td>
                     </tr>
                     @endforeach
