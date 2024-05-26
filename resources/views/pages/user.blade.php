@@ -44,7 +44,7 @@
                                             <th>No Telp</th>
                                             <th>Password</th>
                                             <th>Roles</th>
-                                            <th>Status</th>
+                                            <!-- <th>Status</th> -->
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
@@ -59,7 +59,7 @@
                                             <td>{{ $data->tlp }}</td>
                                             <td>{{ $data->password }}</td>
                                             <td>{{ $data->role }}</td>
-                                            <td>{{ $data->status }}</td>
+                                            <!-- <td>{{ $data->status }}</td> -->
                                             <td>
                                                 <div class="dropdown">
                                                     <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -195,7 +195,7 @@
                                           <th>No Telp</th>
                                           <th>Password</th>
                                           <th>Roles</th>
-                                          <th>Status</th>
+                                          <!-- <th>Status</th> -->
                                           <th>Aksi</th>
                                         </tr>
                                     </tfoot>
