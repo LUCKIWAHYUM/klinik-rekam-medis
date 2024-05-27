@@ -23,10 +23,10 @@
                             <th>No Rm</th>
                             <td>: {{ $data->pasien->no_rmd }}</td>
                         </tr>
-                        <tr>
+                        <!-- <tr>
                             <th>No registrasi</th>
                             <td>: {{ $data->pasien->noregis }}</td>
-                        </tr>
+                        </tr> -->
                         <tr>
                             <th>Nama Pasien</th>
                             <td>: {{ $data->pasien->nama_pasien }}</td>

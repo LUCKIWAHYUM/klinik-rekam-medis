@@ -44,7 +44,7 @@
                 <thead>
                     <tr>
                         <th scope="col">Tanggal</th>
-                        <th scope="col">No Registrasi</th>
+                        <!-- <th scope="col">No Registrasi</th> -->
                         <th scope="col">NO RM</th>
                         <th scope="col">NO Askes</th>
                         <th scope="col">Nama pasien</th>
@@ -61,7 +61,7 @@
                     @foreach($periksa as $data)
                     <tr>
                         <th>{{ $data->tgl_kunjungan }}</th>
-                        <td>{{ $data->pasien->noregis }}</td>
+                        <!-- <td>{{ $data->pasien->noregis }}</td> -->
                         <td>{{ $data->pasien->no_rmd }}</td>
                         <td>{{ $data->pasien->no_dana_sehat }}</td>
                         <td>{{ $data->pasien->nama_pasien }}</td>

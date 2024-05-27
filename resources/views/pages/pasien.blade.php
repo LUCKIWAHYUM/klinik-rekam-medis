@@ -35,7 +35,7 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>No registrasi</th>
+                                        <!-- <th>No registrasi</th> -->
                                         <th>No_Rmd</th>
                                         <th>Nik</th>
                                         <th>Nama_Pasien</th>
@@ -57,7 +57,7 @@
                                     @foreach ($pasien as $data)
                                     <tr>
                                         <td>{{ $no++ }}</td>
-                                        <td>{{ $data->noregis }}</td>
+                                        <!-- <td>{{ $data->noregis }}</td> -->
                                         <td>{{ $data->no_rmd }}</td>
                                         <td>{{ $data->nik }}</td>
                                         <td>{{ $data->nama_pasien }}</td>
@@ -256,7 +256,7 @@
                         <tfoot>
                             <tr>
                                 <th>No</th>
-                                <th>No registrasi</th>
+                                <!-- <th>No registrasi</th> -->
                                 <th>No_Rmd</th>
                                 <th>Nik</th>
                                 <th>Nama_Pasien</th>
