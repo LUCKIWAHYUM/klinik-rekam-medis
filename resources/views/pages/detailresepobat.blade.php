@@ -43,6 +43,7 @@
                                     <th scope="col">Nama Obat</th>
                                     <th scope="col">Aturan Pakai</th>
                                     <th scope="col">Jumlah</th>
+                                    <th scope="col">Satuan</th>
                                     <th scope="col">Deskripsi</th>
                                 </tr>
                             </thead>
@@ -53,6 +54,7 @@
                                     <td>{{$data->nama_obat}}</td>
                                     <td>{{$data->aturanpakai}}</td>
                                     <td>{{$data->jumlah}}</td>
+                                    <td>{{$data->satuan}}</td>
                                     <td>{{$data->deskripsi}}</td>
                                 </tr>
                                 @endforeach
