@@ -24,7 +24,7 @@ class DetailPembayaranController extends Controller
             ->groupBy('pemeriksaan.no_periksa', 'resepobat.id_periksa', 'pemeriksaan.pasien_id', 'pembayaran.status', 'pasien.nama_pasien', 'pasien.no_rmd', 'pemeriksaan.status', 'resepobat.status', 'pembelian', 'pemeriksaan.tgl_kunjungan', 'pasien.askes', 'pemeriksaan.waktu_kunjungan')
             ->where('resepobat.id_periksa', $periksaId)
             ->get();
-        $resep = Resep::select('resepobat.id_periksa', 'pemeriksaan.no_periksa', 'pasien.nama_pasien', 'pemeriksaan.status as statuspemeriksaan', 'obat.nama_obat', 'obat.harga', 'resepobat.aturanpakai', 'resepobat.deskripsi', 'pemeriksaan.tgl_kunjungan', 'pemeriksaan.waktu_kunjungan', 'pembelian')
+        $resep = Resep::select('resepobat.id_periksa', 'pemeriksaan.no_periksa', 'pasien.nama_pasien', 'pemeriksaan.status as statuspemeriksaan', 'obat.nama_obat', 'obat.harga', 'resepobat.aturanpakai', 'resepobat.jumlah', 'resepobat.deskripsi', 'pemeriksaan.tgl_kunjungan', 'pemeriksaan.waktu_kunjungan', 'pembelian')
             ->join('pemeriksaan', 'resepobat.id_periksa', '=', 'pemeriksaan.id')
             ->join('pasien', 'pemeriksaan.pasien_id', '=', 'pasien.id')
             ->join('obat', 'resepobat.id_obat', '=', 'obat.id')
@@ -87,7 +87,7 @@ $kunjungan = Resep::select('resepobat.id_periksa', 'pemeriksaan.no_periksa', 'us
     ->groupBy('pemeriksaan.no_periksa', 'resepobat.id_periksa', 'pemeriksaan.pasien_id', 'pembayaran.status', 'pasien.nama_pasien', 'pasien.no_rmd', 'pemeriksaan.status', 'resepobat.status', 'pembelian', 'pemeriksaan.tgl_kunjungan', 'pasien.askes', 'pemeriksaan.waktu_kunjungan')
     ->where('resepobat.id_periksa', $id)
     ->get();
-$resep = Resep::select('resepobat.id_periksa', 'pemeriksaan.no_periksa', 'pasien.nama_pasien', 'pemeriksaan.status as statuspemeriksaan', 'obat.nama_obat', 'obat.harga', 'resepobat.aturanpakai', 'resepobat.deskripsi', 'pemeriksaan.tgl_kunjungan', 'pemeriksaan.waktu_kunjungan', 'pembelian')
+$resep = Resep::select('resepobat.id_periksa', 'pemeriksaan.no_periksa', 'pasien.nama_pasien', 'pemeriksaan.status as statuspemeriksaan', 'obat.nama_obat', 'obat.harga', 'resepobat.aturanpakai', 'resepobat.jumlah', 'resepobat.deskripsi', 'pemeriksaan.tgl_kunjungan', 'pemeriksaan.waktu_kunjungan', 'pembelian')
     ->join('pemeriksaan', 'resepobat.id_periksa', '=', 'pemeriksaan.id')
     ->join('pasien', 'pemeriksaan.pasien_id', '=', 'pasien.id')
     ->join('obat', 'resepobat.id_obat', '=', 'obat.id')

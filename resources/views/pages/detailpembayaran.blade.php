@@ -56,12 +56,12 @@
 
 
                         <?php $totalhargaobat = 0 ?>
-                        @foreach ($resep as $data)
+                        @foreach ($resep as $dataResep)
                         <tr>
-                            <?php $data->harga = ($data->pembelian == "sendiri") ? 0 : $data->harga ; ?>
-                            <th>{{$data->nama_obat}} x 1</th>
-                            <td>Rp. {{ number_format($data->harga, 0, ',', '.') }}</td>
-                            <?php $totalhargaobat += $data->harga ?>
+                            <?php $dataResep->harga = ($dataResep->pembelian == "sendiri") ? 0 : $dataResep->harga ; ?>
+                            <th>{{$dataResep->nama_obat}} x {{ $dataResep->jumlah }}</th>
+                            <td>Rp. {{ number_format(($dataResep->harga*$dataResep->jumlah), 0, ',', '.') }}</td>
+                            <?php $totalhargaobat += ($dataResep->harga*$dataResep->jumlah) ?>
 
                         </tr>
                         @endforeach

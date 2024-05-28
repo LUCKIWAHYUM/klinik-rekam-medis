@@ -32,7 +32,7 @@ class rekapobatController extends Controller
         $tahun = $request->input('tahun');
         $no = 1;
         $nameobat = Obat::get();
-$query = Resep::select('obat.nama_obat', \DB::raw('count(*) as totalobat'))
+$query = Resep::select('obat.nama_obat', \DB::raw('count(*) as totalobat'), \DB::raw('sum(jumlah) as totalterjual'))
                 ->join('obat', 'resepobat.id_obat', '=', 'obat.id')
                 ->where('pembelian', 'apotek')
                 ->groupBy('id_obat');

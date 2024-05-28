@@ -111,8 +111,8 @@
                             <?php $item->harga = ($item->pembelian == "sendiri") ? 0 : $item->harga;?>
                             <td></td>
                             <th>Biaya Obat</th>
-                            <td style="border-bottom: 1px solid black;">Rp. {{ number_format($item->harga, 0, ',', '.') }}</td>
-                            <?php $totalhargaobat += $item->harga?>
+                            <td style="border-bottom: 1px solid black;">Rp. {{ number_format(($item->harga*$item->jumlah), 0, ',', '.') }}</td>
+                            <?php $totalhargaobat += ($item->harga*$item->jumlah)?>
 
                         </tr>
                         @endforeach

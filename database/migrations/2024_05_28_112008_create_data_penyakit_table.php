@@ -13,9 +13,11 @@ return new class extends Migration
     {
         Schema::create('data_penyakit', function (Blueprint $table) {
             $table->id();
-            $table->kode();
-            $table->nama_penyakit();
+            $table->string('kode'); // Assuming 'kode' is a string column
+            $table->string('nama_penyakit'); // Assuming 'nama_penyakit' is a string column
             $table->timestamps();
+
+
         });
     }
 
