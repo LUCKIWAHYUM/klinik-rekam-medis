@@ -147,8 +147,8 @@
                 <h1 class="modal-title fs-3" id="exampleModalLabel">Tambah Data Penyakit</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
+            <form id="uploadForm" enctype="multipart/form-data" method="POST" action="{{ route('penyakit.store') }}">
             <div class="modal-body">
-                <form id="uploadForm" enctype="multipart/form-data" method="POST" action="{{ route('penyakit.store') }}">
                     @csrf
                     <div class="mb-3">
                         <label for="file" class="form-label">Upload File Excel</label>
@@ -157,9 +157,9 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary">Save changes</button>
-                </form>
+                <button type="submit" class="btn btn-primary">Save changes</button>  
             </div>
+            </form>
         </div>
     </div>
 </div>
@@ -196,7 +196,8 @@
                 success: function(response) {
                     if (response.success) {
                         // Tampilkan modal upload berhasil
-                        reload();
+                        window.location.href = '/penyakit';
+                    
 
                         // TODO: Lakukan pengolahan data Excel dan tampilkan di tabel
                     } else {

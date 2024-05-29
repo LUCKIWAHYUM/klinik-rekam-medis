@@ -26,6 +26,7 @@ class PenyakitController extends Controller
 
     public function store(Request $request)
     {
+        // Validasi file yang diunggah
         $request->validate([
             'file' => 'required|mimes:csv,xls,xlsx',
         ]);
@@ -35,15 +36,19 @@ class PenyakitController extends Controller
 
         // Loop melalui data yang diimpor
         foreach ($importedData[0] as $data) {
-            // Simpan data dengan ID kecamatan yang cocok
-            Penyakit::create([
-                'kode' => $data['kode'],
-                'nama_penyakit' => $data['nama_penyakit'],
-            ]);
-
+            // Validasi bahwa 'kode' tidak null atau kosong
+            if (isset($data['kode']) && !empty($data['kode'])) {
+                // Simpan data dengan ID kecamatan yang cocok
+                Penyakit::create([
+                    'kode' => $data['kode'],
+                    'nama_penyakit' => $data['nama_penyakit'],
+                ]);
+            } else {
+                \Log::warning('Data entry skipped due to missing kode:', $data);
+            }
         }
 
-        return redirect()->back()->with('success', 'File Excel berhasil diunggah dan data berhasil diimpor.');
+        return redirect()->back()->with('success', 'File Excel berhasil diunggah dan data berhasil diimpor.');
     }
     public function update(Request $request, string $id)
     {
