@@ -124,7 +124,7 @@
                         @endforeach
                         @foreach ($resep as $data)
                         <tr>
-                            <th>{{$data->nama_obat}} x 1</th>
+                            <th>{{$data->nama_obat}} </th>
                         
                         </tr>
                         @endforeach
