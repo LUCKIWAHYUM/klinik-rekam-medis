@@ -33,7 +33,9 @@ class rekapkesakitanController extends Controller
         $tahun = $request->input('tahun');
         $no = 1;
       $query = Pemeriksaan::select('diagnosa', DB::raw('count(*) as total'))
-        ->groupBy('diagnosa');
+        ->groupBy('diagnosa')
+         ->orderBy('total', 'desc'); // Urutkan berdasarkan total dari yang terbesar ke yang terkecil
+
 
         if ($bulan) {
             $query->whereMonth('tgl_kunjungan', $bulan);
@@ -71,7 +73,8 @@ $bulan = $request->input('bulan');
 $tahun = $request->input('tahun');
 $no = 1;
 $query = Pemeriksaan::select('diagnosa', DB::raw('count(*) as total'))
-    ->groupBy('diagnosa');
+    ->groupBy('diagnosa')
+     ->orderBy('total', 'desc'); // Urutkan berdasarkan total dari yang terbesar ke yang terkecil
 
 if ($bulan) {
     $query->whereMonth('tgl_kunjungan', $bulan);
