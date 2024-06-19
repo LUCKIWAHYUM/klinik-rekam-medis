@@ -21,7 +21,7 @@ return new class extends Migration
             $table->date('tanggal_lahir');
             $table->string('usia');
             $table->string('agama');
-            $table->string('pekerjaan');
+            $table->string('pekerjaan')->nullable();
             $table->string('alamat');
             $table->string('no_telp');
             $table->enum('biaya', ['Umum', 'Dana_Sehat']);
