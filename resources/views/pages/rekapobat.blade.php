@@ -49,6 +49,7 @@
                                         <th>Nama Obat</th>
                                         <th>Jumlah Transaksi</th>
                                         <th>Obat Terjual</th>
+                                        <th>Satuan</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -58,6 +59,7 @@
                                         <td> {{$data->nama_obat}} </td>
                                         <td> {{$data->totalobat}} </td>
                                         <td> {{$data->totalterjual}} </td>
+                                        <td> {{$data->satuan}} </td>
                                     </tr>
                                     @endforeach
                                 </tbody>

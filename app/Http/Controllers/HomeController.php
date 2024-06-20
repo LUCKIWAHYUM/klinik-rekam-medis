@@ -37,10 +37,8 @@ class HomeController extends Controller
 
         $role = auth()->user()->role; // Mengambil peran (role) pengguna yang sudah login
         // Menghitung jumlah pasien berdasarkan bulan dan tahun saat ini
-        $pasien = Pasien::whereMonth('created_at', $currentMonth)
-            ->whereYear('created_at', $currentYear)
-            ->count();
-        // Menghitung jumlah pemeriksaan dengan status '2' pada bulan ini
+       $pasien = Pasien::count();
+
         $count = Pemeriksaan::where('status', '2')
             ->whereMonth('created_at', $currentMonth)
             ->whereYear('created_at', $currentYear)

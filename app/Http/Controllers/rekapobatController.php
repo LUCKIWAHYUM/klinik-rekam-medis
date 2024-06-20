@@ -27,15 +27,15 @@ class rekapobatController extends Controller
     '11' => 'November',
     '12' => 'Desember'];
 
-        $namaobat = $request->input('obat_id');
+        $namaobat = $request->input('obat_id','obat.satuan');
         $bulan = $request->input('bulan');
         $tahun = $request->input('tahun');
         $no = 1;
         $nameobat = Obat::get();
-$query = Resep::select('obat.nama_obat', \DB::raw('count(*) as totalobat'), \DB::raw('sum(jumlah) as totalterjual'))
+$query = Resep::select('obat.nama_obat', 'obat.satuan', \DB::raw('count(*) as totalobat'), \DB::raw('sum(jumlah) as totalterjual'))
                 ->join('obat', 'resepobat.id_obat', '=', 'obat.id')
                 ->where('pembelian', 'apotek')
-                ->groupBy('id_obat');
+                ->groupBy('id_obat', 'obat.satuan');
 
 
 if ($bulan) {
@@ -68,15 +68,15 @@ $totalobat = $query->select('jumlah')->count();
     '11' => 'November',
     '12' => 'Desember'];
 
-$namaobat = $request->input('obat_id');
+$namaobat = $request->input('obat_id','obat.satuan');
 $bulan = $request->input('bulan');
 $tahun = $request->input('tahun');
 $no = 1;
 $nameobat = Obat::get();
-$query = Resep::select('obat.nama_obat', \DB::raw('count(*) as totalobat'))
+$query = Resep::select('obat.nama_obat','obat.satuan', \DB::raw('count(*) as totalobat'))
     ->join('obat', 'resepobat.id_obat', '=', 'obat.id')
     ->where('pembelian', 'apotek')
-    ->groupBy('id_obat');
+    ->groupBy('id_obat', 'obat.satuan');
 
 if ($bulan) {
     $query->whereMonth('resepobat.created_at', $bulan);

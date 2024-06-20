@@ -44,6 +44,7 @@
                                     <tr>
                                         <th>No</th>
                                         <th>Nama_Obat</th>
+                                        <th>Satuan</th>
                                         <th>Jumlah</th>
                                         <th>Tanggal Masuk</th>
                                         <th>Aksi</th>
@@ -54,6 +55,7 @@
                                    <tr>
                                    <td>{{$no++ }}</td>
                                    <td>{{ $item->obat->nama_obat }}</td>
+                                   <td>{{ $item->obat->satuan }}</td>
                                    <td>{{ $item->jumlah }}</td>
                                    <td>{{ $item->created_at }}</td>
                                    <td>
@@ -129,7 +131,7 @@
                     <div class="mb-3">
                         <select name="id_obat" class="form-control" id="">
                             @foreach($obat as $data)
-                                <option value="{{ $data->id }}">{{ $data->nama_obat }}</option>
+                                <option value="{{ $data->id }}">{{ $data->nama_obat }} ({{ $data->satuan }})</option>
                             @endforeach
                         </select>
                     </div>

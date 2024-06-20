@@ -53,6 +53,7 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
+                                        <!-- <th>Kode ICD</th> -->
                                         <th>Diagnosa</th>
                                         <th>Jumlah</th>
                                     </tr>
@@ -62,6 +63,7 @@
                                     @foreach($periksa as $data)
                                     <tr>
                                         <td> {{$no++}} </td>
+                                        <!-- <td>{{ $data->kode }}</td> -->
                                         <td>{{ $data->diagnosa }}</td>
                                         <td>{{ $data->total }}</td>
                                      </tr>
