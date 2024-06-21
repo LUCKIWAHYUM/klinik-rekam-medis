@@ -39,6 +39,9 @@ class HomeController extends Controller
         // Menghitung jumlah pasien berdasarkan bulan dan tahun saat ini
        $pasien = Pasien::count();
 
+       $user = User::count();
+
+
         $count = Pemeriksaan::where('status', '2')
             ->whereMonth('created_at', $currentMonth)
             ->whereYear('created_at', $currentYear)
@@ -84,7 +87,7 @@ class HomeController extends Controller
         } elseif ($role === 'perawat') {
             return view('pages.dashboard-perawat', compact('pemeriksaandone', 'pemeriksaanwait', 'pemeriksaanperiksa'));
         } elseif ($role === 'admin') {
-            return view('pages.dashboard-admin', compact('pendapatanbulan','pendapatan','pasien', 'count', 'pembayarandone', 'pembayaranwait','jumlahIdPeriksa'));
+            return view('pages.dashboard-admin', compact('pendapatanbulan','pendapatan','pasien', 'count', 'pembayarandone', 'pembayaranwait','jumlahIdPeriksa','user'));
         } elseif ($role === 'apoteker') {
             return view('pages.dashboard-apoteker', compact('jumlahobat', 'pembeliansendiri', 'pembelianapotek'));
         } else {
