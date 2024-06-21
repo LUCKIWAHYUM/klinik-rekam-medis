@@ -47,7 +47,7 @@
                                         <th>Kode_Obat</th>
                                         <th>Harga</th>
                                         <th>Jumlah</th>
-                                        <th>Satuan</th>
+                                        <th>Satuan Obat</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>    
@@ -140,7 +140,7 @@
                                                                 id="exampleInputEmail1" aria-describedby="emailHelp">
                                                         </div>
                                                         <div class="mb-3">
-                                                            <label for="satuan" class="form-label">Satuan</label>
+                                                            <label for="satuan" class="form-label">Satuan Obat</label>
                                                             <select id="satuan" class="form-control" name="satuan" required>
                                                         @if($data->satuan == 'tablet')
                                                             <option value="tablet" selected>Tablet</option>
@@ -253,7 +253,7 @@
                                         <th>Kode_Obat</th>
                                         <th>Harga</th>
                                         <th>Jumlah</th>
-                                        <th>Satuan</th>
+                                        <th>Satuan Obat</th>
                                         <th>Aksi</th>
                             </tr>
                         </tfoot>
@@ -291,7 +291,7 @@
                         <input type="text" name="stok" class="form-control" id="stok" aria-describedby="emailHelp" required>
                     </div>
                     <div class="mb-3">
-                        <label for="satuan" class="form-label">Satuan</label>
+                        <label for="satuan" class="form-label">Satuan Obat</label>
                         <select id="satuan" class="form-control" name="satuan" required>
                             <option value="tablet">Tablet</option>
                             <option value="kapsul">Kapsul</option>
@@ -300,7 +300,7 @@
                             <option value="puyer">Puyer</option>
                             <option value="sirup">Sirup</option>
                             <option value="botol">Botol</option>
-                            <option value="pcs">Pcs</option>
+                            <!-- <option value="pcs">Pcs</option> -->
                         </select>
                     </div>
                     <div class="mb-3">

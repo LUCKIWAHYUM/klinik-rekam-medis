@@ -85,6 +85,10 @@
                             <td>: {{ $data->keluhan }}</td>
                         </tr>
                         <tr>
+                            <th>Pemeriksaan Lain</th>
+                            <td>: {{ $data->periksalain }}</td>
+                        </tr>
+                        <tr>
                             <th>Status Pemeriksaan</th>
                             @if($data->status == '0')
                                         <td><span class="mb-1 badge font-medium badge-secondary py-2 px-3 fs-7">Menunggu</span></td>
