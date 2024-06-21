@@ -103,29 +103,27 @@
                                                         @csrf
                                                         @method('PUT')
                                                         <div class="mb-3">
-                                                            <label for="keluhan" class="form-label">(S) subjective</label>
-                                                            <input value="{{ $data->keluhan }}" type="text" name="keluhan" class="form-control" id="exampleColumn" readonly>
+                                                            <label for="keluhan" class="form-label"><strong>(S) subjective</strong></label>
+                                                            <input value="{{ $data->keluhan }}" type="text" name="keluhan" class="form-control" id="exampleColumn">
                                                         </div>
                                                     
-                                                       <div class="mb-3">
-    <label for="" class="form-label">(O) Objective</label>
-    <textarea class="form-control" rows="8" readonly style="font-family: 'Courier New', monospace; white-space: pre; resize: none; border: 0px solid #ced4da;">
-Keterangan       | Nilai       
------------------|-------------
-Tinggi Badan     | {{ $data->tb }}
-Berat Badan      | {{ $data->bb }}
-Tekanan Darah    | {{ $data->td }}
-Denyut Nadi      | {{ $data->nadi }}
-Suhu Tubuh       | {{ $data->suhutubuh }}
-SPO2             | {{ $data->spo2 }}
-Pernapasan/RR    | {{ $data->pernapasan }}
-Pemeriksaan Lain | {{ $data->periksalain }}
-    </textarea>
-</div>
+                                                     <div class="mb-3">
+                                                            <label for="" class="form-label"><strong>(O) Objective</strong></label>
+                                                            <div>
+                                                                Tinggi Badan  <input type="text" class="form-control" name="tb" value="{{ $data->tb }}"><br>
+                                                                Berat Badan       <input type="text" class="form-control" name="bb" value="{{ $data->bb }}" ><br>
+                                                                Tekanan Darah     <input type="text" class="form-control" name="td" value="{{ $data->td }}" ><br>
+                                                                Denyut Nadi       <input type="text" class="form-control" name="nadi" value="{{ $data->nadi }}" ><br>
+                                                                Suhu Tubuh        <input type="text" class="form-control" name="suhutubuh" value="{{ $data->suhutubuh }}" ><br>
+                                                                SPO2            <input type="text" class="form-control" name="spo2" value="{{ $data->spo2 }}" ><br>
+                                                                Pernapasan/RR     <input type="text" class="form-control" name="pernapasan" value="{{ $data->pernapasan }}" ><br>
+                                                                Pemeriksaan Lain  <input type="text" class="form-control" name="periksalain" value="{{ $data->periksalain }}" ><br>
+                                                            </div>
+                                                        </div>
 
 
                                                          <div class="mb-3">
-                                                            <label for="diagnosa{{ $data->id }}" class="form-label">(A) assessment</label>
+                                                            <label for="diagnosa{{ $data->id }}" class="form-label"><strong>(A) assessment</strong></label>
                                                             <select class=" form-control" name="diagnosa" id="diagnosa{{ $data->id }}" style="width: 100%;" >
                                                                 @foreach($penyakit as $data_penyakit)
                                                                     <option value="{{ $data_penyakit->nama_penyakit }}">{{ $data_penyakit->kode }} {{ $data_penyakit->nama_penyakit }}</option>
@@ -134,7 +132,7 @@ Pemeriksaan Lain | {{ $data->periksalain }}
                                                             </select>
                                                         </div>
                                                         <div class="mb-3">
-                                                            <label for="tindakan{{ $data->id }}" class="form-label">(P) planning</label>
+                                                            <label for="tindakan{{ $data->id }}" class="form-label"><strong>(P) planning</strong></label>
                                                             <select class="js-example-basic-multiple form-control" name="tindakan[]" multiple="multiple" id="tindakan{{ $data->id }}" style="width: 100%;" >
                                                                 @foreach($tindakan as $data)
                                                                     <option value="{{ $data->nama_tindakan }}">{{ $data->nama_tindakan }}</option>
