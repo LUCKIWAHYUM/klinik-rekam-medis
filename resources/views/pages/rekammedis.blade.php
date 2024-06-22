@@ -20,113 +20,32 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>no_rm</th>
+                                        <th>No. Rmd</th>
+                                        <th>NIK</th>
                                         <th>Nama</th>
-                                        <th>Status</th>
-                                        <th>Tanggal Kunjungan</th>
-                                        <th>Waktu Kunjungan</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($kunjungan as $data)
+                                    @foreach ($pasien as $data)
                                     <tr>
                                         <td>{{ $no++ }}</td>
-                                        <td>{{ $data->pasien->no_rmd }}</td>
-                                        <td>{{ $data->pasien->nama_pasien }}</td>
-                                        @if($data->status == '0')
-                                        <td><span class="mb-1 badge font-medium badge-secondary py-2 px-3 fs-7">Menunggu</span></td>
-                                        @elseif($data->status == '1')
-                                         <td><span class="mb-1 badge font-medium badge-primary py-2 px-3 fs-7">Diperiksa</span></td>
-                                        @elseif($data->status == '2')
-                                      <td> <span class="mb-1 badge font-medium badge-success py-2 px-3 fs-7">Selesai</span></td>
-                                        @endif
-                                        <td>{{ $data->tgl_kunjungan }}</td>
-                                        <td>{{ $data->waktu_kunjungan }}</td>
+                                        <td>{{ $data->no_rmd }}</td>
+                                        <td>{{ $data->nik }}</td>
+                                        <td>{{ $data->nama_pasien }}</td>
                                         <td>
-                                            <a href="{{ route('detailrekmed.index', ['id_periksa' => $data->id]) }}" class="btn btn-primary m-1">Detail</a>
+                                            <a href="{{ route('detailrekmed.index', ['no_rmd' => $data->no_rmd]) }}" class="btn btn-primary m-1">Riwayat</a>
                                         </td>
                                     </tr>
-                                    <div class="modal fade" id="deletedata{{ $data->id }}" tabindex="-1"
-                                        aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Hapus Data Tindakan</h1>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                        aria-label="Close"></button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <form action="{{ route('kunjungan.destroy', $data->id) }}"
-                                                        method="POST">
-                                                        @csrf
-                                                        @method('DELETE')
-                                                        <p>Anda Yakin akan menghapus data {{ $data->nama_tindakan }}?</p>
-
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary"
-                                                        data-bs-dismiss="modal">Keluar</button>
-                                                    <button type="submit" class="btn btn-primary">Hapus</button>
-                                                    </form>
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    {{-- modal edit --}}
-                                    <div class="modal fade" id="editUser{{ $data->id }}" tabindex="-1"
-                                        aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h1 class="modal-title fs-3" id="exampleModalLabel">Ubah Data Tindakan</h1>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                        aria-label="Close"></button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <form method="POST"
-                                                        action="{{ route('kunjungan.update', $data-> id) }}">
-                                                        @csrf
-                                                        @method('PUT')
-                                                        <div class="mb-3">
-                                                            <label for="exampleInputEmail1"
-                                                                class="form-label">Nama Tindakan</label>
-                                                            <input value="{{ $data->nama_tindakan }}" type="text" name="nama_tindakan"
-                                                                class="form-control" id="exampleInputEmail1"
-                                                                aria-describedby="emailHelp">
-                                                        </div>
-                                                        <div class="mb-3">
-                                                            <label for="exampleInputEmail1" class="form-label">Harga</label>
-                                                            <input value="{{ $data->harga }}" type="text"
-                                                                name="harga" class="form-control"
-                                                                id="exampleInputEmail1" aria-describedby="emailHelp">
-                                                        </div>
-
-
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary"
-                                                        data-bs-dismiss="modal">Close</button>
-                                                    <button type="submit" class="btn btn-primary">Save changes</button>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                        </div>
                         @endforeach
 
                         </tbody>
                         <tfoot>
                             <tr>
                                 <th>No</th>
-                                        <th>no_rm</th>
+                                        <th>No. Rmd</th>
+                                        <th>NIK</th>
                                         <th>Nama</th>
-                                        <th>Status</th>
-                                        <th>Tanggal Kunjungan</th>
-                                        <th>Waktu Kunjungan</th>
                                         <th>Aksi</th>
                             </tr>
                         </tfoot>

@@ -16,9 +16,13 @@ class RekammedisController extends Controller
         $no = 1;
         $dokter = User::where('role','dokter')
             ->where('status','aktif')->get();
-        $pasien = Pasien::get();
+        $pasien = Pasien::whereRaw('(SELECT count(*) FROM pemeriksaan WHERE pemeriksaan.pasien_id = pasien.id) > 0')->orderBy('no_rmd', 'DESC')->get();
         // Ambil data kunjungan dengan urutan berdasarkan waktu pembuatan, dimulai dari yang terbaru
-        $kunjungan = Pemeriksaan::with('pasien')->latest()->get();
+        $kunjungan = Pemeriksaan::select('pemeriksaan.*', 'pasien.no_rmd', 'pasien.nama_pasien')
+            ->leftJoin('pasien', 'pemeriksaan.pasien_id', '=', 'pasien.id')
+            ->orderBy('pemeriksaan.created_at', 'desc') // atau kolom lain yang menunjukkan waktu terbaru
+            ->distinct('pasien.no_rmd')
+            ->get();
         return view('pages.rekammedis',compact('kunjungan','no','dokter','pasien'));
     }
 

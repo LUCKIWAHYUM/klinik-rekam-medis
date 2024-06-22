@@ -139,7 +139,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Daftar 10 Besar Penyakit Berdasarkan Jumlah Pasien</h5>
+                    <h5 class="card-title">Daftar 10 Besar Penyakit Pasien</h5>
                         <!-- Content Row -->
     {{-- <div class="row"> --}}
     <div class="dashboard-content mb-3">

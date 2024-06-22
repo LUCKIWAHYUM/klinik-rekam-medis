@@ -66,45 +66,49 @@
 </head>
 <body>
     <div class="header">
-        @foreach ($kunjungan as $data)
-        <h2>Lembar Pemeriksaan Rawat Jalan</h2>
-        <small>No Rekam Medis : {{ $data->no_rmd }}</small>
+        <h2>KLINIK PRATAMA AISYIYAH AMBULU</h2>
+        <p>JL.Hasanudin Gg.III No.94 Telp.085234199394</p>
+        <p>AMBULU - JEMBER</p>
         <p>===============================================================================================</p>
+    </div>
+    <div class="header">
+        <h2>Lembar Pemeriksaan Rawat Jalan</h2>
     </div>
     <div class="content">
         <div class="info">
             <table>
                 <tr>
-                    <th>Nama Lengkap</th>
-                    <td>{{ $data->nama_pasien }}</td>
-                    <th>TTL</th>
-                    <td>{{ $data->tempat_lahir }},{{ $data->tgl_lahir }}</td>
+                    <th>No. RM</th>
+                    <td>{{ $pasien->no_rmd }}</td>
+                    <th>Agama</th>
+                    <td>{{ $pasien->agama }}</td>
                 </tr>
                 <tr>
-                    <th>Nama Lengkap KK</th>
-                    <td>{{ $data->nama_pasien }}</td>
-                    <th>Agama</th>
-                    <td>{{ $data->agama }}</td>
+                    <th>Nama Lengkap</th>
+                    <td>{{ $pasien->nama_pasien }}</td>
+                    <th>TTL</th>
+                    <td>{{ $pasien->tempat_lahir }},{{ $pasien->tgl_lahir }}</td>
                 </tr>
                 <tr>
                     <th>NIK</th>
-                    <td>{{ $data->nik }}</td>
+                    <td>{{ $pasien->nik }}</td>
                     <th>Jenis Kelamin</th>
-                    <td>{{ $data->jenis_kelamin }}</td>
+                    <td>{{ $pasien->jenis_kelamin }}</td>
                 </tr>
                 <tr>
                     <th>Pekerjaan</th>
-                    <td>{{ $data->pekerjaan }}</td>
+                    <td>{{ $pasien->pekerjaan }}</td>
                     <th>Biaya</th>
-                    <td>{{ $data->askes }}</td>
+                    <td>{{ $pasien->askes }}</td>
                 </tr>
                 <tr>
                     <th>No. HP</th>
-                    <td>{{ $data->no_telp }}</td>
+                    <td>{{ $pasien->no_telp }}</td>
                     <th>No. Dana Sehat</th>
-                    <td>{{ $data->no_dana_sehat }}</td>
+                    <td>{{ $pasien->no_dana_sehat }}</td>
                 </tr>
             </table>
+            @foreach ($kunjungan as $data)
             <p>===============================================================================================</p>
             <table class="table table-bordered">
                 <tr>
@@ -116,9 +120,9 @@
                     <td>{{ $data->keluhan }}</td>
                 </tr>
                 <tr>
-                            <th>(O) objective</th>
-                            <td>
-                            <div>
+                    <th>(O) objective</th>
+                    <td>
+                        <div>
                             <span style="display: inline-block; width: 150px;">: Tinggi Badan&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="display: inline-block; width: 15px; text-align: center;">:</span>&nbsp;{{ $data->tb }}<br>
                             <span style="display: inline-block; width: 150px;">: Berat Badan&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="display: inline-block; width: 15px; text-align: center;">:</span>&nbsp;{{ $data->bb }}<br>
                             <span style="display: inline-block; width: 150px;">: Tekanan Darah&nbsp;</span><span style="display: inline-block; width: 15px; text-align: center;">:</span>&nbsp;{{ $data->td }}<br>
@@ -128,8 +132,8 @@
                             <span style="display: inline-block; width: 150px;">: Pernapasan/RR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="display: inline-block; width: 15px; text-align: center;">:</span>&nbsp;{{ $data->pernapasan }}<br>
                             <span style="display: inline-block; width: 150px;">: Pemeriksaan Lain&nbsp;&nbsp;</span><span style="display: inline-block; width: 15px; text-align: center;">:</span>&nbsp;{{ $data->periksalain }}<br>
                         </div>
-                            </td>
-                        </tr>
+                    </td>
+                </tr>
                 <tr>
                     <th>(A) assessment</th>
                     <td>{{ $data->diagnosa }}</td>
@@ -137,19 +141,19 @@
                 <tr>
                     <th>(P) planning</th>
                     <td>@foreach (json_decode($data->tindakan, true) as $nama_tindakan)
-        <ul>
-            <li>{{ $nama_tindakan }}</li>
-        </ul>
-        @endforeach</td>
-                    @endforeach
-                </tr>
-                <tr>
-                    <th>Resep Obat</th>
-                    <td>
-                    @foreach ($resep as $data)
-                        {{ $data->nama_obat }},
-                    @endforeach
-                    </td>
+                        <ul>
+                            <li>{{ $nama_tindakan }}</li>
+                        </ul>
+                        @endforeach</td>
+                        @endforeach
+                    </tr>
+                    <tr>
+                        <th>Resep Obat</th>
+                        <td>
+                            @foreach ($resep as $data)
+                            {{ $data->nama_obat }},
+                            @endforeach
+                        </td>
                 </tr>
                 <tr>
                     <th>Aturan Pakai</th>
@@ -169,19 +173,12 @@
                 </tr>
             </table>
         </div>
-    </div><br><br><br>
-    <div class="signature">
-        @foreach ($kunjungan as $data)
-        Ambulu, {{ \Carbon\Carbon::parse($data->tgl_kunjungan)->translatedFormat('d F Y') }} <br>
-        @endforeach
-        Tanda tangan,<br><br><br>
-        .................
     </div>
 </body>
 </html>
 <script>
     // Mencetak surat secara otomatis saat halaman dimuat
-    window.onload = function() {
-        window.print();
-    };
+    // window.onload = function() {
+    //     window.print();
+    // };
 </script>

@@ -295,20 +295,17 @@
             <div class="modal-body">
                 <form method="POST" action="{{ route('pasien.store') }}">
                     @csrf
-                    <div class="mb-3">
-                        <label for="no_rmd" class="form-label">No Rmd</label>
-                        <input type="text" name="no_rmd" class="form-control" id="no_rmd" aria-describedby="emailHelp" require>
-                    </div>
+                    <input type="hidden" name="no_rmd" class="form-control" id="no_rmd" value="{{rand()}}">
                     <div class="mb-3">
                         <label for="nik" class="form-label">Nik</label>
-                        <input type="text" name="nik" class="form-control" id="nik" aria-describedby="emailHelp" require>
+                        <input type="text" name="nik" class="form-control" id="nik" aria-describedby="emailHelp" required>
                     </div>
                     <div class="mb-3">
                         <label for="nama_pasien" class="form-label">Nama Pasien</label>
-                        <input type="text" name="nama_pasien" class="form-control" id="nama_pasien" aria-describedby="emailHelp" require>
+                        <input type="text" name="nama_pasien" class="form-control" id="nama_pasien" aria-describedby="emailHelp" required>
                     </div>
                     <div class="mb-3">
-                        <select  id="pilihan" class="option form-control" placeholder="Pilih Jenis Kelamin" class="form-control  form-select" name="jenis_kelamin" id="OptionLevel" require>   
+                        <select  id="pilihan" class="option form-control" placeholder="Pilih Jenis Kelamin" class="form-control  form-select" name="jenis_kelamin" id="OptionLevel" required>   
                             <option>Pilih Jenis Kelamin</option>
                             <option value="L">Laki-laki</option>
                             <option value="P">Perempuan</option>
@@ -316,34 +313,34 @@
                     </div>
                     <div class="mb-3">
                         <label for="tempat_lahir" class="form-label">Tempat Lahir</label>
-                        <input type="text" name="tempat_lahir" class="form-control" id="tempat_lahir" aria-describedby="emailHelp"require>
+                        <input type="text" name="tempat_lahir" class="form-control" id="tempat_lahir" aria-describedby="emailHelp"required>
                     </div>
                     <div class="mb-3">
                         <label for="tanggal_lahir" class="form-label">Tanggal Lahir</label>
-                        <input type="date" name="tanggal_lahir" class="form-control" id="tanggal_lahir" aria-describedby="emailHelp" require>
+                        <input type="date" name="tanggal_lahir" class="form-control" id="tanggal_lahir" aria-describedby="emailHelp" required>
                     </div>
                     <div class="mb-3">
                         <label for="usia" class="form-label">Usia</label>
-                        <input type="text" name="usia" class="form-control" id="usia" aria-describedby="emailHelp" require>
+                        <input type="text" name="usia" class="form-control" id="usia" aria-describedby="emailHelp" required>
                     </div>
                     <div class="mb-3">
                         <label for="agama" class="form-label">Agama</label>
-                        <input type="text" name="agama" class="form-control" id="agama" aria-describedby="emailHelp" require> 
+                        <input type="text" name="agama" class="form-control" id="agama" aria-describedby="emailHelp" required> 
                     </div>
                     <div class="mb-3">
                         <label for="pekerjaan" class="form-label">Pekerjaan</label>
-                        <input type="text" name="pekerjaan" class="form-control" id="pekerjaan" aria-describedby="emailHelp" require>
+                        <input type="text" name="pekerjaan" class="form-control" id="pekerjaan" aria-describedby="emailHelp" required>
                     </div>
                     <div class="mb-3">
                         <label for="alamat" class="form-label">Alamat</label>
-                        <input type="text" name="alamat" class="form-control" id="alamat" aria-describedby="emailHelp" require>
+                        <input type="text" name="alamat" class="form-control" id="alamat" aria-describedby="emailHelp" required>
                     </div>
                     <div class="mb-3">
                         <label for="no_telp" class="form-label">No Telp</label>
-                        <input type="text" name="no_telp" class="form-control" id="no_telp" aria-describedby="emailHelp" require>
+                        <input type="text" name="no_telp" class="form-control" id="no_telp" aria-describedby="emailHelp" required>
                     </div>
                      <div class="mb-3">
-                        <select  id="pilihan" class="option form-control" placeholder="Pilih Biaya" class="form-control  form-select" name="askes" id="OptionLevel" require>   
+                        <select  id="pilihan" class="option form-control" placeholder="Pilih Biaya" class="form-control  form-select" name="askes" id="OptionLevel" required>   
                             <option>Pilih Askes</option>
                             <option value="Umum">Umum</option>
                             <option value="Dana_Sehat">Dana Sehat</option>
@@ -354,7 +351,7 @@
                         <input type="text" name="no_dana_sehat" class="form-control" id="no_dana_sehat" aria-describedby="emailHelp">
                     </div>
                     <div class="mb-3">
-                        <select  id="pilihan" class="option form-control" placeholder="Pilih Biaya" class="form-control  form-select" name="statuspasien" id="OptionLevel" require>   
+                        <select  id="pilihan" class="option form-control" placeholder="Pilih Biaya" class="form-control  form-select" name="statuspasien" id="OptionLevel" required>   
                             <option>Pilih Status Pasien</option>
                             <option value="Lama">Lama</option>
                             <option value="Baru">Baru</option>

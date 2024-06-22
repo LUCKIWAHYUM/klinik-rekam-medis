@@ -30,6 +30,7 @@ class ObatpasienController extends Controller
         ->orderByDesc('pemeriksaan.tgl_kunjungan') // Urutkan berdasarkan tanggal kunjungan secara descending
         ->orderByDesc('pemeriksaan.waktu_kunjungan') // Urutkan berdasarkan waktu kunjungan secara descending
         ->groupBy('pemeriksaan.no_periksa', 'resepobat.id_periksa', 'pemeriksaan.pasien_id', 'pemeriksaan.no_periksa', 'pasien.nama_pasien', 'pembelian', 'pemeriksaan.status', 'resepobat.status', 'pemeriksaan.tgl_kunjungan', 'pemeriksaan.waktu_kunjungan')
+        ->where('pembelian', '!=', 'sendiri')
         ->get();
 
     return view('pages.obatpasien', compact('kunjungan', 'no', 'dokter', 'pasien', 'resep_obat', 'periksa'));

@@ -42,20 +42,38 @@ class PasienController extends Controller
                 'no_rmd' => 'required|unique:pasien,no_rmd',
                 // tambahkan validasi lainnya sesuai kebutuhan
             ]);
-
-
             // Simpan data ke database
             $user = Pasien::create($request->all());
 
-            $userId = str_pad($user->id, 5, '0', STR_PAD_LEFT); // Mengisi ID dengan angka 0 hingga panjang 3 karakter
-            $noregis = $userId;
+            $no_rmd = $this->generateNoRmd();
             // Update nilai noregis di dalam data user
-            $user->update(['noregis' => $noregis]);
+            $user->update(['no_rmd' => $no_rmd]);
             return redirect()->route('pasien.index')->with('success', 'Data pasien ' . $request->nama_pasien . ' berhasil ditambahkan.');
         } catch (\Exception $e) {
             // Tangkap pengecualian dan tampilkan pesan kesalahan
             return redirect()->route('pasien.index')->with('error', 'Gagal menambahkan data pasien: ' . $e->getMessage());
         }
+    }
+
+    public function generateNoRmd()
+    {
+        $currentYear = date('y'); // Get the last two digits of the current year, e.g., 24 for 2024
+        $latestRecord = Pasien::where('no_rmd', 'LIKE', $currentYear . '-%')
+            ->orderBy('no_rmd', 'desc')
+            ->first();
+
+        if ($latestRecord) {
+            // Extract the numeric part (after the dash) and increment it
+            $latestNumber = intval(substr($latestRecord->no_rmd, 3)); // Extracts the sequence part
+            $newNumber = $latestNumber + 1; // Increment the sequence
+        } else {
+            $newNumber = 1; // Start the sequence from 1 if no records are found
+        }
+
+        // Format the new no_rmd with leading zeros
+        $noRmd = $currentYear . '-' . str_pad($newNumber, 4, '0', STR_PAD_LEFT);
+
+        return $noRmd;
     }
 
     /**

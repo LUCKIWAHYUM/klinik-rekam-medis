@@ -39,10 +39,19 @@ class PenyakitController extends Controller
             // Validasi bahwa 'kode' tidak null atau kosong
             if (isset($data['kode']) && !empty($data['kode'])) {
                 // Simpan data dengan ID kecamatan yang cocok
-                Penyakit::create([
-                    'kode' => $data['kode'],
-                    'nama_penyakit' => $data['nama_penyakit'],
-                ]);
+                // Mencari penyakit berdasarkan kode atau nama_penyakit
+                $existingPenyakit = Penyakit::where('kode', $data['kode'])
+                    ->orWhere('nama_penyakit', $data['nama_penyakit'])
+                    ->first();
+
+                if (!$existingPenyakit) {
+                    // Jika tidak ditemukan, buat entri baru
+                    Penyakit::create([
+                        'kode' => $data['kode'],
+                        'nama_penyakit' => $data['nama_penyakit'],
+                    ]);
+                }
+
             } else {
                 \Log::warning('Data entry skipped due to missing kode:', $data);
             }

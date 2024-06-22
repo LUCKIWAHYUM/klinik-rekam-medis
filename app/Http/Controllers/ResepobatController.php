@@ -53,17 +53,12 @@ class ResepobatController extends Controller
                 $status = 'sudah diambil';
                 else
                 $status = $request['status'];
+                
                 // Simpan ke database resep
                 Resep::create([
                     'id_periksa' => $request['id_periksa'],
                     'pembelian' => $request['pembelian'],
                     'status' => $status,
-                    'bb' => $bb,
-                    'usia' => $usia,
-                    'td' => $td,
-                    'alergi' => $alergi,
-                    'diagnosa' => $diagnosa,
-                    'nadi' => $nadi,
                     'deskripsi' => (string) $deskripsi,
                     'jumlah' => (string) $jumlah,
                     'aturanpakai' => (string) $aturanpakai,

@@ -8,6 +8,8 @@ use App\Models\User;
 use App\Models\Pasien;
 use App\Models\Tindakan;
 use App\Models\Penyakit;
+use App\Models\Obat;
+
 
 class PemeriksaandokterController extends Controller
 {
@@ -23,7 +25,9 @@ class PemeriksaandokterController extends Controller
         $tindakan = Tindakan::get();
         $penyakit = Penyakit::get();
         $kunjungan = Pemeriksaan::with('pasien')->orderBy('created_at', 'desc')->get();
-        return view('pages.pemeriksaandokter', compact('kunjungan', 'no', 'dokter', 'pasien', 'tindakan', 'penyakit'));
+        $resep_obat = Obat::get();
+        // print_r($kunjungan[0]); die();
+        return view('pages.pemeriksaandokter', compact('kunjungan', 'no', 'dokter', 'pasien', 'tindakan', 'penyakit', 'resep_obat'));
     }
 
     /**
