@@ -45,7 +45,8 @@
                                     <tr>
                                         <th>No</th>
                                         <th>Nama Obat</th>
-                                        <th>Jumlah Obat</th>
+                                        <th>Jumlah Transaksi</th>
+                                        <th>Obat Terjual</th>
                                         <th>Satuan</th>
                                     </tr>
 
@@ -55,7 +56,8 @@
                                     <tr>
                                         <td> {{$no++}} </td>
                                         <td> {{$data->nama_obat}} </td>
-                                        <td> {{$data->totalobat}} </td>
+                                        <td> {{$data->totalobat}} Pasien</td>
+                                        <td> {{$data->totalterjual}} </td>
                                         <td> {{$data->satuan}} </td>
                                      </tr>
                                      

@@ -46,7 +46,7 @@
                                         <th>Nama_Obat</th>
                                         <th>Kode_Obat</th>
                                         <th>Harga</th>
-                                        <th>Jumlah</th>
+                                        <th>Stok</th>
                                         <th>Satuan Obat</th>
                                         <th>Aksi</th>
                                     </tr>
@@ -62,7 +62,7 @@
                                         <td>{{ $no++ }}</td>
                                         <td>{{ $data->nama_obat }}</td>
                                         <td>{{ $data->kode_obat }}</td>
-                                        <td>{{ $data->harga }}</td>
+                                        <td>Rp. {{ number_format($data->harga, 0, ',', '.') }}</td>
                                         <td>{{ $data->stok }}</td>
                                         <td>{{ $data->satuan }}</td>
                                         <td>
@@ -252,7 +252,7 @@
                                         <th>Nama_Obat</th>
                                         <th>Kode_Obat</th>
                                         <th>Harga</th>
-                                        <th>Jumlah</th>
+                                        <th>Stok</th>
                                         <th>Satuan Obat</th>
                                         <th>Aksi</th>
                             </tr>

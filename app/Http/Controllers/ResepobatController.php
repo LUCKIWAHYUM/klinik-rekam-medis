@@ -24,6 +24,7 @@ class ResepobatController extends Controller
         $resep_obat = Obat::get();
         // Mengambil data pemeriksaan dengan mengurutkan berdasarkan waktu pembuatan secara descending
         $kunjungan = Pemeriksaan::with('pasien')->orderBy('created_at', 'desc')->get();
+        // print_r($kunjungan[0]->pasien); die();
         return view('pages.resepobat', compact('kunjungan', 'no', 'dokter', 'pasien', 'resep_obat', 'periksa'));
     }
 
@@ -57,6 +58,12 @@ class ResepobatController extends Controller
                     'id_periksa' => $request['id_periksa'],
                     'pembelian' => $request['pembelian'],
                     'status' => $status,
+                    'bb' => $bb,
+                    'usia' => $usia,
+                    'td' => $td,
+                    'alergi' => $alergi,
+                    'diagnosa' => $diagnosa,
+                    'nadi' => $nadi,
                     'deskripsi' => (string) $deskripsi,
                     'jumlah' => (string) $jumlah,
                     'aturanpakai' => (string) $aturanpakai,

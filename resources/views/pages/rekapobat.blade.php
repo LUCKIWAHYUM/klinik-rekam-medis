@@ -57,7 +57,7 @@
                                     <tr>
                                         <td> {{$no++}} </td>
                                         <td> {{$data->nama_obat}} </td>
-                                        <td> {{$data->totalobat}} </td>
+                                        <td> {{$data->totalobat}} Pasien </td>
                                         <td> {{$data->totalterjual}} </td>
                                         <td> {{$data->satuan}} </td>
                                     </tr>

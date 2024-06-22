@@ -173,8 +173,7 @@
                                                         <div id="entriesContainer{{ $data->id }}">
                                                                 <!-- Container untuk field-field entri -->
                                                           </div>
-                                                
-                                               <button type="button" class="btn btn-secondary addEntryButton mb-3" data-id="{{ $data->id }}">+ Tambah Obat</button>
+                                                 <button type="button" class="btn btn-secondary addEntryButton mb-3" data-id="{{ $data->id }}">+ Tambah Obat</button>
 
                                                  <input type="hidden" name="id_periksa" value="{{ $data->id }}">
                                                             <div class="mb-3">
@@ -185,7 +184,34 @@
                                                                     <option value="apotek">Apotek</option>
                                                                 </select>
                                                                 </div>
-                                                </div>
+                                                
+                                                 <div class="mb-3">
+                                                            <label for="bb" class="form-label">Berat Badan</label>
+                                                            <input value="{{ $data->bb }}" type="text" name="bb" class="form-control" id="exampleColumn" readonly>
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="usia" class="form-label">Usia</label>
+                                                            <input value="{{ $data->pasien->usia }}" type="text" name="usia" class="form-control" id="exampleColumn" readonly>
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="td" class="form-label">Tekanan Darah</label>
+                                                            <input value="{{ $data->td }}" type="text" name="td" class="form-control" id="exampleColumn" readonly>
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="nadi" class="form-label">Nadi</label>
+                                                            <input value="{{ $data->nadi }}" type="text" name="nadi" class="form-control" id="exampleColumn" readonly>
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="alergi" class="form-label">Alergi</label>
+                                                            <input value="{{ $data->alergi }}" type="text" name="alergi" class="form-control" id="exampleColumn" readonly>
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="diagnosa" class="form-label">Diagnosa</label>
+                                                            <input value="{{ $data->diagnosa }}" type="text" name="diagnosa" class="form-control" id="exampleColumn" readonly>
+                                                        </div>
+                                                    
+                                                        </div>
+                                              
                                                 
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary"
@@ -298,14 +324,16 @@
              <select name="id_obat[]" id="id_obat${inputIndex}" class="form-control">
                 @foreach($resep_obat as $data)
         @if($data->stok > 0)
-            <option value="{{$data->id}}">{{$data->nama_obat}}({{ $data->satuan }})</option>
+            <option value="{{$data->id}}">{{$data->nama_obat}}({{ $data->satuan }}) (stok {{ $data->stok }})</option>
         @else
         <option value="{{$data->id}}" disabled onclick="alert('Stok Habis')">{{$data->nama_obat}} (Stok Habis)</option>
         @endif
     @endforeach
 </select>
 
+                
             </div>
+             
             <div class="col-md-3">
                         <label for="deskripsi${inputIndex}" class="form-label">Deskripsi</label>
                         <input type="text" name="deskripsi[]" class="form-control" id="deskripsi${inputIndex}" aria-describedby="emailHelp">

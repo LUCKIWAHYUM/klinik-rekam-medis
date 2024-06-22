@@ -22,12 +22,32 @@
     <table class="table">
         <tbody>
             <tr>
-                <td style="font-size: 19px; width: 30%; font-weight: bold;">No Periksa</td>
-                <td style="font-size: 19px; font-weight: bold;">: {{ $data->no_periksa }}</td>
+                <td style="font-size: 18px; width: 30%; font-weight: metalic;">No Periksa</td>
+                <td style="font-size: 18px; font-weight: metalic;">: {{ $data->no_periksa }}</td>
             </tr>
             <tr>
-                <td style="font-size: 19px; font-weight: bold;">Nama Pasien</td>
-                <td style="font-size: 19px; font-weight: bold;">: {{ $data->nama_pasien }}</td>
+                <td style="font-size: 18px; font-weight: metalic;">Nama Pasien</td>
+                <td style="font-size: 18px; font-weight: metalic;">: {{ $data->nama_pasien }}</td>
+            </tr>
+            <tr>
+                <td style="font-size: 18px; font-weight: metalic;">Berat Badan</td>
+                <td style="font-size: 18px; font-weight: metalic;">: {{ $data->bb }}</td>
+            </tr>
+            <tr>
+                <td style="font-size: 18px; font-weight: metalic;">Usia</td>
+                <td style="font-size: 18px; font-weight: metalic;">: {{ $data->usia }}</td>
+            </tr>
+            <tr>
+                <td style="font-size: 18px; font-weight: metalic;">Tekanan Darah</td>
+                <td style="font-size: 18px; font-weight: metalic;">: {{ $data->td }}</td>
+            </tr>
+            <tr>
+                <td style="font-size: 18px; font-weight: metalic;">Nadi</td>
+                <td style="font-size: 18px; font-weight: metalic;">: {{ $data->nadi }}</td>
+            </tr>
+            <tr>
+                <td style="font-size: 18px; font-weight: metalic;">Alergi</td>
+                <td style="font-size: 18px; font-weight: metalic;">: {{ $data->alergi }}</td>
             </tr>
         </tbody>
     </table>

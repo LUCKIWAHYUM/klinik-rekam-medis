@@ -103,7 +103,7 @@
                 <tr>
                     <td></td>
                     <th>Biaya Tindakan</th>
-                    <td>: Rp. {{ number_format($totalhargaobat + $data->total_harga_tindakan, 0, ',', '.') }}</td>
+                    <td>: Rp. {{ number_format($totalhargaobat + $data->total_harga_tindakan, 0, ',', '.') }} </td>
                 </tr>
                 <tr>
                         @foreach ($resep as $item)
@@ -111,7 +111,7 @@
                             <?php $item->harga = ($item->pembelian == "sendiri") ? 0 : $item->harga;?>
                             <td></td>
                             <th>Biaya Obat</th>
-                            <td style="border-bottom: 1px solid black;">Rp. {{ number_format(($item->harga*$item->jumlah), 0, ',', '.') }}</td>
+                            <td style="border-bottom: 1px solid black;">: Rp. {{ number_format(($item->harga*$item->jumlah), 0, ',', '.') }}</td>
                             <?php $totalhargaobat += ($item->harga*$item->jumlah)?>
 
                         </tr>
@@ -119,7 +119,7 @@
                 <tr>
                     <th>Total Pembayaran</th>
                     <td></td>
-                    <td>Rp. {{ number_format($totalhargaobat + $data->total_harga_tindakan, 0, ',', '.') }}</td>
+                    <td>: Rp. {{ number_format($totalhargaobat + $data->total_harga_tindakan, 0, ',', '.') }}</td>
     
                 </tr>
             </table>

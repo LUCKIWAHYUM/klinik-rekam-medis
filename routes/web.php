@@ -57,6 +57,7 @@ Route::resource('laporan-kunjungan', 'App\Http\Controllers\LaporanController')->
 Route::resource('rekapobat', 'App\Http\Controllers\rekapobatController')->middleware('auth');
 Route::resource('rekaptindakan', 'App\Http\Controllers\rekaptindakanController')->middleware('auth');
 Route::resource('rekapkesakitan', 'App\Http\Controllers\rekapkesakitanController')->middleware('auth');
+Route::resource('home', 'App\Http\Controllers\HomeController')->middleware('auth');
 Route::get('/cetak-antrian/{id}',  [KunjunganController::class, 'cetakAntrian']);
 Route::get('/cetak-rekapobat',  [App\Http\Controllers\rekapobatController::class, 'cetakrekapobat'])->name('cetak.obat');
 Route::get('/cetak-rekaptindakan',  [App\Http\Controllers\rekaptindakanController::class, 'cetakrekaptindakan'])->name('cetak.tindakan');

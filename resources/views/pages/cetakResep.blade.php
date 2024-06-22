@@ -58,6 +58,26 @@
                         <td style="font-weight: bold;">Nama Pasien</td>
                         <td>{{ $resep[0]->nama_pasien }}</td>
                     </tr>
+                    <tr>
+                        <td style="font-weight: bold;">Berat Badan</td>
+                        <td>{{ $resep[0]->bb }}</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;">Usia</td>
+                        <td>{{ $resep[0]->usia }}</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;">Tekanan Darah</td>
+                        <td>{{ $resep[0]->td }}</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;">Nadi</td>
+                        <td>{{ $resep[0]->nadi }}</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;">Alergi</td>
+                        <td>{{ $resep[0]->alergi }}</td>
+                    </tr>
                 </tbody>
             </table>
         </div>

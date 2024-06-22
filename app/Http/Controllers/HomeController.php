@@ -29,7 +29,7 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(Request $request)
     {
         // Mendapatkan bulan dan tahun saat ini
         $currentMonth = Carbon::now()->month;
@@ -79,7 +79,22 @@ class HomeController extends Controller
     ->whereNull('pembayaran.id_periksa')
     ->count('pemeriksaan.id');
 
+        $penyakitterbanyak = Pemeriksaan::select(
+            'diagnosa',
+            DB::raw('count(*) as total'),
+            DB::raw('(SELECT kode FROM data_penyakit WHERE data_penyakit.nama_penyakit = diagnosa LIMIT 1) as kode')
+        )
+        ->groupBy('diagnosa')
+        ->orderBy('total', 'desc') // Mengurutkan berdasarkan total dalam urutan menurun
+        ->limit(10);
 
+        $tahun = $request->input('tahun');
+
+        if ($tahun) {
+            $penyakitterbanyak->whereYear('tgl_kunjungan', $tahun);
+        }
+
+        $penyakitterbanyak = $penyakitterbanyak->get();
 
         // Mengarahkan pengguna berdasarkan peran (role)
         if ($role === 'dokter') {
@@ -87,7 +102,7 @@ class HomeController extends Controller
         } elseif ($role === 'perawat') {
             return view('pages.dashboard-perawat', compact('pemeriksaandone', 'pemeriksaanwait', 'pemeriksaanperiksa'));
         } elseif ($role === 'admin') {
-            return view('pages.dashboard-admin', compact('pendapatanbulan','pendapatan','pasien', 'count', 'pembayarandone', 'pembayaranwait','jumlahIdPeriksa','user'));
+            return view('pages.dashboard-admin', compact('pendapatanbulan','pendapatan','pasien', 'count', 'pembayarandone', 'pembayaranwait','jumlahIdPeriksa','user', 'penyakitterbanyak'));
         } elseif ($role === 'apoteker') {
             return view('pages.dashboard-apoteker', compact('jumlahobat', 'pembeliansendiri', 'pembelianapotek'));
         } else {

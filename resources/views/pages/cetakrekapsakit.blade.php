@@ -40,34 +40,67 @@
             <h2>Rekapitulasi Kesakitan</h2>
         </div>
         <div class="invoice-items">
-        <table class="table table-bordered">
-                                             <thead>
-                                    <tr>
-                                        <th>No</th>
-                                        <th>Diagnosa</th>
-                                        <th>Jumlah</th>
-                                    </tr>
+            <div class="table-responsive mt-3">
+                <table id="UserData" class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th rowspan="2" class="text-center">No</th>
+                            <th rowspan="2" class="text-center">Diagnosa</th>
+                            <th colspan="2" class="text-center">Jenis Kelamin</th>
+                            <th colspan="9" class="text-center" width="900px">Umur</th>
+                            <th rowspan="2" class="text-center">Jumlah</th>
+                        </tr>
+                        <tr>
+                            <th class="text-center">Laki-Laki</th>
+                            <th class="text-center">Perempuan</th>
+                            
+                            <th class="text-center">0-5</th>
+                            <th class="text-center">6-11</th>
+                            <th class="text-center">12-16</th>
+                            <th class="text-center">17-25</th>
+                            <th class="text-center">26-35</th>
+                            <th class="text-center">36-45</th>
+                            <th class="text-center">46-55</th>
+                            <th class="text-center">56-65</th>
+                            <th class="text-center">>65</th>
+                        </tr>
 
-                                </thead>
-                                <tbody>
-                                    @foreach($periksa as $data)
-                                    <tr>
-                                        <td> {{$no++}} </td>
-                                        <td>{{ $data->diagnosa }}</td>
-                                        <td>{{ $data->total }}</td>
-                                     </tr>
-                                     
+                    </thead>
+                    <tbody>
+                        @foreach($periksa as $data)
+                        <tr>
+                            <td> {{$no++}} </td>
+                            <!-- <td>{{ $data->kode }}</td> -->
+                            <td>{{ $data->diagnosa }}</td>
 
-                                    @endforeach
+                            <!-- Jenis Kelamin -->
+                            <td>{{ $data->pria }}</td>
+                            <td>{{ $data->wanita }}</td>
 
-                                    {{-- modal --}}
+                            <!-- Umur -->
+                            <td>{{ $data->balita }}</td>
+                            <td>{{ $data->anak }}</td>
+                            <td>{{ $data->remaja_awal }}</td>
+                            <td>{{ $data->remaja_akhir }}</td>
+                            <td>{{ $data->dewasa_awal }}</td>
+                            <td>{{ $data->dewasa_akhir }}</td>
+                            <td>{{ $data->lansia_awal }}</td>
+                            <td>{{ $data->lansia_akhir }}</td>
+                            <td>{{ $data->manula }}</td>
+
+                            <!-- TOTAL -->
+                            <td>{{ $data->total }}</td>
+                            </tr>
+                            
+
+                        @endforeach
+
+                        {{-- modal --}}
 
 
-                        </tbody>
-                        <tfoot>
-                        
-                        </tfoot>
-                        </table>
+                    </tbody>
+                </table>
+            </div>        
         </div>
     </div>
 
