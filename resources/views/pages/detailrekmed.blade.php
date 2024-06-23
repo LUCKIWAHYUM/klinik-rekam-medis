@@ -121,18 +121,26 @@
                                                     </div>
                                                 </td>
                                                 <td>
-                                                    <ul>
-                                                        @foreach (json_decode($datakunjungan->resep, true) as $dataresep)
+                                                    @if (!empty($datakunjungan->resep))
+                                                        <ul>
+                                                            @foreach (json_decode($datakunjungan->resep, true) as $dataresep)
                                                             <li>{{ $dataresep['nama_obat'] }}</li>
-                                                        @endforeach
-                                                    </ul>
+                                                            @endforeach
+                                                        </ul>
+                                                    @else
+                                                        ~
+                                                    @endif
                                                 </td>
                                                 <td>
-                                                    <ul>
-                                                        @foreach (json_decode($datakunjungan->resep, true) as $dataresep)
-                                                            <li>{{ $dataresep['aturanpakai']." ".$dataresep['deskripsi'] }}</li>
-                                                        @endforeach
-                                                    </ul>
+                                                    @if (!empty($datakunjungan->resep))
+                                                        <ul>
+                                                            @foreach (json_decode($datakunjungan->resep, true) as $dataresep)
+                                                                <li>{{ $dataresep['aturanpakai']." ".$dataresep['deskripsi'] }}</li>
+                                                            @endforeach
+                                                        </ul>
+                                                    @else
+                                                        ~
+                                                    @endif
                                                 </td>
                                             </tr>
                                         @endforeach

@@ -21,7 +21,6 @@
         }
         .header {
             text-align: center;
-            margin-bottom: 20px;
         }
         .content {
             margin-bottom: 30px;
@@ -39,6 +38,7 @@
             padding: 8px;
             /* border-bottom: 1px solid #ddd; */
             text-align: left; /* Tekst rata kiri untuk semua th dan td */
+            vertical-align: top;
         }
         .footer {
             text-align: center;
@@ -69,14 +69,12 @@
         <h2>KLINIK PRATAMA AISYIYAH AMBULU</h2>
         <p>JL.Hasanudin Gg.III No.94 Telp.085234199394</p>
         <p>AMBULU - JEMBER</p>
-        <p>===============================================================================================</p>
+        <p>==================================================================================================</p>
     </div>
-    <div class="header">
-        <h2>Lembar Pemeriksaan Rawat Jalan</h2>
-    </div>
+    <h2 style="text-align: center;">Lembar Pemeriksaan Rawat Jalan</h2>
     <div class="content">
         <div class="info">
-            <table>
+            <table style="border-bottom: 1px solid black;">
                 <tr>
                     <th>No. RM</th>
                     <td>{{ $pasien->no_rmd }}</td>
@@ -87,7 +85,7 @@
                     <th>Nama Lengkap</th>
                     <td>{{ $pasien->nama_pasien }}</td>
                     <th>TTL</th>
-                    <td>{{ $pasien->tempat_lahir }},{{ $pasien->tgl_lahir }}</td>
+                    <td>{{ $pasien->tempat_lahir }},{{ $pasien->tanggal_lahir }}</td>
                 </tr>
                 <tr>
                     <th>NIK</th>
@@ -108,77 +106,94 @@
                     <td>{{ $pasien->no_dana_sehat }}</td>
                 </tr>
             </table>
-            @foreach ($kunjungan as $data)
-            <p>===============================================================================================</p>
-            <table class="table table-bordered">
-                <tr>
-                    <th>Alergi</th>
-                    <td>{{ $data->alergi }}</td>
-                </tr>
-                <tr>
-                    <th>(S) subjective</th>
-                    <td>{{ $data->keluhan }}</td>
-                </tr>
-                <tr>
-                    <th>(O) objective</th>
-                    <td>
-                        <div>
-                            <span style="display: inline-block; width: 150px;">: Tinggi Badan&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="display: inline-block; width: 15px; text-align: center;">:</span>&nbsp;{{ $data->tb }}<br>
-                            <span style="display: inline-block; width: 150px;">: Berat Badan&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="display: inline-block; width: 15px; text-align: center;">:</span>&nbsp;{{ $data->bb }}<br>
-                            <span style="display: inline-block; width: 150px;">: Tekanan Darah&nbsp;</span><span style="display: inline-block; width: 15px; text-align: center;">:</span>&nbsp;{{ $data->td }}<br>
-                            <span style="display: inline-block; width: 150px;">: Denyut Nadi&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="display: inline-block; width: 15px; text-align: center;">:</span>&nbsp;{{ $data->nadi }}<br>
-                            <span style="display: inline-block; width: 150px;">: Suhu Tubuh&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="display: inline-block; width: 15px; text-align: center;">:</span>&nbsp;{{ $data->suhutubuh }}<br>
-                            <span style="display: inline-block; width: 150px;">: SPO2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="display: inline-block; width: 15px; text-align: center;">:</span>&nbsp;{{ $data->spo2 }}<br>
-                            <span style="display: inline-block; width: 150px;">: Pernapasan/RR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="display: inline-block; width: 15px; text-align: center;">:</span>&nbsp;{{ $data->pernapasan }}<br>
-                            <span style="display: inline-block; width: 150px;">: Pemeriksaan Lain&nbsp;&nbsp;</span><span style="display: inline-block; width: 15px; text-align: center;">:</span>&nbsp;{{ $data->periksalain }}<br>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <th>(A) assessment</th>
-                    <td>{{ $data->diagnosa }}</td>
-                </tr>
-                <tr>
-                    <th>(P) planning</th>
-                    <td>@foreach (json_decode($data->tindakan, true) as $nama_tindakan)
-                        <ul>
-                            <li>{{ $nama_tindakan }}</li>
-                        </ul>
-                        @endforeach</td>
-                        @endforeach
-                    </tr>
+
+            <table class="table table-bordered" style="margin-top: 10px">
+                <thead class="text-center">
                     <tr>
-                        <th>Resep Obat</th>
-                        <td>
-                            @foreach ($resep as $data)
-                            {{ $data->nama_obat }},
-                            @endforeach
-                        </td>
-                </tr>
-                <tr>
-                    <th>Aturan Pakai</th>
-                    <td>
-                        @foreach ($resep as $data)
-                        {{ $data->aturanpakai }},
+                        <th style="text-align:center !important;" width="10%">Tanggal</th>
+                        <th style="text-align:center !important;" width="40%">SOAP</th>
+                        <th style="text-align:center !important;" width="20%">Terapi</th>
+                        <th style="text-align:center !important;" width="20%">Tindakan/KIE</th>
+                        <th style="text-align:center !important;" width="10%">Paraf</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($kunjunganpasien as $datakunjungan)
+                        <tr>
+                            <td>{{$datakunjungan->tgl_kunjungan}}</td>
+                            <td>
+                                <h4>
+                                    <b>(S) subjective:</b>
+                                </h4>
+                                <div class="mb-4">
+                                    <span>{{$datakunjungan->keluhan}}</span>
+                                </div>
+                                <h4>
+                                    <b>(O) objective:</b>
+                                </h4>
+                                <div class="mb-4">
+                                    <span style="display: inline-block; width: 150px;">Tinggi Badan&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="display: inline-block; width: 15px; text-align: center;">:</span>&nbsp;{{ $datakunjungan->tb }}<br>
+                                    <span style="display: inline-block; width: 150px;">Berat Badan&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="display: inline-block; width: 15px; text-align: center;">:</span>&nbsp;{{ $datakunjungan->bb }}<br>
+                                    <span style="display: inline-block; width: 150px;">Tekanan Darah&nbsp;</span><span style="display: inline-block; width: 15px; text-align: center;">:</span>&nbsp;{{ $datakunjungan->td }}<br>
+                                    <span style="display: inline-block; width: 150px;">Denyut Nadi&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="display: inline-block; width: 15px; text-align: center;">:</span>&nbsp;{{ $datakunjungan->nadi }}<br>
+                                    <span style="display: inline-block; width: 150px;">Suhu Tubuh&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="display: inline-block; width: 15px; text-align: center;">:</span>&nbsp;{{ $datakunjungan->suhutubuh }}<br>
+                                    <span style="display: inline-block; width: 150px;">SPO2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="display: inline-block; width: 15px; text-align: center;">:</span>&nbsp;{{ $datakunjungan->spo2 }}<br>
+                                    <span style="display: inline-block; width: 150px;">Pernapasan/RR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="display: inline-block; width: 15px; text-align: center;">:</span>&nbsp;{{ $datakunjungan->pernapasan }}<br>
+                                    <span style="display: inline-block; width: 150px;">Pemeriksaan Lain&nbsp;&nbsp;</span><span style="display: inline-block; width: 15px; text-align: center;">:</span>&nbsp;{{ $datakunjungan->periksalain }}<br>
+                                    <span style="display: inline-block; width: 150px;">Alergi&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="display: inline-block; width: 15px; text-align: center;">:</span>&nbsp;{{ $datakunjungan->alergi }}<br>
+                                </div>
+                                <h4>
+                                    <b>(A) assessment:</b>
+                                </h4>
+                                <div class="mb-4">
+                                    <span>{{$datakunjungan->diagnosa}}</span>
+                                </div>
+                                <h4>
+                                    <b>(P) planning:</b>
+                                </h4>
+                                <div class="mb-4">
+                                    <ul>
+                                        @foreach ($datakunjungan->tindakan as $tindakan)
+                                            <li>{{ $tindakan }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            </td>
+                            <td>
+                                @if (!empty($datakunjungan->resep))
+                                    <ul>
+                                        @foreach (json_decode($datakunjungan->resep, true) as $dataresep)
+                                            <li>{{ $dataresep['nama_obat'] }}</li>
+                                        @endforeach
+                                    </ul>
+                                @else
+                                    ~
+                                @endif
+                            </td>
+                            <td>
+                                @if (!empty($datakunjungan->resep))
+                                    <ul>
+                                        @foreach (json_decode($datakunjungan->resep, true) as $dataresep)
+                                            <li>{{ $dataresep['aturanpakai']." ".$dataresep['deskripsi'] }}</li>
+                                        @endforeach
+                                    </ul>
+                                @else
+                                    ~
+                                @endif
+                            </td>
+                            <td></td>
+                        </tr>
                     @endforeach
-                    </td>
-                </tr>
-                <tr>
-                    <th>Keterangan Dokter</th>
-                    <td>
-                        @foreach ($resep as $data)
-                        {{ $data->deskripsi }}
-                    @endforeach
-                    </td>
-                </tr>
+                </tbody>
             </table>
+
         </div>
     </div>
 </body>
 </html>
 <script>
     // Mencetak surat secara otomatis saat halaman dimuat
-    // window.onload = function() {
-    //     window.print();
-    // };
+    window.onload = function() {
+        window.print();
+    };
 </script>

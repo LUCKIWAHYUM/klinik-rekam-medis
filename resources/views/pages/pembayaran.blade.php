@@ -34,7 +34,7 @@
                                         <th>No. rmd</th>
                                         <th>No. Periksa</th>
                                         <th>Nama Pasien</th>
-                                        <th>Status</th>
+                                        <th>Status Pembayaran</th>
                                         <th>Jenis Pasien</th>
                                         <th>Tanggal Kunjungan</th>
                                         <th>Aksi</th>

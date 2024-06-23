@@ -84,6 +84,7 @@
                                                         <a href="{{ route('detailperiksa.index', ['id_periksa' => $data->id]) }}" class="dropdown-item">Detail</a>
                                                     </li>  
                                                     <li><a data-bs-toggle="modal" data-bs-target="#editUser{{ $data->id }}" class="dropdown-item">Buat Resep Obat</a></li>
+                                                    <li><a data-bs-toggle="modal" data-bs-target="#buatRujukan{{ $data->id }}" class="dropdown-item">Cetak Rujukan</a></li>
                                                 </ul>
                                             </div>
                                         </td>
@@ -256,6 +257,32 @@
                                         </div>
                                     </div>
 
+                                    <div class="modal fade" id="buatRujukan{{ $data->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <form>
+                                                    <div class="modal-header">
+                                                        <h1 class="modal-title fs-3" id="exampleModalLabel">Cetak Rujukan</h1>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                            aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <div class="mb-3">
+                                                            <label for="tujuan" class="form-label">RS Tujuan</label>
+                                                            <input value="" type="text" name="tujuan" class="form-control" required>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary"
+                                                            data-bs-dismiss="modal">Close</button>
+                                                        <button type="submit" class="btn btn-primary btn-cetak-rujukan" data-id_periksa="{{$data->id}}">Cetak</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+
                         </div> 
                         @endforeach
 
@@ -338,6 +365,20 @@ $(document).ready(function() {
         inputIndex++;
         
     });
+
+
+    $('.btn-cetak-rujukan').click(function (e) {
+        e.preventDefault();
+        const id_periksa = $(this).attr('data-id_periksa');
+        const rs_tujuan = $(`#buatRujukan${id_periksa} input[name=tujuan]`).val()
+
+        if (rs_tujuan == '') {
+            alert('Masukkan RS Tujuan!')
+            return;
+        }
+
+        window.location.href = `{{ route('cetak.rujukan') }}?id_periksa=${id_periksa}&tujuan=${rs_tujuan}`
+    })
 });
     
 </script>    
