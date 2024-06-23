@@ -151,6 +151,12 @@
                                                             <option value="sirup">Sirup</option>
                                                             <option value="botol">Botol</option>
                                                             <option value="pcs">Pcs</option>
+                                                            <option value="ampul">Ampul</option>
+                                                            <option value="vial">Vial</option>
+                                                            <option value="sup">Sup</option>
+                                                            <option value="ovula">Ovula</option>
+                                                            <option value="salep">Salep</option>
+                                                            <option value="krim">Krim</option>
                                                         @elseif($data->satuan == 'kapsul')
                                                             <option value="tablet">Tablet</option>
                                                             <option value="kapsul" selected>Kapsul</option>
@@ -160,6 +166,12 @@
                                                             <option value="sirup">Sirup</option>
                                                             <option value="botol">Botol</option>
                                                             <option value="pcs">Pcs</option>
+                                                             <option value="ampul">Ampul</option>
+                                                            <option value="vial">Vial</option>
+                                                            <option value="sup">Sup</option>
+                                                            <option value="ovula">Ovula</option>
+                                                            <option value="salep">Salep</option>
+                                                            <option value="krim">Krim</option>
                                                         @elseif($data->satuan == 'kaplet')
                                                             <option value="tablet">Tablet</option>
                                                             <option value="kapsul">Kapsul</option>
@@ -169,6 +181,12 @@
                                                             <option value="sirup">Sirup</option>
                                                             <option value="botol">Botol</option>
                                                             <option value="pcs">Pcs</option>
+                                                             <option value="ampul">Ampul</option>
+                                                            <option value="vial">Vial</option>
+                                                            <option value="sup">Sup</option>
+                                                            <option value="ovula">Ovula</option>
+                                                            <option value="salep">Salep</option>
+                                                            <option value="krim">Krim</option>
                                                         @elseif($data->satuan == 'pil')
                                                             <option value="tablet">Tablet</option>
                                                             <option value="kapsul">Kapsul</option>
@@ -178,6 +196,12 @@
                                                             <option value="sirup">Sirup</option>
                                                             <option value="botol">Botol</option>
                                                             <option value="pcs">Pcs</option>
+                                                             <option value="ampul">Ampul</option>
+                                                            <option value="vial">Vial</option>
+                                                            <option value="sup">Sup</option>
+                                                            <option value="ovula">Ovula</option>
+                                                            <option value="salep">Salep</option>
+                                                            <option value="krim">Krim</option>
                                                         @elseif($data->satuan == 'puyer')
                                                             <option value="tablet">Tablet</option>
                                                             <option value="kapsul">Kapsul</option>
@@ -187,6 +211,12 @@
                                                             <option value="sirup">Sirup</option>
                                                             <option value="botol">Botol</option>
                                                             <option value="pcs">Pcs</option>
+                                                             <option value="ampul">Ampul</option>
+                                                            <option value="vial">Vial</option>
+                                                            <option value="sup">Sup</option>
+                                                            <option value="ovula">Ovula</option>
+                                                            <option value="salep">Salep</option>
+                                                            <option value="krim">Krim</option>
                                                         @elseif($data->satuan == 'sirup')
                                                             <option value="tablet">Tablet</option>
                                                             <option value="kapsul">Kapsul</option>
@@ -196,6 +226,12 @@
                                                             <option value="sirup" selected>Sirup</option>
                                                             <option value="botol">Botol</option>
                                                             <option value="pcs">Pcs</option>
+                                                             <option value="ampul">Ampul</option>
+                                                            <option value="vial">Vial</option>
+                                                            <option value="sup">Sup</option>
+                                                            <option value="ovula">Ovula</option>
+                                                            <option value="salep">Salep</option>
+                                                            <option value="krim">Krim</option>
                                                         @elseif($data->satuan == 'botol')
                                                             <option value="tablet">Tablet</option>
                                                             <option value="kapsul">Kapsul</option>
@@ -204,7 +240,13 @@
                                                             <option value="puyer">Puyer</option>
                                                             <option value="botol" selected>Botol</option>
                                                             <option value="pcs">Pcs</option>
-                                                        @elseif($data->satuan == 'botol')
+                                                             <option value="ampul">Ampul</option>
+                                                            <option value="vial">Vial</option>
+                                                            <option value="sup">Sup</option>
+                                                            <option value="ovula">Ovula</option>
+                                                            <option value="salep">Salep</option>
+                                                            <option value="krim">Krim</option>
+                                                        @elseif($data->satuan == 'pcs')
                                                             <option value="tablet">Tablet</option>
                                                             <option value="kapsul">Kapsul</option>
                                                             <option value="kaplet">Kaplet</option>
@@ -212,6 +254,96 @@
                                                             <option value="puyer">Puyer</option>
                                                             <option value="botol">Botol</option>
                                                             <option value="pcs" selected>Pcs</option>
+                                                             <option value="ampul">Ampul</option>
+                                                            <option value="vial">Vial</option>
+                                                            <option value="sup">Sup</option>
+                                                            <option value="ovula">Ovula</option>
+                                                            <option value="salep">Salep</option>
+                                                            <option value="krim">Krim</option>
+                                                        @elseif($data->satuan == 'ampul')
+                                                            <option value="tablet">Tablet</option>
+                                                            <option value="kapsul">Kapsul</option>
+                                                            <option value="kaplet">Kaplet</option>
+                                                            <option value="pil">Pil</option>
+                                                            <option value="puyer">Puyer</option>
+                                                            <option value="botol">Boto</option>
+                                                            <option value="pcs">Pcs</option>
+                                                            <option value="ampul" selected>Ampul</option>
+                                                            <option value="vial">Vial</option>
+                                                            <option value="sup">Sup</option>
+                                                            <option value="ovula">Ovula</option>
+                                                            <option value="salep">Salep</option>
+                                                            <option value="krim">Krim</option>
+                                                          @elseif($data->satuan == 'vial')
+                                                            <option value="tablet">Tablet</option>
+                                                            <option value="kapsul">Kapsul</option>
+                                                            <option value="kaplet">Kaplet</option>
+                                                            <option value="pil">Pil</option>
+                                                            <option value="puyer">Puyer</option>
+                                                            <option value="botol">Botol</option>
+                                                            <option value="pcs">Pcs</option>
+                                                             <option value="ampul">Ampul</option>
+                                                            <option value="vial" selected>Vial</option>
+                                                            <option value="sup">Sup</option>
+                                                            <option value="ovula">Ovula</option>
+                                                            <option value="salep">Salep</option>
+                                                            <option value="krim">Krim</option>
+                                                          @elseif($data->satuan == 'sup')
+                                                            <option value="tablet">Tablet</option>
+                                                            <option value="kapsul">Kapsul</option>
+                                                            <option value="kaplet">Kaplet</option>
+                                                            <option value="pil">Pil</option>
+                                                            <option value="puyer">Puyer</option>
+                                                            <option value="botol">Botol</option>
+                                                            <option value="pcs">Pcs</option>
+                                                             <option value="ampul">Ampul</option>
+                                                            <option value="vial">Vial</option>
+                                                            <option value="sup" selected>Sup</option>
+                                                            <option value="ovula">Ovula</option>
+                                                            <option value="salep">Salep</option>
+                                                            <option value="krim">Krim</option>
+                                                          @elseif($data->satuan == 'ovula')
+                                                            <option value="tablet">Tablet</option>
+                                                            <option value="kapsul">Kapsul</option>
+                                                            <option value="kaplet">Kaplet</option>
+                                                            <option value="pil">Pil</option>
+                                                            <option value="puyer">Puyer</option>
+                                                            <option value="botol">Botol</option>
+                                                            <option value="pcs">Pcs</option>
+                                                             <option value="ampul">Ampul</option>
+                                                            <option value="vial">Vial</option>
+                                                            <option value="sup">Sup</option>
+                                                            <option value="ovula" selected>Ovula</option>
+                                                            <option value="salep">Salep</option>
+                                                            <option value="krim">Krim</option>
+                                                          @elseif($data->satuan == 'salep')
+                                                            <option value="tablet">Tablet</option>
+                                                            <option value="kapsul">Kapsul</option>
+                                                            <option value="kaplet">Kaplet</option>
+                                                            <option value="pil">Pil</option>
+                                                            <option value="puyer">Puyer</option>
+                                                            <option value="botol">Botol</option>
+                                                            <option value="pcs">Pcs</option>
+                                                             <option value="ampul">Ampul</option>
+                                                            <option value="vial">Vial</option>
+                                                            <option value="sup">Sup</option>
+                                                            <option value="ovula">Ovula</option>
+                                                            <option value="salep" selected>Salep</option>
+                                                            <option value="krim">Krim</option>
+                                                          @elseif($data->satuan == 'krim')
+                                                            <option value="tablet">Tablet</option>
+                                                            <option value="kapsul">Kapsul</option>
+                                                            <option value="kaplet">Kaplet</option>
+                                                            <option value="pil">Pil</option>
+                                                            <option value="puyer">Puyer</option>
+                                                            <option value="botol">Botol</option>
+                                                            <option value="pcs">Pcs</option>
+                                                             <option value="ampul">Ampul</option>
+                                                            <option value="vial">Vial</option>
+                                                            <option value="sup">Sup</option>
+                                                            <option value="ovula">Ovula</option>
+                                                            <option value="salep">Salep</option>
+                                                            <option value="krim" selected>Krim</option>
                                                         @else 
                                                             <option value="tablet">Tablet</option>
                                                             <option value="kapsul">Kapsul</option>
@@ -221,6 +353,12 @@
                                                             <option value="sirup">Sirup</option>
                                                             <option value="botol">Botol</option>
                                                             <option value="pcs">Pcs</option>
+                                                            <option value="ampul">Ampul</option>
+                                                            <option value="vial">Vial</option>
+                                                            <option value="sup">Sup</option>
+                                                            <option value="ovula">Ovula</option>
+                                                            <option value="salep">Salep</option>
+                                                            <option value="krim">Krim</option>
                                                         @endif
                                                     </select>
 
@@ -300,6 +438,12 @@
                             <option value="puyer">Puyer</option>
                             <option value="sirup">Sirup</option>
                             <option value="botol">Botol</option>
+                            <option value="ampul">Ampul</option>
+                            <option value="vial">Vial</option>
+                            <option value="sup">Sup</option>
+                            <option value="ovula">Ovula</option>
+                            <option value="salep">Salep</option>
+                            <option value="krim">Krim</option>
                             <!-- <option value="pcs">Pcs</option> -->
                         </select>
                     </div>
