@@ -103,6 +103,7 @@
                                     <tr>
                                         <th>No</th>
                                         <th>Nama_Obat</th>
+                                        <th>Satuan</th>
                                         <th>Jumlah</th>
                                         <th>Tanggal Masuk</th>
                                         <th>Aksi</th>
