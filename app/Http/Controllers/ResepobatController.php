@@ -120,16 +120,20 @@ if ($obat) {
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
-    {
-$datas = Resep::where('id_periksa', $id)->get(); // Menggunakan where untuk mencari semua data berdasarkan ID periksa
-foreach ($datas as $data) {
-    $data->delete(); // Menghapus data satu per satu
-}
-
-
-
-        return redirect()->route('resepobat.index');
+public function destroy($id)
+{
+    $datas = Resep::where('id_periksa', $id)->get(); // Menggunakan where untuk mencari semua data berdasarkan ID periksa
+    foreach ($datas as $data) {
+        // Mengembalikan stok obat sebelum menghapus data resep
+        $obat = Obat::find($data->id_obat);
+        if ($obat) {
+            $obat->stok += $data->jumlah; // Menambahkan kembali jumlah obat yang dihapus dari resep
+            $obat->save();
+        }
+        
+        $data->delete(); // Menghapus data resep satu per satu
     }
- 
+
+    return redirect()->route('resepobat.index');
+}
 }
